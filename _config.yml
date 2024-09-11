@@ -12,7 +12,7 @@ title                    : "Your Name / Site Title"
 title_separator          : "-"
 name                     : &name "Zhanliang (Aaron) Wang (王湛梁)"
 description              : &description "personal description"
-url                      : https://zhanliangaaronwang.github.io/
+url                      : https://zhanliangaaronwang.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
 
