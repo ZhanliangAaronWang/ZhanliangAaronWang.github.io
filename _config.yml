@@ -23,12 +23,12 @@ author:
   # Biographic information
   avatar           : "personal.jpg"
   name             : "Zhanliang (Aaron) Wang (王湛梁)"
-  pronouns         : # example: "she/her"  
+  pronouns         : "He/him" 
   bio              : "Short biography for the left-hand sidebar"
   location         : "Earth"
   employer         : "Red Brick University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "aaronwzl@sas.upenn.edu" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
