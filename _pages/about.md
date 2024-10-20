@@ -11,6 +11,6 @@ Welcome to my homepage! My name is Zhanliang (Aaron) Wang, currently pursuing a 
 
 My research insterests include Large Language Models (LLMs) and Multimodality Models (MMLs), particularly in the context of precise genetic disease diagnosis. I am also exploring the application of Reinforcement Learning in healthcare field, aiming to develop AI systems that improve decision-making and patient outcomes.
 
-## Recent News:
+# Recent News:
 Upcoming...
 
