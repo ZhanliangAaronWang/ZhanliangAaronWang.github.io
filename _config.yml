@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Zhanliang Wang/Personal Homepage"
+title                    : "Zhanliang Wang/Homepage"
 title_separator          : "-"
 name                     : &name "Zhanliang (Aaron) Wang 王湛梁"
 description              : &description "personal description"
