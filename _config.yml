@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Zhanliang Wang/Homepage"
 title_separator          : "-"
-name                     : &name "Zhanliang (Aaron) Wang"\ "王湛梁"
+name                     : &name "Zhanliang (Aaron) Wang 王湛梁"
 description              : &description "personal description"
 url                      : https://zhanliangaaronwang.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,7 +26,7 @@ author:
   pronouns         : "He/him/his" 
   bio              : "Incoming Ph.D Student@ AMCS@ Penn"
   location         : "Philadelphia, PA, USA"
-  employer         : "University of Pennsylvania"\ "Chidren's Hospital of Philadelphia"
+  employer         : "University of Pennsylvania; Chidren's Hospital of Philadelphia"
   uri              : # URL
   email            : "aaronwzl@sas.upenn.edu; wangz12@chop.edu" 
 
