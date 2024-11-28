@@ -15,6 +15,7 @@ My research insterests include Large Language Models (LLMs) and Multimodality Mo
 
 [Email](aaronwzl@sas.upenn.edu)/[Github](https://github.com/ZhanliangAaronWang)/[Wechat](../images/Wechat.jpg)
 
+![image](../images/Wang_Lab.png)
 # Recent News:
 Upcoming...
 
