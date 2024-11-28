@@ -13,7 +13,7 @@ I am very fortunate to be advised by Dr. Kai Wang of [Wang Genomics Lab](https:/
 
 My research insterests include Large Language Models (LLMs) and Multimodality Models (MMLs), particularly in the context of precise genetic disease diagnosis. I am also exploring the application of Reinforcement Learning in healthcare field, aiming to develop AI systems that improve decision-making and patient outcomes.
 
-[Email](aaronwzl@sas.upenn.edu)/[Github](https://github.com/ZhanliangAaronWang)/[Wechat](../images/wechat.jpg)
+[Email](aaronwzl@sas.upenn.edu)/[Github](https://github.com/ZhanliangAaronWang)/[Wechat](../images/Wechat.jpg)
 
 # Recent News:
 Upcoming...
