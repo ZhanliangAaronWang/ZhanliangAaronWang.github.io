@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Zhanliang Wang/Homepage"
 title_separator          : "-"
-name                     : "Zhanliang (Aaron) Wang (王湛梁)"
+name                     : "Zhanliang Wang (王湛梁)"
 description              : &description "personal description"
 url                      : "https://ZhanliangAaronWang.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
