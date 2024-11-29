@@ -22,11 +22,11 @@ repository               : "ZhanliangAaronWang/ZhanliangAaronWang.github.io"
 author:
   # Biographic information
   avatar           : "personal.jpg"
-  name             : "Zhanliang (Aaron) Wang 王湛梁"
+  name             : "Zhanliang (Aaron) Wang"\ "王湛梁"
   pronouns         : "He/him" 
-  bio              : "Incoming Ph.D Student@ AMCS@ Penn"
+  bio              : "Incoming Ph.D Student @AMCS @Penn"
   location         : "Philadelphia, PA, USA"
-  employer         : "University of Pennsylvania; Chidren's Hospital of Philadelphia"
+  employer         : "University of Pennsylvania;"\ "Chidren's Hospital of Philadelphia"
   uri              : # URL
   email            : "aaronwzl@sas.upenn.edu; wangz12@chop.edu" 
 
