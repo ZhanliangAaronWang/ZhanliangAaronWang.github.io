@@ -11,7 +11,7 @@ I’m very fortuned to be advised by **Dr. Kai Wang** and conducting research in
 - **LLMs in biomedical applications**
 - **Reinforcement Learning** for decision-making in healthcare
 - **Fairness and interpretability** in AI
-- 
+
 ### 🎯 Hobbies
 
 🏀 Basketball Enthusiast | 💜💛 Lakers and 👑 LBJ23 Fan |
