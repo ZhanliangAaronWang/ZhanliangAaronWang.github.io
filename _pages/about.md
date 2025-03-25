@@ -1,3 +1,11 @@
+---
+ permalink: /
+ title: "About Me"
+ author_profile: true
+ redirect_from: 
+   - /about/
+   - /about.html
+ ---
 ## 👋 About Me
 
 Hi! I’m **Zhanliang(Aaron) Wang**, a second-year [Master’s student in Applied Mathematics and Computational Science (AMCS)](https://amcs.upenn.edu/) at the University of Pennsylvania, and an incoming **Ph.D. student** in the same program starting Fall 2025.
