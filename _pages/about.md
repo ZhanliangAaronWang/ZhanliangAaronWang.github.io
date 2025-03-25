@@ -23,5 +23,6 @@ I’m very fortuned to be advised by **Dr. Kai Wang** and conducting research in
 
 Always open to collaborations and new ideas — feel free to connect!
 
-![image](https://github.com/user-attachments/assets/1af22a82-18be-4ecd-9614-0b5c89a20dbc)
+![image](https://github.com/user-attachments/assets/5a427a2d-55eb-4efa-a684-11fc00fa2e3d)
+
 
