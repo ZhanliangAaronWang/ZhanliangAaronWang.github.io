@@ -10,7 +10,7 @@ redirect_from:
 
 Hi! I’m Zhanliang(Aaron) Wang, 王湛梁, a second-year Master’s student in [Applied Mathematics and Computational Science (AMCS)](https://amcs.upenn.edu/) at the University of Pennsylvania, and an incoming Ph.D. student in the same program starting Fall 2025.
 
-I’m very fortuned to be advised by Dr. Kai Wang and conducting research in the [Wang Lab](https://wglab.org/), jointly affiliated with the **Children’s Hospital of Philadelphia (CHOP)** and the **Perelman School of Medicine at Penn**. My research focuses on leveraging **Large Language Models (LLMs)** and **Multimodal Learning** for **Genetic Disease Diagnosis**, aiming to improve clinical decision support through interpretable and trustworthy AI systems.
+I’m very fortunate to be advised by Dr. Kai Wang and conducting research in the [Wang Genomics Lab](https://wglab.org/), jointly affiliated with the **Children’s Hospital of Philadelphia (CHOP)** and the **Perelman School of Medicine at Penn**. My research focuses on leveraging **Large Language Models (LLMs)** and **Multimodal Learning** for **Genetic Disease Diagnosis**, aiming to improve clinical decision support through interpretable and trustworthy AI systems.
 
 ### 🔬 Research Interests
 - **Multimodal learning** 
