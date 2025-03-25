@@ -19,7 +19,7 @@ I’m very fortuned to be advised by **Dr. Kai Wang** and conducting research in
 ### 📬 Contact
 
 - **Email**: [Zhanliang.Wang666@gmail.com](mailto:zhanliang.wang666@gmail.com)  
-- **WeChat**: [Click here to view my QR code](images/wechat_qr.png)
+- **WeChat**: [Click here to view my QR code](images/wechat_qr.jpg)
 
 Always open to collaborations and new ideas — feel free to connect!
 
