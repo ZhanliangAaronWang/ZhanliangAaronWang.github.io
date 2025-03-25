@@ -31,5 +31,5 @@ I’m very fortuned to be advised by **Dr. Kai Wang** and conducting research in
 
 Always open to collaborations and new ideas — feel free to connect!
 
-![Wang Lab](images/logo-light.png)
+![Wang Lab](../images/logo-light.png)
 
