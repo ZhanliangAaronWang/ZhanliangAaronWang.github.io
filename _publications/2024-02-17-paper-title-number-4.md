@@ -1,8 +1,8 @@
 ---
-title: "Paper Title Number 4"
+title: "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach"
 collection: publications
 category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
+permalink: https://arxiv.org/abs/2505.01997
 excerpt: 'This paper is about fixing template issue #693.'
 date: 2024-02-17
 venue: 'GitHub Journal of Bugs'
