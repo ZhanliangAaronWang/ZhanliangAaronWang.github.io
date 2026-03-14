@@ -9,19 +9,16 @@
 <meta name="author" content="Zhanliang (Aaron) Wang">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://zhanliangaaronwang.github.io/">
-
 <!-- Open Graph -->
 <meta property="og:title" content="Zhanliang (Aaron) Wang — PhD Student @ Penn">
 <meta property="og:description" content="PhD student researching multimodal AI, explainable AI, and LLMs for biomedical applications at the University of Pennsylvania.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zhanliangaaronwang.github.io/">
 <meta property="og:image" content="https://zhanliangaaronwang.github.io/selfie.png">
-
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zhanliang (Aaron) Wang — PhD Student @ Penn">
 <meta name="twitter:description" content="PhD student researching multimodal AI, explainable AI, and LLMs for biomedical applications at UPenn.">
-
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
@@ -47,7 +44,6 @@
   ]
 }
 </script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
@@ -72,7 +68,6 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
 
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,242,.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow .3s; }
   nav.scrolled { box-shadow: var(--shadow-soft); }
   .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
@@ -83,7 +78,6 @@
   .nav-links a:hover { color: var(--ink); }
   .nav-links a:hover::after { width: 100%; }
 
-  /* HERO */
   .hero { max-width: 960px; margin: 0 auto; padding: 120px 24px 48px; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
   .hero-photo-wrap { animation: fadeUp .8s ease both; }
   .hero-photo { width: 220px; height: 220px; border-radius: 20px; object-fit: cover; object-position: center top; border: 4px solid var(--sand); box-shadow: 0 8px 24px rgba(44,36,24,.08); }
@@ -98,12 +92,10 @@
   .hero-links a:hover { border-color: var(--terracotta-light); color: var(--terracotta); box-shadow: 0 2px 8px rgba(192,120,80,.1); }
   .hero-links a svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-  /* SECTIONS */
   section { max-width: 960px; margin: 0 auto; padding: 0 24px; }
   .section-label { font-family: 'Source Serif 4', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; letter-spacing: -.02em; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
 
-  /* ABOUT */
   .about { padding-top: 12px; padding-bottom: 56px; }
   .about-text { font-size: 1.02rem; color: var(--ink-light); line-height: 1.8; max-width: 700px; }
   .about-text a { color: var(--terracotta); text-decoration: none; font-weight: 500; }
@@ -114,7 +106,6 @@
   .pill-sage { background: rgba(122,145,120,.08); border-color: rgba(122,145,120,.15); color: var(--sage); }
   .pill-ink { background: rgba(44,36,24,.04); border-color: rgba(44,36,24,.08); color: var(--ink-muted); }
 
-  /* PUBLICATIONS */
   .publications { padding-bottom: 56px; }
   .pub-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 14px; transition: border-color .2s, box-shadow .2s; }
   .pub-card:hover { border-color: rgba(192,120,80,.2); box-shadow: var(--shadow-card); }
@@ -123,7 +114,6 @@
   .pub-badge { font-size: .68rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: .03em; }
   .badge-first { background: rgba(192,120,80,.1); color: var(--terracotta); }
   .badge-cofirst { background: rgba(122,145,120,.1); color: var(--sage); }
-  .pub-cite { font-size: .75rem; color: var(--ink-muted); margin-left: auto; }
   .pub-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); line-height: 1.45; margin-bottom: 6px; }
   .pub-title a { color: inherit; text-decoration: none; }
   .pub-title a:hover { color: var(--terracotta); }
@@ -133,7 +123,6 @@
   .pub-link { font-size: .76rem; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-decoration: none; transition: all .2s; border: 1px solid var(--border); color: var(--ink-light); background: var(--cream); }
   .pub-link:hover { border-color: var(--terracotta-light); color: var(--terracotta); }
 
-  /* NEWS */
   .news { padding-bottom: 56px; }
   .news-item { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
   .news-item:last-child { border-bottom: none; }
@@ -143,7 +132,6 @@
   .news-content a { color: var(--terracotta); text-decoration: none; }
   .news-content a:hover { text-decoration: underline; }
 
-  /* EDUCATION */
   .education { padding-bottom: 56px; }
   .edu-timeline { position: relative; padding-left: 28px; }
   .edu-timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--terracotta-light), var(--sand)); border-radius: 2px; }
@@ -154,19 +142,13 @@
   .edu-school { font-size: .9rem; color: var(--ink-light); margin-top: 2px; }
   .edu-year { font-size: .82rem; color: var(--ink-muted); margin-top: 2px; }
 
-  /* CONTACT */
   .contact { padding-bottom: 56px; }
-  .contact-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; }
   .contact-info { font-size: .95rem; color: var(--ink-light); }
   .contact-info a { color: var(--terracotta); text-decoration: none; }
   .contact-info a:hover { text-decoration: underline; }
   .contact-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
   .contact-row svg { width: 18px; height: 18px; color: var(--ink-muted); flex-shrink: 0; }
-  .wechat-wrap { text-align: center; }
-  .wechat-wrap img { width: 150px; height: 150px; border-radius: 10px; border: 1px solid var(--border); object-fit: cover; object-position: center 35%; }
-  .wechat-label { font-size: .78rem; color: var(--ink-muted); margin-top: 6px; font-weight: 500; }
 
-  /* FOOTER */
   footer { max-width: 960px; margin: 0 auto; padding: 32px 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: .82rem; color: var(--ink-muted); }
   footer a { color: var(--terracotta); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
@@ -185,11 +167,8 @@
     .nav-links { gap: 14px; }
     .nav-links a { font-size: .8rem; }
     .news-item { grid-template-columns: 1fr; gap: 2px; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .wechat-wrap { justify-self: start; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
     .pub-meta-row { flex-direction: column; align-items: flex-start; gap: 4px; }
-    .pub-cite { margin-left: 0; }
   }
 </style>
 </head>
@@ -204,6 +183,7 @@
       <a href="#publications">Papers</a>
       <a href="#news">News</a>
       <a href="#education">CV</a>
+      <a href="#hobbies">Life</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -276,7 +256,6 @@
     * denotes equal contribution &middot; Full list on <a href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&hl=en" style="color:var(--terracotta);text-decoration:none;" target="_blank">Google Scholar</a>
   </p>
 
-  <!-- 1. Restoring Calibration -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">ICML 2025</span>
@@ -287,7 +266,6 @@
     <div class="pub-links"><a href="https://arxiv.org/abs/2505.01997" class="pub-link" target="_blank">Paper</a></div>
   </div>
 
-  <!-- 2. CoT + RAG -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">In Press &middot; Medicine Bulletin</span>
@@ -298,7 +276,6 @@
     <div class="pub-links"><a href="https://arxiv.org/abs/2503.12286" class="pub-link" target="_blank">Preprint</a></div>
   </div>
 
-  <!-- 3. Interpretability of DL -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">Int. J. Future Comput. Commun. 2022</span>
@@ -309,7 +286,6 @@
     <div class="pub-links"><a href="https://doi.org/10.18178/ijfcc.2022.11.2.589" class="pub-link" target="_blank">Paper</a></div>
   </div>
 
-  <!-- 4. MultiSHAP -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">arXiv 2025</span>
@@ -323,7 +299,6 @@
     </div>
   </div>
 
-  <!-- 5. MINT (Patterns + ICML Workshop) -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">In Press &middot; Patterns (also ICML 2025 GenBio Workshop, Oral)</span>
@@ -334,7 +309,6 @@
     <div class="pub-links"><a href="https://arxiv.org/abs/2505.05736" class="pub-link" target="_blank">Preprint</a></div>
   </div>
 
-  <!-- 6. Fair CCA -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">ACM-BCB 2025</span>
@@ -345,7 +319,6 @@
     <div class="pub-links"><a href="#" class="pub-link">Paper</a></div>
   </div>
 
-  <!-- 7. PhenoGPT2 -->
   <div class="pub-card">
     <div class="pub-meta-row">
       <span class="pub-venue">ACM-BCB 2025</span>
@@ -354,7 +327,6 @@
     <div class="pub-authors">Quan M. Nguyen, Mian Umair Ahsan, <span class="me">Zhanliang Wang</span>, Kai Wang</div>
     <div class="pub-links"><a href="#" class="pub-link">Paper</a></div>
   </div>
-
 </section>
 
 <!-- NEWS -->
@@ -419,7 +391,7 @@
 <section class="about animate-in" id="hobbies" style="padding-bottom:56px;">
   <h2 class="section-label">Beyond Research</h2>
   <div class="about-text">
-    <p>When I'm not in the lab, you'll probably find me on the basketball court. I'm a die-hard <strong>Los Angeles Lakers</strong> fan and a lifelong supporter of <strong>LeBron James</strong> — the GOAT, no debate.</p>
+    <p>Outside of research, I enjoy playing basketball. Huge fan of the <strong>Lakers</strong> and <strong>LeBron James</strong>.</p>
     <div class="research-pills" style="margin-top:14px;">
       <span class="pill pill-terra">Basketball</span>
       <span class="pill pill-terra">Lakers</span>
@@ -458,4 +430,12 @@
 
 <script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scr
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
