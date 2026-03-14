@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhanliang (Aaron) Wang — PhD Student @ Penn</title>
+<meta name="description" content="Zhanliang (Aaron) Wang is a PhD student in Applied Mathematics and Computational Science at the University of Pennsylvania, researching multimodal AI, explainable AI, and LLMs for biomedical applications.">
+<meta name="keywords" content="Zhanliang Wang, Aaron Wang, University of Pennsylvania, AMCS, PhD, multimodal learning, LLM, explainable AI, Wang Genomics Lab, CHOP, Wharton">
+<meta name="author" content="Zhanliang Wang">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://zhanliangaaronwang.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Zhanliang (Aaron) Wang — PhD Student @ Penn">
+<meta property="og:description" content="PhD student researching multimodal AI, explainable AI, and LLMs for biomedical applications at the University of Pennsylvania.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zhanliangaaronwang.github.io/">
+<meta property="og:image" content="https://zhanliangaaronwang.github.io/selfie.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zhanliang (Aaron) Wang — PhD Student @ Penn">
+<meta name="twitter:description" content="PhD student researching multimodal AI, explainable AI, and LLMs for biomedical applications at UPenn.">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zhanliang Wang",
+  "alternateName": "Aaron Wang",
+  "url": "https://zhanliangaaronwang.github.io/",
+  "image": "https://zhanliangaaronwang.github.io/selfie.png",
+  "jobTitle": "PhD Student",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "University of Pennsylvania"
+  },
+  "alumniOf": [
+    { "@type": "Organization", "name": "University of Pennsylvania" },
+    { "@type": "Organization", "name": "New York University" }
+  ],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=JcKrT8bjRdcC&hl=en",
+    "https://github.com/ZhanliangAaronWang",
+    "https://www.linkedin.com/in/zhanliang-wang-80868323b/"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --warm-white: #fefdfb;
+    --sand: #f0e9de;
+    --terracotta: #c07850;
+    --terracotta-light: #d4956f;
+    --terracotta-soft: rgba(192, 120, 80, 0.08);
+    --ink: #2c2418;
+    --ink-light: #5a4e3e;
+    --ink-muted: #8a7e6e;
+    --sage: #7a9178;
+    --border: rgba(44, 36, 24, 0.08);
+    --shadow-soft: 0 1px 3px rgba(44,36,24,.04), 0 6px 16px rgba(44,36,24,.04);
+    --shadow-card: 0 1px 2px rgba(44,36,24,.03), 0 4px 12px rgba(44,36,24,.05);
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,242,.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow .3s; }
+  nav.scrolled { box-shadow: var(--shadow-soft); }
+  .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+  .nav-name { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { text-decoration: none; color: var(--ink-light); font-size: .88rem; font-weight: 500; transition: color .2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--terracotta); transition: width .25s ease; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* HERO */
+  .hero { max-width: 960px; margin: 0 auto; padding: 120px 24px 48px; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .hero-photo-wrap { animation: fadeUp .8s ease both; }
+  .hero-photo { width: 220px; height: 220px; border-radius: 20px; object-fit: cover; object-position: center top; border: 4px solid var(--sand); box-shadow: 0 8px 24px rgba(44,36,24,.08); }
+  .hero-text { animation: fadeUp .8s ease .15s both; }
+  .hero-text h1 { font-family: 'Source Serif 4', serif; font-weight: 700; font-size: 2.4rem; letter-spacing: -.025em; line-height: 1.2; }
+  .hero-text h1 .cn { font-weight: 400; font-size: 1.6rem; color: var(--ink-muted); margin-left: 8px; }
+  .hero-subtitle { margin-top: 8px; font-size: 1.05rem; color: var(--ink-light); }
+  .hero-subtitle a { color: var(--terracotta); text-decoration: none; font-weight: 500; }
+  .hero-subtitle a:hover { text-decoration: underline; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .hero-links a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; font-size: .82rem; font-weight: 500; color: var(--ink-light); background: var(--warm-white); border: 1px solid var(--border); border-radius: 100px; text-decoration: none; transition: all .2s; }
+  .hero-links a:hover { border-color: var(--terracotta-light); color: var(--terracotta); box-shadow: 0 2px 8px rgba(192,120,80,.1); }
+  .hero-links a svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* SECTIONS */
+  section { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .section-label { font-family: 'Source Serif 4', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; letter-spacing: -.02em; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+
+  /* ABOUT */
+  .about { padding-top: 12px; padding-bottom: 56px; }
+  .about-text { font-size: 1.02rem; color: var(--ink-light); line-height: 1.8; max-width: 700px; }
+  .about-text a { color: var(--terracotta); text-decoration: none; font-weight: 500; }
+  .about-text a:hover { text-decoration: underline; }
+  .research-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .pill { padding: 6px 14px; border-radius: 100px; font-size: .8rem; font-weight: 500; border: 1px solid; }
+  .pill-terra { background: var(--terracotta-soft); border-color: rgba(192,120,80,.15); color: var(--terracotta); }
+  .pill-sage { background: rgba(122,145,120,.08); border-color: rgba(122,145,120,.15); color: var(--sage); }
+  .pill-ink { background: rgba(44,36,24,.04); border-color: rgba(44,36,24,.08); color: var(--ink-muted); }
+
+  /* PUBLICATIONS */
+  .publications { padding-bottom: 56px; }
+  .pub-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 14px; transition: border-color .2s, box-shadow .2s; }
+  .pub-card:hover { border-color: rgba(192,120,80,.2); box-shadow: var(--shadow-card); }
+  .pub-meta-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .pub-venue { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--terracotta); }
+  .pub-badge { font-size: .68rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: .03em; }
+  .badge-first { background: rgba(192,120,80,.1); color: var(--terracotta); }
+  .badge-cofirst { background: rgba(122,145,120,.1); color: var(--sage); }
+  .pub-cite { font-size: .75rem; color: var(--ink-muted); margin-left: auto; }
+  .pub-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); line-height: 1.45; margin-bottom: 6px; }
+  .pub-title a { color: inherit; text-decoration: none; }
+  .pub-title a:hover { color: var(--terracotta); }
+  .pub-authors { font-size: .86rem; color: var(--ink-muted); line-height: 1.6; }
+  .pub-authors .me { color: var(--ink); font-weight: 600; }
+  .pub-links { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .pub-link { font-size: .76rem; font-weight: 500; padding: 4px 10px; border-radius: 6px; text-decoration: none; transition: all .2s; border: 1px solid var(--border); color: var(--ink-light); background: var(--cream); }
+  .pub-link:hover { border-color: var(--terracotta-light); color: var(--terracotta); }
+
+  /* NEWS */
+  .news { padding-bottom: 56px; }
+  .news-item { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .news-item:last-child { border-bottom: none; }
+  .news-date { font-size: .82rem; color: var(--ink-muted); font-weight: 500; white-space: nowrap; }
+  .news-content { font-size: .95rem; color: var(--ink-light); }
+  .news-content strong { color: var(--ink); font-weight: 600; }
+  .news-content a { color: var(--terracotta); text-decoration: none; }
+  .news-content a:hover { text-decoration: underline; }
+
+  /* EDUCATION */
+  .education { padding-bottom: 56px; }
+  .edu-timeline { position: relative; padding-left: 28px; }
+  .edu-timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--terracotta-light), var(--sand)); border-radius: 2px; }
+  .edu-item { position: relative; padding-bottom: 28px; }
+  .edu-item:last-child { padding-bottom: 0; }
+  .edu-item::before { content: ''; position: absolute; left: -24px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--warm-white); border: 2.5px solid var(--terracotta); }
+  .edu-degree { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.02rem; }
+  .edu-school { font-size: .9rem; color: var(--ink-light); margin-top: 2px; }
+  .edu-year { font-size: .82rem; color: var(--ink-muted); margin-top: 2px; }
+
+  /* CONTACT */
+  .contact { padding-bottom: 56px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: start; }
+  .contact-info { font-size: .95rem; color: var(--ink-light); }
+  .contact-info a { color: var(--terracotta); text-decoration: none; }
+  .contact-info a:hover { text-decoration: underline; }
+  .contact-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .contact-row svg { width: 18px; height: 18px; color: var(--ink-muted); flex-shrink: 0; }
+  .wechat-wrap { text-align: center; }
+  .wechat-wrap img { width: 150px; height: 150px; border-radius: 10px; border: 1px solid var(--border); object-fit: cover; object-position: center 35%; }
+  .wechat-label { font-size: .78rem; color: var(--ink-muted); margin-top: 6px; font-weight: 500; }
+
+  /* FOOTER */
+  footer { max-width: 960px; margin: 0 auto; padding: 32px 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: .82rem; color: var(--ink-muted); }
+  footer a { color: var(--terracotta); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .animate-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 700px) {
+    .hero { grid-template-columns: 1fr; text-align: center; gap: 24px; padding-top: 100px; }
+    .hero-photo-wrap { display: flex; justify-content: center; }
+    .hero-photo { width: 180px; height: 180px; }
+    .hero-links { justify-content: center; }
+    .hero-text h1 { font-size: 1.8rem; }
+    .hero-text h1 .cn { display: block; margin-left: 0; margin-top: 4px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: .8rem; }
+    .news-item { grid-template-columns: 1fr; gap: 2px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .wechat-wrap { justify-self: start; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+    .pub-meta-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .pub-cite { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Zhanliang Wang</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Papers</a>
+      <a href="#news">News</a>
+      <a href="#education">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-photo-wrap">
+    <img src="selfie.png" alt="Zhanliang (Aaron) Wang, PhD student at UPenn" class="hero-photo">
+  </div>
+  <div class="hero-text">
+    <h1>Zhanliang Wang <span class="cn">王湛梁</span></h1>
+    <p class="hero-subtitle">
+      PhD Student in <a href="https://amcs.upenn.edu/">Applied Math &amp; Computational Science</a><br>
+      University of Pennsylvania &middot; <a href="https://wglab.org/">Wang Genomics Lab</a> @ CHOP
+    </p>
+    <div class="hero-links">
+      <a href="mailto:Zhanliang.Wang666@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+        Email
+      </a>
+      <a href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&hl=en" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-3a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM1.5 4.5 12 0l10.5 4.5L12 9 1.5 4.5Z"/></svg>
+        Scholar
+      </a>
+      <a href="https://github.com/ZhanliangAaronWang" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/zhanliang-wang-80868323b/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about animate-in" id="about">
+  <h2 class="section-label">About</h2>
+  <div class="about-text">
+    <p>
+      I'm a PhD student in <a href="https://amcs.upenn.edu/">Applied Mathematics and Computational Science (AMCS)</a> at the University of Pennsylvania, working in the <a href="https://wglab.org/">Wang Genomics Lab</a> jointly affiliated with Children's Hospital of Philadelphia (CHOP) and the Perelman School of Medicine, advised by <a href="https://wglab.org/">Dr. Kai Wang</a>. I'm also pursuing a Master of Arts in Statistics and Data Science at the <a href="https://statistics.wharton.upenn.edu/">Wharton School</a>.
+    </p>
+    <p style="margin-top:12px;">
+      My research focuses on making AI systems for healthcare more <em>interpretable</em>, <em>multimodal</em>, and <em>trustworthy</em> — particularly for genetic disease diagnosis. I develop methods that combine large language models with multimodal learning to improve clinical decision support.
+    </p>
+    <p style="margin-top:12px;">
+      During my Master's at Penn, I was fortunate to be advised by <a href="https://www.med.upenn.edu/shenlab/">Dr. Li Shen</a>. I currently work closely with <a href="#">Dr. Bojian Hou</a> (Meta) and <a href="#">Dr. Jiancong Xiao</a> (Penn) on LLM algorithms. Previously, I completed my B.S. in Applied Mathematics (<em>Summa Cum Laude</em>) at NYU's Courant Institute of Mathematical Sciences and Tandon School of Engineering.
+    </p>
+    <div class="research-pills">
+      <span class="pill pill-terra">Multimodal Learning</span>
+      <span class="pill pill-terra">LLMs for Biomedicine</span>
+      <span class="pill pill-sage">Explainable AI</span>
+      <span class="pill pill-sage">Computer Vision</span>
+      <span class="pill pill-ink">Reinforcement Learning</span>
+      <span class="pill pill-ink">Fairness in AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="publications animate-in" id="publications">
+  <h2 class="section-label">Publications</h2>
+  <p style="font-size:.9rem;color:var(--ink-muted);margin-bottom:20px;">
+    * denotes equal contribution &middot; Full list on <a href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&hl=en" style="color:var(--terracotta);text-decoration:none;" target="_blank">Google Scholar</a>
+  </p>
+
+  <!-- 1. Restoring Calibration -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">ICML 2025</span>
+      <span class="pub-badge badge-cofirst">Co-First Author</span>
+    </div>
+    <div class="pub-title"><a href="https://arxiv.org/abs/2505.01997" target="_blank">Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach</a></div>
+    <div class="pub-authors">Jiancong Xiao*, Bojian Hou*, <span class="me">Zhanliang Wang*</span>, Ruochen Jin, Qi Long, Weijie J. Su, Li Shen</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2505.01997" class="pub-link" target="_blank">Paper</a></div>
+  </div>
+
+  <!-- 2. CoT + RAG -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">In Press &middot; Medicine Bulletin</span>
+      <span class="pub-badge badge-first">First Author</span>
+    </div>
+    <div class="pub-title"><a href="https://arxiv.org/abs/2503.12286" target="_blank">Integrating Chain-of-Thought and Retrieval Augmented Generation Enhances Rare Disease Diagnosis from Clinical Notes</a></div>
+    <div class="pub-authors"><span class="me">Zhanliang Wang*</span>, Da Wu*, Quan Nguyen, Kai Wang</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2503.12286" class="pub-link" target="_blank">Preprint</a></div>
+  </div>
+
+  <!-- 3. Interpretability of DL -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">Int. J. Future Comput. Commun. 2022</span>
+      <span class="pub-badge badge-cofirst">Co-First Author</span>
+    </div>
+    <div class="pub-title">Interpretability of Deep Learning</div>
+    <div class="pub-authors">Zhi Huang*, Fuchang Li*, <span class="me">Zhanliang Wang*</span>, Zichen Wang*</div>
+    <div class="pub-links"><a href="https://doi.org/10.18178/ijfcc.2022.11.2.589" class="pub-link" target="_blank">Paper</a></div>
+  </div>
+
+  <!-- 4. MultiSHAP -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">arXiv 2025</span>
+      <span class="pub-badge badge-first">First Author</span>
+    </div>
+    <div class="pub-title"><a href="https://arxiv.org/abs/2508.00576" target="_blank">MultiSHAP: A Shapley-Based Framework for Explaining Cross-Modal Interactions in Multimodal AI Models</a></div>
+    <div class="pub-authors"><span class="me">Zhanliang Wang</span>, Kai Wang</div>
+    <div class="pub-links">
+      <a href="https://arxiv.org/abs/2508.00576" class="pub-link" target="_blank">Paper</a>
+      <a href="https://youtu.be/VGaN9p-2CQk" class="pub-link" target="_blank">Video</a>
+    </div>
+  </div>
+
+  <!-- 5. MINT (Patterns + ICML Workshop) -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">In Press &middot; Patterns (also ICML 2025 GenBio Workshop, Oral)</span>
+      <span class="pub-badge badge-cofirst">Co-First Author</span>
+    </div>
+    <div class="pub-title"><a href="https://arxiv.org/abs/2505.05736" target="_blank">MINT: Multimodal Integrated Knowledge Transfer to Large Language Models through Preference Optimization with Biomedical Applications</a></div>
+    <div class="pub-authors">Da Wu*, <span class="me">Zhanliang Wang*</span>, Quan M. Nguyen, Zicheng Xu, Kai Wang</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2505.05736" class="pub-link" target="_blank">Preprint</a></div>
+  </div>
+
+  <!-- 6. Fair CCA -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">ACM-BCB 2025</span>
+      <span class="pub-badge badge-cofirst">Co-First Author</span>
+    </div>
+    <div class="pub-title">Fair CCA for Fair Representation Learning: An ADNI Study</div>
+    <div class="pub-authors">Bojian Hou*, <span class="me">Zhanliang Wang*</span>, Zhuoping Zhou, Boning Tong, Zhanyi Wang, Jingxuan Bao, Duy Duong-Tran, Qi Long, ...</div>
+    <div class="pub-links"><a href="#" class="pub-link">Paper</a></div>
+  </div>
+
+  <!-- 7. PhenoGPT2 -->
+  <div class="pub-card">
+    <div class="pub-meta-row">
+      <span class="pub-venue">ACM-BCB 2025</span>
+    </div>
+    <div class="pub-title">PhenoGPT2: A Multimodal Fine-tuned Large Language Model for Phenotype Extraction and Normalization from Clinical Text and Facial Images</div>
+    <div class="pub-authors">Quan M. Nguyen, Mian Umair Ahsan, <span class="me">Zhanliang Wang</span>, Kai Wang</div>
+    <div class="pub-links"><a href="#" class="pub-link">Paper</a></div>
+  </div>
+
+</section>
+
+<!-- NEWS -->
+<section class="news animate-in" id="news">
+  <h2 class="section-label">News</h2>
+  <div class="news-list">
+    <div class="news-item">
+      <span class="news-date">2026.03</span>
+      <div class="news-content">MINT paper accepted at <strong>Patterns</strong>.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026.03</span>
+      <div class="news-content">CoT + RAG paper for rare disease diagnosis accepted at <strong>Medicine Bulletin</strong>.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026.02</span>
+      <div class="news-content">Started <strong>M.A. in Statistics and Data Science</strong> at the Wharton School, UPenn.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025.08</span>
+      <div class="news-content">Started <strong>PhD in AMCS</strong> at the University of Pennsylvania.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025.05</span>
+      <div class="news-content">Paper on LLM calibration accepted at <strong>ICML 2025</strong>.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025.05</span>
+      <div class="news-content">Received <strong>M.A. in AMCS</strong> from the University of Pennsylvania.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education animate-in" id="education">
+  <h2 class="section-label">Education</h2>
+  <div class="edu-timeline">
+    <div class="edu-item">
+      <div class="edu-degree">Ph.D. in Applied Mathematics &amp; Computational Science</div>
+      <div class="edu-school">University of Pennsylvania</div>
+      <div class="edu-year">Aug 2025 – May 2029 (expected) &middot; Advisor: Dr. Kai Wang</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">M.A. in Statistics and Data Science</div>
+      <div class="edu-school">The Wharton School, University of Pennsylvania</div>
+      <div class="edu-year">Feb 2026 – Dec 2027 (expected)</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">M.A. in Applied Mathematics &amp; Computational Science</div>
+      <div class="edu-school">University of Pennsylvania</div>
+      <div class="edu-year">Aug 2023 – May 2025 &middot; Advisor: Dr. Li Shen</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">B.S. in Applied Mathematics, <em>Summa Cum Laude</em></div>
+      <div class="edu-school">New York University &middot; Courant Institute of Mathematical Sciences &amp; Tandon School of Engineering</div>
+      <div class="edu-year">2021 – 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact animate-in" id="contact">
+  <h2 class="section-label">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+        <a href="mailto:Zhanliang.Wang666@gmail.com">Zhanliang.Wang666@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Philadelphia, PA, USA</span>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>University of Pennsylvania &middot; <a href="https://wglab.org/">Wang Genomics Lab</a></span>
+      </div>
+      <p style="margin-top:16px;font-size:.92rem;">
+        Always open to collaborations and new ideas — feel free to reach out!
+      </p>
+    </div>
+    <div class="wechat-wrap">
+      <img src="wechat_qr.jpg" alt="WeChat QR Code">
+      <div class="wechat-label">WeChat</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2026 Zhanliang Wang</span>
+  <span>Built with care in Philadelphia</span>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

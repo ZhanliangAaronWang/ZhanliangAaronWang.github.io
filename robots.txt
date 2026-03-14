@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zhanliangaaronwang.github.io/sitemap.xml
