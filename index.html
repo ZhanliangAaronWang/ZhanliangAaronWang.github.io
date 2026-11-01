@@ -488,6 +488,65 @@
     .mail { color: #000; background: none; font-size: 14pt; }
     .contact-panel .helix-bg { display: none; }
   }
+
+  /* Selected work: research concepts share one visual language. */
+  :root { --work-calibration: #b83565; --work-tail: #7050b6; --work-multimodal: #146f64; --research-color: #c44c74; --background-strength: 1; }
+  [data-theme="dark"] { --work-calibration: #ff9cbd; --work-tail: #c5afff; --work-multimodal: #8bdbcd; --research-color: #ff86aa; }
+  #bg, .bgvideo { opacity: var(--background-strength); transition: opacity .4s; }
+  .grain { opacity: calc(.05 * var(--background-strength)); }
+  [data-theme="dark"] .grain { opacity: calc(.07 * var(--background-strength)); }
+  .hero h1 .slot { color: var(--research-color, var(--accent)); transition: color .4s; }
+  .research-focus { max-width: 58ch; margin-top: 26px; }
+  .focus-kicker, .work-kicker { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+  .focus-choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .focus-choices button { border: 1px solid var(--line-2); border-radius: 999px; padding: 8px 13px; font-size: 13px; font-weight: 600; background: color-mix(in srgb, var(--paper) 85%, transparent); transition: border-color .2s, color .2s, background-color .2s; }
+  .focus-choices button[aria-pressed="true"] { color: var(--research-color); border-color: var(--research-color); background: color-mix(in srgb, var(--research-color) 9%, var(--paper)); }
+  .focus-note { border-left: 2px solid var(--research-color); padding: 0 0 0 14px; margin-top: 16px; min-height: 94px; transition: border-color .3s; }
+  .focus-note p { max-width: 47ch; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+  .focus-papers { display: flex; gap: 8px 18px; flex-wrap: wrap; margin-top: 9px; }
+  .focus-papers a { font-size: 12px; font-weight: 650; text-underline-offset: 4px; color: var(--ink); }
+  .work-heading { margin-top: 40px; display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+  .work-heading h3 { margin-top: 7px; font-size: clamp(25px, 3vw, 38px); font-weight: 650; letter-spacing: -.035em; line-height: 1.15; }
+  .work-heading > p { max-width: 29ch; font-size: 14px; color: var(--ink-2); }
+  .featured { grid-template-columns: minmax(0, 1fr); margin-top: 24px; gap: 24px; }
+  .fcard { min-width: 0; border-radius: 20px; }
+  .fcard:hover, .fcard:focus-within { border-color: color-mix(in srgb, var(--work-color) 50%, var(--line)); box-shadow: 0 18px 42px -25px color-mix(in srgb, var(--work-color) 35%, transparent); }
+  .fcard .work-art { display: block; position: relative; min-height: 250px; padding: 22px 24px 14px; background: #191525; color: #f8f2ff; text-decoration: none; overflow: hidden; }
+  .work-art::before { content: ''; position: absolute; width: 240px; height: 240px; right: -80px; top: -95px; border-radius: 50%; background: var(--art-color); filter: blur(80px); opacity: .16; pointer-events: none; }
+  .work-art-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; position: relative; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: #c0b5ce; }
+  .work-art-name { display: block; position: relative; margin-top: 17px; font-size: clamp(25px, 3vw, 36px); font-weight: 700; letter-spacing: -.045em; line-height: 1.12; }
+  .work-art svg { position: relative; display: block; width: 100%; height: 124px; margin-top: 8px; color: var(--art-color); transition: transform .4s; }
+  .fcard:hover .work-art svg { transform: translateY(-3px); }
+  .work-art svg text { font-family: var(--font); font-size: 12px; fill: #e1d8ea; letter-spacing: .015em; }
+  .work-art svg .quiet { fill: #b7abc7; font-size: 10px; }
+  .work-art svg .node { fill: #282235; stroke: #6c5c80; }
+  .work-art svg .edge { stroke: #7f6b96; stroke-width: 1.4; fill: none; }
+  .work-art svg .accent { stroke: currentColor; fill: none; stroke-width: 1.6; }
+  .work-art svg .solid { fill: currentColor; }
+  .work-art-foot { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; letter-spacing: .05em; color: #b7abc7; }
+  .work-art-foot b { font-weight: 500; color: var(--art-color); }
+  .fcard .body { padding: 23px 24px 24px; gap: 12px; }
+  .fcard h4 { font-size: 19px; line-height: 1.3; letter-spacing: -.025em; }
+  .fcard h4 a { text-decoration: none; }
+  .fcard h4 a:hover { color: var(--work-color); }
+  .fcard p { font-size: 14px; line-height: 1.6; }
+  .fcard .meta { gap: 8px; }
+  .fcard .chip { --c: var(--work-color); }
+  .work-footer { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; }
+  .work-footer a, .work-footer button { font-size: 12px; font-weight: 650; text-decoration: none; color: var(--ink-2); }
+  .work-footer a:first-child { color: var(--work-color); }
+  .work-footer a:hover, .work-footer button:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .fcard .cite-n { margin-top: 0; padding-top: 0; margin-left: auto; font-size: 11px; font-weight: 500; }
+  @media (min-width: 760px) { .featured { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .work-heading { display: block; } .work-heading > p { margin-top: 12px; max-width: 42ch; }
+    .fcard .work-art { padding: 20px 20px 14px; min-height: 238px; } .fcard .body { padding: 20px; }
+    .focus-choices button { font-size: 12px; padding: 8px 11px; }
+    .focus-note { min-height: 116px; } .hero-actions { margin-top: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .fcard, .work-art svg, #bg, .bgvideo, .hero h1 .slot { transition: none; } .fcard:hover, .fcard:hover .work-art svg { transform: none; } }
+  @media print { .research-focus, .work-heading { display: none !important; } }
+
 </style>
 </head>
 <body>
@@ -541,9 +600,18 @@
   <p class="hero-name rv"><span class="logo"><img src="penn-logo.png" alt="" width="28" height="28" onerror="this.parentNode.classList.add('fallback')"><svg aria-hidden="true" class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="28" height="28"><defs><linearGradient id="ga" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff8a3d"/><stop offset=".5" stop-color="#ff4d79"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><linearGradient id="bga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24133d"/><stop offset=".5" stop-color="#5b1f4a"/><stop offset="1" stop-color="#b8372e"/></linearGradient><clipPath id="ca"><path d="M4 58 L4 57 L4.00 56.69 L4.70 56.60 L5.40 56.49 L6.10 56.36 L6.80 56.19 L7.50 55.99 L8.20 55.75 L8.90 55.45 L9.60 55.11 L10.30 54.69 L11.00 54.21 L11.70 53.64 L12.40 52.98 L13.10 52.22 L13.80 51.36 L14.50 50.38 L15.20 49.28 L15.90 48.05 L16.60 46.70 L17.30 45.21 L18.00 43.59 L18.70 41.85 L19.40 39.99 L20.10 38.01 L20.80 35.94 L21.50 33.79 L22.20 31.58 L22.90 29.34 L23.60 27.08 L24.30 24.84 L25.00 22.65 L25.70 20.54 L26.40 18.55 L27.10 16.69 L27.80 15.02 L28.50 13.54 L29.20 12.30 L29.90 11.31 L30.60 10.59 L31.30 10.15 L32.00 10.00 L32.70 10.15 L33.40 10.59 L34.10 11.31 L34.80 12.30 L35.50 13.54 L36.20 15.02 L36.90 16.69 L37.60 18.55 L38.30 20.54 L39.00 22.65 L39.70 24.84 L40.40 27.08 L41.10 29.34 L41.80 31.58 L42.50 33.79 L43.20 35.94 L43.90 38.01 L44.60 39.99 L45.30 41.85 L46.00 43.59 L46.70 45.21 L47.40 46.70 L48.10 48.05 L48.80 49.28 L49.50 50.38 L50.20 51.36 L50.90 52.22 L51.60 52.98 L52.30 53.64 L53.00 54.21 L53.70 54.69 L54.40 55.11 L55.10 55.45 L55.80 55.75 L56.50 55.99 L57.20 56.19 L57.90 56.36 L58.60 56.49 L59.30 56.60 L60.00 56.69 L60 57 L60 58 Z"/></clipPath></defs><path d="M4 58 L4 57 L4.00 56.69 L4.70 56.60 L5.40 56.49 L6.10 56.36 L6.80 56.19 L7.50 55.99 L8.20 55.75 L8.90 55.45 L9.60 55.11 L10.30 54.69 L11.00 54.21 L11.70 53.64 L12.40 52.98 L13.10 52.22 L13.80 51.36 L14.50 50.38 L15.20 49.28 L15.90 48.05 L16.60 46.70 L17.30 45.21 L18.00 43.59 L18.70 41.85 L19.40 39.99 L20.10 38.01 L20.80 35.94 L21.50 33.79 L22.20 31.58 L22.90 29.34 L23.60 27.08 L24.30 24.84 L25.00 22.65 L25.70 20.54 L26.40 18.55 L27.10 16.69 L27.80 15.02 L28.50 13.54 L29.20 12.30 L29.90 11.31 L30.60 10.59 L31.30 10.15 L32.00 10.00 L32.70 10.15 L33.40 10.59 L34.10 11.31 L34.80 12.30 L35.50 13.54 L36.20 15.02 L36.90 16.69 L37.60 18.55 L38.30 20.54 L39.00 22.65 L39.70 24.84 L40.40 27.08 L41.10 29.34 L41.80 31.58 L42.50 33.79 L43.20 35.94 L43.90 38.01 L44.60 39.99 L45.30 41.85 L46.00 43.59 L46.70 45.21 L47.40 46.70 L48.10 48.05 L48.80 49.28 L49.50 50.38 L50.20 51.36 L50.90 52.22 L51.60 52.98 L52.30 53.64 L53.00 54.21 L53.70 54.69 L54.40 55.11 L55.10 55.45 L55.80 55.75 L56.50 55.99 L57.20 56.19 L57.90 56.36 L58.60 56.49 L59.30 56.60 L60.00 56.69 L60 57 L60 58 Z" fill="url(#ga)"/><rect x="19.39" y="45.80" width="25.21" height="3.4" rx="1.7" fill="#ffffff" clip-path="url(#ca)"/><rect x="22.41" y="38.80" width="19.18" height="3.4" rx="1.7" fill="#ffffff" clip-path="url(#ca)"/></svg></span>Zhanliang (Aaron) Wang <span class="cn">王湛梁</span></p>
   <h1 class="display rv">
     <span data-i18n="hero.lead">I build</span>
-    <span class="slot decode" id="slot" data-phrases='["trustworthy AI for genetic disease diagnosis.","language models that know when they’re unsure.","multimodal LLMs for biomedicine.","explanations for how modalities interact.","fair representations of clinical data."]'>trustworthy AI for genetic disease diagnosis.</span>
+    <span class="slot decode" id="slot" data-phrases='["trustworthy AI for genetic disease diagnosis.","language models that know when they’re unsure.","multimodal LLMs for biomedicine.","calibration-aware language models.","better decisions for rare classes."]'>trustworthy AI for genetic disease diagnosis.</span>
   </h1>
   <p class="hero-lede rv" data-i18n="hero.lede">PhD student in <a class="u draw" href="https://amcs.upenn.edu/" target="_blank" rel="noopener">Applied Mathematics and Computational Science</a> at the University of Pennsylvania, working with <a class="u draw" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a> in the Wang Genomics Lab at Children’s Hospital of Philadelphia.</p>
+  <div class="research-focus rv" id="research-focus">
+    <p class="focus-kicker" data-i18n="focus.kicker">Explore my work</p>
+    <div class="focus-choices" role="group" aria-label="Research directions">
+      <button type="button" data-direction="calibration" aria-pressed="false" data-i18n="focus.calibration">Calibration</button>
+      <button type="button" data-direction="tail" aria-pressed="false" data-i18n="focus.tail">Long-tail learning</button>
+      <button type="button" data-direction="multimodal" aria-pressed="true" data-i18n="focus.multimodal">Multimodal AI</button>
+    </div>
+    <div class="focus-note"><p id="focus-summary"></p><div class="focus-papers" id="focus-papers"></div></div>
+  </div>
   <div class="hero-actions rv">
     <a class="btn solid" href="#research" data-i18n="hero.read">Read the research</a>
     <a class="btn" href="mailto:Zhanliang.Wang666@gmail.com" data-i18n="hero.email">Email me</a>
@@ -650,6 +718,7 @@
   </div>
   <div class="rule"></div>
   <p class="stats rv" id="stats"></p>
+  <div class="work-heading rv"><div><p class="work-kicker" data-i18n="work.kicker">Selected work / 01—04</p><h3 data-i18n="work.title">Four questions. Four approaches.</h3></div><p data-i18n="work.note">From measuring uncertainty to learning from multimodal expertise.</p></div>
   <div class="featured" id="featured"></div>
 
   <div class="graph-wrap rv" id="graph-wrap">
@@ -774,7 +843,7 @@
 {
   "me": "Zhanliang Wang",
   "pis": ["Kai Wang", "Li Shen", "Bojian Hou", "Jiancong Xiao", "Weijie J. Su"],
-  "featured": ["semece", "multishap", "repair"],
+  "featured": ["semece", "cft", "repair", "mint"],
   "pubs": [
     {"id": "semece", "year": 2026, "type": "conf", "lead": "first", "title": "A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering", "authors": ["Zhanliang Wang", "Jiancong Xiao", "Ruochen Jin", "Shu Yang", "Bojian Hou", "Li Shen"], "equal": [0, 1], "venue": "NeurIPS 2026", "venueLong": "Conference on Neural Information Processing Systems", "arxiv": "2605.08432", "links": {"arXiv": "https://arxiv.org/abs/2605.08432"}, "topics": ["LLMs", "Calibration", "Evaluation"], "tldr": "Measures whether an LLM’s confidence matches its accuracy on open-ended answers by sampling semantically equivalent responses instead of exact-match scoring."},
     {"id": "repair", "year": 2026, "type": "conf", "lead": "first", "title": "Beyond Logit Adjustment: A Residual Decomposition Framework for Long-Tailed Reranking", "authors": ["Zhanliang Wang", "Hongzhuo Chen", "Quan Minh Nguyen", "Mian Umair Ahsan", "Kai Wang"], "equal": [], "venue": "COLM 2026", "venueLong": "Conference on Language Modeling", "arxiv": "2604.01506", "links": {"arXiv": "https://arxiv.org/abs/2604.01506"}, "topics": ["LLMs", "Reranking"], "tldr": "Decomposes reranking scores into a residual that can be adjusted for long-tailed label distributions, going beyond simple logit adjustment."},
@@ -837,6 +906,8 @@
 
   /* ---------- language (EN / 中文) ---------- */
   var ZH = {
+    'focus.kicker': '探索我的研究', 'focus.calibration': '模型校准', 'focus.tail': '长尾学习', 'focus.multimodal': '多模态 AI',
+    'work.kicker': '精选研究 / 01—04', 'work.title': '四个问题，四种思路。', 'work.note': '从不确定性的测量，到多模态知识的迁移。',
     'nav.about': '关于', 'nav.timeline': '时间线', 'nav.research': '研究', 'nav.search': '搜索', 'nav.contact': '联系',
     'hero.lead': '我在做', 'hero.read': '看看研究', 'hero.email': '发邮件', 'hero.search': '站内搜索',
     'hero.lede': '宾夕法尼亚大学应用数学与计算科学博士生，在费城儿童医院 <a class="u draw" href="https://wglab.org/" target="_blank" rel="noopener">王凯教授</a> 的 Wang Genomics Lab 做研究。',
@@ -866,7 +937,7 @@
     'm.h': '或者在这里留言。', 'm.mode': '将打开你的邮件应用', 'm.name': '姓名', 'm.name.ph': '你的名字', 'm.email': '邮箱', 'm.msg': '留言', 'm.msg.ph': '想聊点什么？', 'm.send': '发送',
     'foot.keys': '快捷键'
   };
-  var ZH_PHRASES = ['可信赖的遗传病诊断 AI。', '知道自己何时不确定的语言模型。', '面向生物医学的多模态大模型。', '解释模态之间如何交互。', '公平的临床数据表示。'];
+  var ZH_PHRASES = ['可信赖的遗传病诊断 AI。', '知道自己何时不确定的语言模型。', '面向生物医学的多模态大模型。', '注重校准的语言模型。', '面向稀有类别的更好决策。'];
   var ZH_FORMS = ['双螺旋', '概率密度曲面', '神经网络', '注意力图', '嵌入空间'];
   var EN = {}, ENPH = {}, lang = 'en';
   $$('[data-i18n]').forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
@@ -962,6 +1033,7 @@
     idx = idx % FORM_NAMES.length; pi = idx % phrases.length;
     decode(slot, phrases[pi], { stagger: 18, settle: 220 }); if (hudV) decode(hudV, FORM_NAMES[idx], { stagger: 30, settle: 200 });
     pickBtns.forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.form === idx); });
+    if (window.__syncResearch) window.__syncResearch(idx);
   };
   var phraseTimer = reduce ? null : setInterval(function () { if (autoOn) window.__onForm(pi + 1); }, 6500);
   window.__sceneDrivesPhrases = function () { if (phraseTimer) { clearInterval(phraseTimer); phraseTimer = null; } };
@@ -1002,18 +1074,110 @@
       '<span class="links">' + links + absBtn + '<button type="button" data-cite="' + p.id + '">Cite</button></span></div>' +
       '<div class="abs" id="abs-' + p.id + '" hidden></div></article>';
   }
-  var TYPE_GRAD = { conf: ['#ff4d79', '#8b5cf6'], journal: ['#ff8a3d', '#ff4d79'], preprint: ['#8b5cf6', '#ff8a3d'] };
+  var SELECTED_WORK = {
+    semece: { name: 'Sem-ECE', area: ['Measuring uncertainty', '衡量不确定性'], color: 'var(--work-calibration)', art: '#f2a4be',
+      summary: ['Evaluate open-ended answers through semantic groups, separating answer selection from confidence estimation.', '通过语义分组评估开放式回答，并将答案选择与置信度估计分离。'] },
+    cft: { name: 'Restoring Calibration', area: ['Learning calibrated models', '学习校准的模型'], color: 'var(--work-calibration)', art: '#f2a4be',
+      summary: ['Understand how preference alignment disrupts calibration, then restore it through calibration-aware fine-tuning.', '分析偏好对齐如何破坏校准，再通过校准感知微调恢复校准。'] },
+    repair: { name: 'Beyond Logit Adjustment', area: ['Learning in the long tail', '面向长尾分布的学习'], color: 'var(--work-tail)', art: '#bfafff',
+      summary: ['Separate classwise and context-dependent pairwise corrections to improve reranking under long-tailed label distributions.', '分解类别级修正与依赖上下文的成对修正，改善长尾标签分布下的重排序。'] },
+    mint: { name: 'MINT', area: ['Transferring multimodal knowledge', '迁移多模态知识'], color: 'var(--work-multimodal)', art: '#8bdbcd',
+      summary: ['Transfer multimodal biomedical expertise into unimodal language models through preference optimization.', '通过偏好优化，将多模态生物医学知识迁移到单模态语言模型。'] }
+  };
+  function workText(en, zh, tag, cls) {
+    tag = tag || 'span';
+    return '<' + tag + (cls ? ' class="' + cls + '"' : '') + ' data-work-en="' + esc(en) + '" data-work-zh="' + esc(zh) + '">' + esc(lang === 'zh' ? zh : en) + '</' + tag + '>';
+  }
+  function conceptArt(id) {
+    var body = '';
+    if (id === 'semece') {
+      body = '<rect class="node" x="7" y="10" width="83" height="27" rx="6"/><rect class="node" x="7" y="46" width="83" height="27" rx="6"/><rect class="node" x="7" y="82" width="83" height="27" rx="6"/>' +
+        '<text x="48" y="28" text-anchor="middle">Answer A</text><text x="48" y="64" text-anchor="middle">Answer B</text><text x="48" y="100" text-anchor="middle">Answer C</text>' +
+        '<path class="edge" d="M90 23C120 23 120 40 146 40M90 59C120 59 120 40 146 40M90 95C120 95 120 86 146 86"/>' +
+        '<rect class="accent" x="146" y="16" width="111" height="47" rx="12"/><rect class="accent" x="146" y="75" width="111" height="28" rx="10"/>' +
+        '<circle class="solid" cx="168" cy="40" r="5"/><circle class="solid" cx="184" cy="40" r="5"/><text x="219" y="44" text-anchor="middle">Meaning</text><text x="202" y="94" text-anchor="middle">Meaning</text>' +
+        '<path class="edge" d="M257 40H277V60H302M257 89H277V60"/><path class="accent" d="m296 55 6 5-6 5"/>' +
+        '<rect class="node" x="308" y="34" width="106" height="50" rx="10"/><text x="361" y="55" text-anchor="middle">Held-out</text><text x="361" y="72" text-anchor="middle">confidence</text>';
+    } else if (id === 'cft') {
+      body = '<path class="edge" d="M112 58H148M269 58H305"/><path class="accent" d="m142 53 6 5-6 5m157-10 6 5-6 5"/>' +
+        '<rect class="node" x="5" y="25" width="107" height="64" rx="12"/><rect class="node" x="150" y="25" width="119" height="64" rx="12"/><rect class="accent" x="307" y="25" width="107" height="64" rx="12"/>' +
+        '<text x="58" y="55" text-anchor="middle">Pretrained</text><text class="quiet" x="58" y="74" text-anchor="middle">language model</text><text x="209" y="55" text-anchor="middle">Preference</text><text x="209" y="73" text-anchor="middle">alignment</text><text x="360" y="55" text-anchor="middle">Calibration-</text><text x="360" y="73" text-anchor="middle">aware tuning</text>';
+    } else if (id === 'repair') {
+      body = '<rect class="node" x="7" y="33" width="97" height="56" rx="10"/><text x="55" y="55" text-anchor="middle">Base-model</text><text x="55" y="73" text-anchor="middle">shortlist</text>' +
+        '<path class="edge" d="M104 61H130V28H161M130 61V94H161M278 28H301V61H326M278 94H301V61"/>' +
+        '<rect class="accent" x="161" y="9" width="117" height="37" rx="9"/><rect class="accent" x="161" y="76" width="117" height="37" rx="9"/><text x="219" y="33" text-anchor="middle">Classwise</text><text x="219" y="100" text-anchor="middle">Pairwise</text>' +
+        '<text class="quiet" x="219" y="65" text-anchor="middle">residual correction</text><rect class="node" x="327" y="33" width="86" height="56" rx="10"/><text x="370" y="65" text-anchor="middle">Rerank</text>';
+    } else {
+      body = '<rect class="node" x="6" y="15" width="89" height="34" rx="8"/><rect class="node" x="6" y="75" width="89" height="34" rx="8"/><text x="50" y="37" text-anchor="middle">Text</text><text x="50" y="97" text-anchor="middle">Image</text>' +
+        '<path class="edge" d="M95 32H120V61H146M95 92H120V61M277 61H307"/><path class="accent" d="m140 56 6 5-6 5m161-10 6 5-6 5"/>' +
+        '<rect class="accent" x="146" y="31" width="131" height="60" rx="12"/><text x="211" y="55" text-anchor="middle">Multimodal</text><text x="211" y="74" text-anchor="middle">preferences</text>' +
+        '<rect class="node" x="309" y="31" width="105" height="60" rx="12"/><text x="361" y="55" text-anchor="middle">Unimodal</text><text x="361" y="74" text-anchor="middle">LLM</text>';
+    }
+    return '<svg viewBox="0 0 420 124" aria-hidden="true" focusable="false">' + body + '</svg>';
+  }
   (function renderFeatured() {
     var host = $('#featured'); if (!host || !DATA.featured) return;
     host.innerHTML = DATA.featured.map(function (id, i) {
-      var p = pubsById[id]; if (!p) return '';
-      var primary = p.links.arXiv || p.links.OpenReview || '#', g = TYPE_GRAD[p.type], img = 'figs/' + p.id + '.png';
-      return '<a class="fcard rv" href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer" style="transition-delay:' + (i * .08) + 's">' +
-        '<div class="fig"><img src="' + img + '" alt="" loading="lazy" onerror="this.parentNode.classList.remove(\'has-img\'); this.remove()" onload="this.parentNode.classList.add(\'has-img\')"><div class="tile" style="--c1:' + g[0] + ';--c2:' + g[1] + '">' + esc(/^npj/i.test(p.venue) ? 'npj AI' : p.venue.split(/[ ,]/)[0]) + '<small>' + esc(p.lead === 'first' ? 'First author' : p.lead === 'co-first' ? 'Co-first author' : String(p.year)) + '</small></div></div>' +
-        '<div class="body"><div class="meta"><span class="chip" style="--c:' + TYPE_COLOR[p.type] + '">' + esc(p.venue) + '</span>' + (p.lead === 'first' ? '<span class="chip role">First author</span>' : p.lead === 'co-first' ? '<span class="chip role co">Co-first</span>' : '') + '</div>' +
-        '<h4>' + esc(p.title) + '</h4>' + (p.tldr ? '<p>' + esc(p.tldr) + '</p>' : '') + '<span class="cite-n" data-cite-n="' + p.id + '"></span></div></a>';
+      var p = pubsById[id], w = SELECTED_WORK[id]; if (!p || !w) return '';
+      var primary = p.links.arXiv || p.links.OpenReview || '#';
+      var role = p.equal.length > 1 ? ['Co-first author', '共同第一作者'] : ['First author', '第一作者'];
+      return '<article class="fcard rv" id="work-' + id + '" data-work="' + id + '" style="--work-color:' + w.color + ';--art-color:' + w.art + '">' +
+        '<a class="work-art" href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer" aria-label="Read ' + esc(p.title) + '">' +
+        '<span class="work-art-top">' + workText(w.area[0], w.area[1]) + '<span>0' + (i + 1) + ' / 04</span></span>' +
+        '<span class="work-art-name">' + esc(w.name) + '</span>' + conceptArt(id) +
+        '<span class="work-art-foot">' + workText('Method sketch', '方法示意') + workText('Explore the paper ↗', '阅读论文 ↗', 'b') + '</span></a>' +
+        '<div class="body"><div class="meta"><span class="chip">' + esc(p.venue) + '</span>' + workText(role[0], role[1], 'span', 'chip role') + '</div>' +
+        '<h4><a href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer">' + esc(p.title) + '</a></h4>' +
+        workText(w.summary[0], w.summary[1], 'p') +
+        '<div class="work-footer"><a href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer">' + workText('Paper ↗', '论文 ↗') + '</a>' +
+        '<a href="#pub-' + id + '" data-work-details="' + id + '">' + workText('Full details ↓', '完整信息 ↓') + '</a>' +
+        '<button type="button" data-cite="' + id + '">' + workText('Cite', '引用') + '</button><span class="cite-n" data-cite-n="' + id + '"></span></div></div></article>';
     }).join('');
+    langListeners.push(function (l) {
+      $$('[data-work-en]', host).forEach(function (el) { el.textContent = l === 'zh' ? el.dataset.workZh : el.dataset.workEn; });
+    });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-work-details]');
+      if (a) { e.preventDefault(); flashPub(a.dataset.workDetails); }
+    });
   })();
+
+  /* Connect the hero's existing particle forms to research and selected papers. */
+  var DIRECTIONS = {
+    calibration: { form: 1, color: 'var(--work-calibration)', papers: ['semece', 'cft'],
+      text: ['How can a language model know when to trust its own answers? I study how to measure and improve its calibration.', '语言模型如何知道自己的回答是否可信？我研究如何衡量并改善模型校准。'] },
+    tail: { form: 4, color: 'var(--work-tail)', papers: ['repair'],
+      text: ['Frequent classes should not dominate every decision. I study when and how to correct rankings for the long tail.', '频繁类别不应主导所有决策。我研究何时以及如何修正长尾分布下的排序。'] },
+    multimodal: { form: 0, color: 'var(--work-multimodal)', papers: ['mint'],
+      text: ['Can a model learn from more information than it needs at inference? I transfer multimodal expertise into biomedical AI.', '模型能否从比推理时更丰富的信息中学习？我研究向生物医学 AI 迁移多模态知识。'] }
+  };
+  var formDirections = ['multimodal', 'calibration', 'multimodal', 'calibration', 'tail'], activeDirection = 'multimodal';
+  function syncResearch(idx) {
+    activeDirection = formDirections[idx] || 'multimodal';
+    var direction = DIRECTIONS[activeDirection], focus = $('#research-focus');
+    root.style.setProperty('--research-color', direction.color);
+    $('#focus-summary').textContent = direction.text[lang === 'zh' ? 1 : 0];
+    $('#focus-papers').innerHTML = direction.papers.map(function (id) {
+      return '<a href="#work-' + id + '" data-focus-paper="' + id + '">' + esc(SELECTED_WORK[id].name) + ' ↓</a>';
+    }).join('');
+    $$('[data-direction]', focus).forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.direction === activeDirection); });
+    focus.setAttribute('data-active-direction', activeDirection);
+  }
+  window.__syncResearch = syncResearch;
+  $$('[data-direction]').forEach(function (b) { b.addEventListener('click', function () {
+    var key = b.dataset.direction, idx = DIRECTIONS[key].form;
+    // Update the explanation immediately; the particle morph can finish in its own time.
+    syncResearch(idx); selectForm(idx);
+  }); });
+  $('#focus-papers').addEventListener('click', function (e) {
+    var a = e.target.closest('[data-focus-paper]'); if (!a) return;
+    e.preventDefault();
+    var card = $('[data-work="' + a.dataset.focusPaper + '"]');
+    if (card) { card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); }
+  });
+  langListeners.push(function () { syncResearch(formDirections.indexOf(activeDirection)); });
+  syncResearch(0);
+
   (function renderLedger() {
     var years = []; DATA.pubs.forEach(function (p) { if (years.indexOf(p.year) < 0) years.push(p.year); });
     years.sort(function (a, b) { return b - a; });
@@ -1289,6 +1453,8 @@
     if (ticking) return; ticking = true;
     requestAnimationFrame(function () {
       var y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+      var heroHeight = $('#hero').offsetHeight || window.innerHeight;
+      root.style.setProperty('--background-strength', String(Math.max(.12, 1 - y / (heroHeight * .85))));
       topbar.classList.toggle('scrolled', y > 8); totop.classList.toggle('show', y > window.innerHeight * 0.8);
       ring.style.strokeDashoffset = 151 - 151 * (max > 0 ? y / max : 0);
       var probe = y + window.innerHeight * 0.4, current = null;
@@ -1838,7 +2004,7 @@
       if (!reduce) {
         if (morphing) { mp = Math.min(1, mp + dt / (introDone ? MORPH : MORPH * 1.3)); if (mp >= 1) { morphing = false; hold = 0; introDone = true; if (queued >= 0 && queued !== cur) { var qn = queued; queued = -1; startMorph(qn); } else queued = -1; } }
         else { hold += dt; if (auto && k < 0.5 && hold >= HOLD) startMorph((cur + 1) % forms.length); }
-      } else { morphing = false; mp = 1; to = helix; }
+      } else { morphing = false; mp = 1; to = forms[cur]; }
       if (hudBar) hudBar.style.transform = 'scaleX(' + (morphing || !auto ? 0 : Math.min(1, hold / HOLD)) + ')';
       // evaluate forms
       var lightB = to.animate(elapsed, PB, CB, SB), lightA = morphing ? from.animate(elapsed, PA, CA, SA) : null;
