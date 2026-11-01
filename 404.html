@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>404 — Zhanliang (Aaron) Wang</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<script>try { if (localStorage.getItem('aw-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}</script>
+<style>
+  :root { --paper: #ffffff; --paper-2: #fbf5f4; --ink: #1f142e; --ink-2: #5d4f6e; --ink-3: #9b8fa8; --line: rgba(31, 20, 46, .1); --line-2: rgba(31, 20, 46, .2); --accent: #d8452f; --A: #ff8a3d; --C: #ff4d79; --G: #f7b733; --T: #8b5cf6; --font: 'Bricolage Grotesque', 'Helvetica Neue', Arial, system-ui, sans-serif; color-scheme: light; }
+  [data-theme="dark"] { --paper: #150f1f; --paper-2: #1e1629; --ink: #f8f0f3; --ink-2: #c3b4c6; --ink-3: #7f7190; --line: rgba(255, 255, 255, .1); --line-2: rgba(255, 255, 255, .2); --accent: #ff7a59; --A: #ffa35e; --C: #ff6b96; --G: #ffd166; --T: #b48cff; color-scheme: dark; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body { font-family: var(--font); font-optical-sizing: auto; color: var(--ink); background: var(--paper); display: grid; place-items: center; padding: 24px; position: relative; overflow: hidden; -webkit-font-smoothing: antialiased; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; animation: drift 18s ease-in-out infinite alternate; pointer-events: none; }
+  .blob:nth-child(1) { width: 52vmax; height: 52vmax; left: 50%; top: -30vmax; background: var(--A); }
+  .blob:nth-child(2) { width: 42vmax; height: 42vmax; left: 65%; top: 35%; background: var(--C); animation-delay: -6s; }
+  .blob:nth-child(3) { width: 38vmax; height: 38vmax; left: -14vmax; top: 45%; background: var(--G); opacity: .4; animation-delay: -11s; }
+  .blob:nth-child(4) { width: 34vmax; height: 34vmax; left: 25%; top: 60%; background: var(--T); opacity: .35; animation-delay: -3s; }
+  [data-theme="dark"] .blob { opacity: .32; }
+  @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(-6%, 8%) scale(1.12); } }
+  .card { position: relative; z-index: 1; max-width: 640px; text-align: center; }
+  .seq { display: inline-flex; gap: 2px; font-weight: 800; font-size: 13px; letter-spacing: .18em; color: var(--ink-3); margin-bottom: 18px; }
+  .seq .A { color: var(--A); } .seq .C { color: var(--C); } .seq .G { color: var(--G); } .seq .T { color: var(--T); }
+  .seq .x { color: var(--accent); text-decoration: line-through; }
+  h1 { font-size: clamp(96px, 20vw, 190px); font-weight: 800; letter-spacing: -.05em; line-height: .9; font-variation-settings: 'wdth' 80, 'opsz' 96; background: linear-gradient(135deg, var(--A), var(--C) 55%, var(--T)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { margin-top: 18px; font-size: clamp(22px, 3.4vw, 30px); font-weight: 750; letter-spacing: -.02em; }
+  p { margin-top: 12px; color: var(--ink-2); font-size: 17px; line-height: 1.55; }
+  .actions { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; height: 46px; padding: 0 22px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--line-2); color: var(--ink); background: var(--paper); transition: transform .25s cubic-bezier(.2, .8, .2, 1), border-color .2s, background-color .2s, color .2s; }
+  .btn:hover { transform: translateY(-2px); border-color: var(--ink); }
+  .btn.solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.solid:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .path { margin-top: 26px; font-size: 13px; color: var(--ink-3); word-break: break-all; }
+  .path code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--paper-2); border: 1px solid var(--line); padding: 2px 8px; border-radius: 8px; }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<div class="blob"></div><div class="blob"></div><div class="blob"></div><div class="blob"></div>
+<main class="card">
+  <div class="seq" aria-hidden="true"><span class="A">A</span><span class="C">C</span><span class="G">G</span><span class="T">T</span><span class="x">?</span><span class="T">T</span><span class="G">G</span><span class="A">A</span></div>
+  <h1>404</h1>
+  <h2>This sequence isn’t in the genome.</h2>
+  <p>The page you’re looking for doesn’t exist, or it moved. The homepage has everything: research, timeline, and a way to get in touch.</p>
+  <div class="actions">
+    <a class="btn solid" href="/">Back to the homepage</a>
+    <a class="btn" href="/#research">Research</a>
+    <a class="btn" href="/#contact">Contact</a>
+  </div>
+  <div class="path">Requested <code id="path"></code></div>
+</main>
+<script>document.getElementById('path').textContent = location.pathname + location.search;</script>
+</body>
+</html>

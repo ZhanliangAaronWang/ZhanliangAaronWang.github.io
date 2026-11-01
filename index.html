@@ -16,8 +16,11 @@
 <meta property="og:description" content="PhD student researching multimodal AI, explainable AI, and LLMs for biomedical applications at the University of Pennsylvania.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zhanliangaaronwang.github.io/">
-<meta property="og:image" content="https://zhanliangaaronwang.github.io/selfie.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://zhanliangaaronwang.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zhanliangaaronwang.github.io/og.jpg">
 <meta name="twitter:title" content="Zhanliang (Aaron) Wang — PhD Student @ Penn">
 <meta name="twitter:description" content="PhD student researching multimodal AI, explainable AI, and LLMs for biomedical applications at UPenn.">
 <script type="application/ld+json">
@@ -120,8 +123,16 @@
   .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px); background: color-mix(in srgb, var(--paper) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s, background-color .35s; }
   .topbar.scrolled { border-color: var(--line); }
   .topbar-inner { max-width: var(--max); margin: 0 auto; height: var(--nav-h); padding: 0 var(--gx); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 17px; letter-spacing: -.01em; white-space: nowrap; }
   .brand .cn { color: var(--ink-3); font-weight: 500; margin-left: 4px; }
+  /* logo: penn-logo.png when present, the drawn mark as a fallback */
+  .logo { display: inline-flex; align-items: center; flex: none; }
+  .logo img { height: 30px; width: auto; display: block; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+  .hero-name .logo img { height: 28px; }
+  .logo .logo-svg { display: none; }
+  .logo.fallback img { display: none; }
+  .logo.fallback .logo-svg { display: block; }
+  .brand:hover .logo img, .brand:hover .logo-svg { transform: translateY(-2px) scale(1.06); }
   .nav { display: none; align-items: center; gap: 4px; }
   .nav a, .nav button { text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: 15px; padding: 8px 14px; border-radius: 999px; transition: color .2s, background-color .2s; display: inline-flex; align-items: center; gap: 8px; }
   .nav a:hover, .nav button:hover, .nav a.active { color: var(--ink); background: var(--paper-2); }
@@ -132,6 +143,21 @@
   .iconbtn:hover { background: var(--paper-2); }
   .iconbtn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .topbar-right { display: flex; align-items: center; gap: 4px; }
+  .socials { display: none; align-items: center; gap: 2px; margin-right: 6px; padding-right: 8px; border-right: 1px solid var(--line); }
+  @media (min-width: 900px) { .socials { display: flex; } }
+  .socials .iconbtn { width: 36px; height: 36px; color: var(--ink-2); }
+  .socials .iconbtn:hover { color: var(--ink); }
+  .socials .iconbtn svg { width: 19px; height: 19px; }
+  .hero-social { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px 4px; }
+  .hero-social .soc { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--ink-2); text-decoration: none; transition: color .2s, background-color .2s; }
+  .hero-social .soc:hover { color: var(--ink); background: var(--paper-2); }
+  .hero-social .soc svg { width: 18px; height: 18px; }
+  .sheet .sheet-social { display: flex; gap: 4px; padding: 6px 8px 2px; border-top: 1px solid var(--line); margin-top: 6px; }
+  .sheet .sheet-social .iconbtn { width: 40px; height: 40px; color: var(--ink-2); }
+  .lang-btn { font-size: 14px; font-weight: 700; letter-spacing: 0; }
+  html[lang="zh"] body { font-family: var(--font), 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', sans-serif; }
+  html[lang="zh"] .display { letter-spacing: 0; line-height: 1.12; }
+  html[lang="zh"] .hero h1 { max-width: 14ch; font-size: clamp(36px, 5vw, 66px); }
   .theme-btn .sun { display: block; } .theme-btn .moon { display: none; }
   [data-theme="dark"] .theme-btn .sun { display: none; } [data-theme="dark"] .theme-btn .moon { display: block; }
   .sheet { display: none; position: absolute; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 8px); right: 16px; left: 16px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 10px; box-shadow: var(--shadow); }
@@ -158,11 +184,20 @@
   .trail { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
   .trail span { position: absolute; font-weight: 800; font-size: 13px; line-height: 1; animation: trail .9s ease-out forwards; will-change: transform, opacity; }
   @keyframes trail { 0% { opacity: .9; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -140%) scale(.6); } }
-  .hud { position: absolute; right: var(--gx); bottom: 48px; display: none; align-items: center; gap: 12px; font-size: 13px; color: var(--ink-3); }
-  .hud-v { color: var(--ink); font-weight: 700; min-width: 13ch; }
-  .hud-bar { width: 64px; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+  .hud { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-size: 13px; color: var(--ink-3); }
+  @media (min-width: 1024px) { .hud { position: absolute; right: var(--gx); bottom: 46px; margin: 0; max-width: 520px; justify-content: flex-end; } }
+  .hud-v { color: var(--ink); font-weight: 700; min-width: 12ch; }
+  @media (min-width: 1024px) { .hud-v { width: 100%; text-align: right; } }
+  .picker { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--paper) 82%, transparent); backdrop-filter: blur(8px); }
+  .picker button { padding: 6px 11px; border-radius: 999px; font-size: 12.5px; font-weight: 600; color: var(--ink-2); transition: background-color .2s, color .2s; }
+  .picker button:hover { color: var(--ink); }
+  .picker button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .hud .auto { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 12.5px; font-weight: 600; color: var(--ink-3); background: color-mix(in srgb, var(--paper) 82%, transparent); transition: color .2s, border-color .2s; }
+  .hud .auto[aria-pressed="true"] { color: var(--ink); border-color: var(--line-2); }
+  .hud .auto .hud-bar { display: none; }
+  .hud .auto[aria-pressed="true"] .hud-bar { display: block; }
+  .hud-bar { width: 44px; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
   .hud-bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
-  @media (min-width: 1024px) { .hud { display: flex; } }
   .read { position: absolute; left: 0; right: 0; bottom: 0; overflow: hidden; height: 28px; border-top: 1px solid var(--line); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
   .read-track { display: flex; white-space: nowrap; width: max-content; animation: read 90s linear infinite; }
   .read span { display: inline-block; width: 14px; text-align: center; font-size: 11px; line-height: 28px; font-weight: 700; opacity: .9; }
@@ -200,7 +235,7 @@
 
   /* ---------- timeline ---------- */
   .ideo { margin-top: 36px; overflow-x: auto; overflow-y: hidden; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
-  .ideo svg { width: 100%; min-width: 760px; height: auto; display: block; overflow: visible; }
+  .ideo svg { width: 100%; min-width: 860px; height: auto; display: block; overflow: visible; }
   .ideo text { font-family: var(--font); }
   .ideo .yr { font-size: 12px; fill: var(--ink-3); font-weight: 500; }
   .ideo .tick { stroke: var(--line); }
@@ -218,7 +253,7 @@
   .ideo.dim .band:not(.hot) { opacity: .35; }
   .js .ideo .band { transform-origin: left center; transform: scaleX(0); transition: transform 1.1s cubic-bezier(.2, .8, .2, 1); }
   .js .ideo.in .band { transform: none; }
-  .js .band-g:nth-of-type(2) .band { transition-delay: .12s; } .js .band-g:nth-of-type(3) .band { transition-delay: .24s; } .js .band-g:nth-of-type(4) .band { transition-delay: .36s; } .js .band-g:nth-of-type(5) .band { transition-delay: .48s; }
+  .js .band-g:nth-of-type(2) .band { transition-delay: .1s; } .js .band-g:nth-of-type(3) .band { transition-delay: .2s; } .js .band-g:nth-of-type(4) .band { transition-delay: .3s; } .js .band-g:nth-of-type(5) .band { transition-delay: .4s; } .js .band-g:nth-of-type(6) .band { transition-delay: .5s; }
   .entries { margin-top: 40px; display: grid; gap: 20px; }
   @media (min-width: 720px) { .entries { grid-template-columns: 1fr 1fr; } }
   .entry { position: relative; padding: 22px 22px 22px 26px; border: 1px solid var(--line); border-radius: 18px; transition: border-color .2s, transform .25s cubic-bezier(.2, .8, .2, 1), background-color .35s; background: var(--paper); }
@@ -233,6 +268,29 @@
   /* ---------- research ---------- */
   .stats { margin-top: 28px; font-size: 18px; color: var(--ink-2); max-width: 62ch; line-height: 1.6; }
   .stats b { color: var(--ink); font-weight: 750; font-variant-numeric: tabular-nums; }
+  .featured { margin-top: 32px; display: grid; gap: 18px; }
+  @media (min-width: 760px) { .featured { grid-template-columns: repeat(3, 1fr); } }
+  .fcard { position: relative; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--paper); text-decoration: none; transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .2s, box-shadow .3s; }
+  .fcard:hover { transform: translateY(-4px); border-color: var(--line-2); box-shadow: var(--shadow); }
+  .fcard .fig { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper-2); }
+  .fcard .fig img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+  .fcard:hover .fig img { transform: scale(1.04); }
+  .fcard .fig .tile { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(135deg, var(--c1), var(--c2)); color: #fff; font-weight: 800; font-size: 44px; letter-spacing: -.03em; font-variation-settings: 'wdth' 80; }
+  .fcard .fig .tile small { position: absolute; left: 16px; bottom: 12px; font-size: 12px; font-weight: 600; opacity: .85; letter-spacing: 0; font-variation-settings: 'wdth' 100; }
+  .fcard .fig.has-img .tile { display: none; }
+  .fcard .body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .fcard .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fcard h4 { font-size: 17px; font-weight: 700; letter-spacing: -.015em; line-height: 1.25; color: var(--ink); }
+  .fcard p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .fcard .cite-n { margin-top: auto; padding-top: 6px; font-size: 13px; color: var(--ink-3); font-weight: 600; }
+  .chip.cites { color: var(--ink-2); border-style: dashed; }
+  .chip.cites::before { display: none; }
+  .scholar-stats { display: inline; }
+  .abs-btn[aria-expanded="true"] { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .abs { display: none; margin-top: 10px; padding: 14px 16px; border-left: 3px solid var(--line-2); background: var(--paper-2); border-radius: 0 12px 12px 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); max-width: 70ch; }
+  .abs.open { display: block; }
+  .abs.loading { color: var(--ink-3); }
+  .abs a { color: var(--accent); }
   .graph-wrap { margin-top: 32px; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--paper); position: relative; }
   .graph-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); }
   .graph-head b { color: var(--ink); font-weight: 700; }
@@ -310,6 +368,21 @@
   .contact-actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
   .contact-actions .btn { background: transparent; color: var(--panel-ink); border-color: var(--panel-line); }
   .contact-actions .btn:hover { background: #fff; color: #2a1740; border-color: #fff; }
+  .msg { position: relative; z-index: 1; margin-top: 44px; max-width: 640px; padding-top: 28px; border-top: 1px solid var(--panel-line); }
+  .msg-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; font-size: 14px; color: var(--panel-ink-2); }
+  .msg-head b { color: var(--panel-ink); font-size: 17px; font-weight: 700; }
+  .msg-grid { margin-top: 16px; display: grid; gap: 12px; }
+  @media (min-width: 600px) { .msg-grid { grid-template-columns: 1fr 1fr; } .msg-grid .wide { grid-column: 1 / -1; } }
+  .msg label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; color: var(--panel-ink-2); }
+  .msg input, .msg textarea { width: 100%; font: 500 15px var(--font); color: var(--panel-ink); background: rgba(255, 255, 255, .1); border: 1px solid var(--panel-line); border-radius: 12px; padding: 11px 14px; outline: none; transition: border-color .2s, background-color .2s; resize: vertical; }
+  .msg input::placeholder, .msg textarea::placeholder { color: rgba(255, 255, 255, .45); }
+  .msg input:focus, .msg textarea:focus { border-color: #fff; background: rgba(255, 255, 255, .16); }
+  .msg input:user-invalid, .msg textarea:user-invalid { border-color: var(--G); }
+  .msg .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .msg-foot { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .btn.light { background: #fff; color: #2a1740; border-color: #fff; }
+  .btn.light:hover { background: var(--G); border-color: var(--G); color: #2a1740; }
+  .msg-note { font-size: 13px; color: var(--panel-ink-2); }
   .contact-panel .helix-bg { position: absolute; right: -40px; bottom: -60px; width: 320px; height: 320px; opacity: .35; pointer-events: none; }
   .contact-panel .helix-bg circle { fill: #fff; }
   .contact-panel .loc { position: absolute; right: clamp(24px, 6vw, 80px); top: clamp(40px, 7vw, 88px); font-size: 14px; color: var(--panel-ink-2); text-align: right; display: none; line-height: 1.6; }
@@ -376,14 +449,14 @@
     .js .rv { opacity: 1; transform: none; filter: none; transition: none; }
     .js .ideo .band { transform: none; transition: none; }
     .read-track, .ideo .today circle { animation: none; }
-    .btn, .entry, .logo-svg, body { transition: none; }
+    .btn, .entry, .logo-svg, .logo img, body { transition: none; }
   }
 
   /* ---------- print: the page becomes a one-column CV ---------- */
   @media print {
     @page { margin: 16mm; }
     html, body { background: #fff !important; color: #000 !important; }
-    #bg, #scene, .bgvideo, .grain, .topbar, .totop, .toast, .read, .trail, .graph-wrap, .toolbar, .hero-actions, .contact-actions, .scholar-note, .pub .links, .pub .tags, footer .seq, footer button, .ideo, .portrait .strip, .newscol h3::after, dialog { display: none !important; }
+    #bg, #scene, .bgvideo, .grain, .topbar, .totop, .toast, .read, .trail, .hud, .graph-wrap, .featured, .abs, .toolbar, .hero-actions, .hero-social, .contact-actions, .msg, .scholar-note, .pub .links, .pub .tags, footer .seq, footer button, .ideo, .portrait .strip, .newscol h3::after, dialog { display: none !important; }
     .js .rv { opacity: 1 !important; transform: none !important; filter: none !important; }
     .hero { min-height: 0; padding: 0 0 8mm; display: block; }
     .hero h1 { font-size: 26pt; max-width: none; }
@@ -431,17 +504,19 @@
 <header class="topbar" id="topbar">
   <div class="topbar-inner">
     <a class="brand" href="#top" aria-label="Aaron Wang, home">
-      <span class="logo"><img src="https://branding.web-resources.upenn.edu/sites/default/files/styles/card_3x2/public/2022-03/UniversityofPennsylvania_Shield_RGB-2.png?h=3c287ac3&amp;itok=HgG1DNc-" alt="University of Pennsylvania shield" width="30" height="30" style="object-fit: contain"></span>
+      <span class="logo"><img src="penn-logo.png" alt="University of Pennsylvania" width="30" height="30" onerror="this.parentNode.classList.add('fallback')"><svg aria-hidden="true" class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><defs><linearGradient id="ga" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff8a3d"/><stop offset=".5" stop-color="#ff4d79"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><linearGradient id="bga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24133d"/><stop offset=".5" stop-color="#5b1f4a"/><stop offset="1" stop-color="#b8372e"/></linearGradient><clipPath id="ca"><path d="M4 58 L4 57 L4.00 56.69 L4.70 56.60 L5.40 56.49 L6.10 56.36 L6.80 56.19 L7.50 55.99 L8.20 55.75 L8.90 55.45 L9.60 55.11 L10.30 54.69 L11.00 54.21 L11.70 53.64 L12.40 52.98 L13.10 52.22 L13.80 51.36 L14.50 50.38 L15.20 49.28 L15.90 48.05 L16.60 46.70 L17.30 45.21 L18.00 43.59 L18.70 41.85 L19.40 39.99 L20.10 38.01 L20.80 35.94 L21.50 33.79 L22.20 31.58 L22.90 29.34 L23.60 27.08 L24.30 24.84 L25.00 22.65 L25.70 20.54 L26.40 18.55 L27.10 16.69 L27.80 15.02 L28.50 13.54 L29.20 12.30 L29.90 11.31 L30.60 10.59 L31.30 10.15 L32.00 10.00 L32.70 10.15 L33.40 10.59 L34.10 11.31 L34.80 12.30 L35.50 13.54 L36.20 15.02 L36.90 16.69 L37.60 18.55 L38.30 20.54 L39.00 22.65 L39.70 24.84 L40.40 27.08 L41.10 29.34 L41.80 31.58 L42.50 33.79 L43.20 35.94 L43.90 38.01 L44.60 39.99 L45.30 41.85 L46.00 43.59 L46.70 45.21 L47.40 46.70 L48.10 48.05 L48.80 49.28 L49.50 50.38 L50.20 51.36 L50.90 52.22 L51.60 52.98 L52.30 53.64 L53.00 54.21 L53.70 54.69 L54.40 55.11 L55.10 55.45 L55.80 55.75 L56.50 55.99 L57.20 56.19 L57.90 56.36 L58.60 56.49 L59.30 56.60 L60.00 56.69 L60 57 L60 58 Z"/></clipPath></defs><path d="M4 58 L4 57 L4.00 56.69 L4.70 56.60 L5.40 56.49 L6.10 56.36 L6.80 56.19 L7.50 55.99 L8.20 55.75 L8.90 55.45 L9.60 55.11 L10.30 54.69 L11.00 54.21 L11.70 53.64 L12.40 52.98 L13.10 52.22 L13.80 51.36 L14.50 50.38 L15.20 49.28 L15.90 48.05 L16.60 46.70 L17.30 45.21 L18.00 43.59 L18.70 41.85 L19.40 39.99 L20.10 38.01 L20.80 35.94 L21.50 33.79 L22.20 31.58 L22.90 29.34 L23.60 27.08 L24.30 24.84 L25.00 22.65 L25.70 20.54 L26.40 18.55 L27.10 16.69 L27.80 15.02 L28.50 13.54 L29.20 12.30 L29.90 11.31 L30.60 10.59 L31.30 10.15 L32.00 10.00 L32.70 10.15 L33.40 10.59 L34.10 11.31 L34.80 12.30 L35.50 13.54 L36.20 15.02 L36.90 16.69 L37.60 18.55 L38.30 20.54 L39.00 22.65 L39.70 24.84 L40.40 27.08 L41.10 29.34 L41.80 31.58 L42.50 33.79 L43.20 35.94 L43.90 38.01 L44.60 39.99 L45.30 41.85 L46.00 43.59 L46.70 45.21 L47.40 46.70 L48.10 48.05 L48.80 49.28 L49.50 50.38 L50.20 51.36 L50.90 52.22 L51.60 52.98 L52.30 53.64 L53.00 54.21 L53.70 54.69 L54.40 55.11 L55.10 55.45 L55.80 55.75 L56.50 55.99 L57.20 56.19 L57.90 56.36 L58.60 56.49 L59.30 56.60 L60.00 56.69 L60 57 L60 58 Z" fill="url(#ga)"/><rect x="19.39" y="45.80" width="25.21" height="3.4" rx="1.7" fill="#ffffff" clip-path="url(#ca)"/><rect x="22.41" y="38.80" width="19.18" height="3.4" rx="1.7" fill="#ffffff" clip-path="url(#ca)"/></svg></span>
       <span>Aaron Wang<span class="cn">王湛梁</span></span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#research">Research</a>
-      <button type="button" class="search" data-open-palette>Search <kbd>⌘K</kbd></button>
-      <a href="#contact" class="cta">Contact</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#timeline" data-i18n="nav.timeline">Timeline</a>
+      <a href="#research" data-i18n="nav.research">Research</a>
+      <button type="button" class="search" data-open-palette><span data-i18n="nav.search">Search</span> <kbd>⌘K</kbd></button>
+      <a href="#contact" class="cta" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="topbar-right">
+      <div class="socials"><a class="iconbtn" href="https://github.com/ZhanliangAaronWang" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.3 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a><a class="iconbtn" href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-3a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM1.5 4.5 12 0l10.5 4.5L12 9 1.5 4.5Z"/></svg></a><a class="iconbtn" href="https://www.linkedin.com/in/zhanliang-wang-80868323b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><button type="button" class="iconbtn" data-wechat aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8.7 3C4.45 3 1 5.86 1 9.4c0 1.95 1.05 3.7 2.72 4.88l-.68 2.1 2.44-1.24c.68.19 1.4.3 2.15.33a5.9 5.9 0 0 1-.23-1.6c0-3.45 3.33-6.25 7.44-6.25.33 0 .65.02.97.05C15.1 4.98 12.2 3 8.7 3zm-2.3 3.6a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zm4.6 0a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zM14.84 8.9c-3.43 0-6.2 2.3-6.2 5.14 0 2.84 2.77 5.14 6.2 5.14.62 0 1.22-.08 1.78-.23L18.8 20l-.56-1.75C19.74 17.28 21 15.74 21 14.04c0-2.84-2.75-5.14-6.16-5.14zm-2.1 2.95a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4.1 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg></button></div>
+      <button type="button" class="iconbtn lang-btn" data-toggle-lang aria-label="切换到中文 / Switch language" title="中 / EN">中</button>
       <button type="button" class="iconbtn theme-btn" data-toggle-theme aria-label="Toggle dark mode" title="Toggle dark mode (t)">
         <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -451,8 +526,9 @@
       </button>
     </div>
     <div class="sheet" id="sheet">
-      <a href="#about">About</a><a href="#timeline">Timeline</a><a href="#research">Research</a><a href="#contact">Contact</a>
-      <button type="button" data-open-palette>Search</button>
+      <a href="#about" data-i18n="nav.about">About</a><a href="#timeline" data-i18n="nav.timeline">Timeline</a><a href="#research" data-i18n="nav.research">Research</a><a href="#contact" data-i18n="nav.contact">Contact</a>
+      <button type="button" data-open-palette data-i18n="nav.search">Search</button>
+      <div class="sheet-social"><a class="iconbtn" href="https://github.com/ZhanliangAaronWang" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.3 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a><a class="iconbtn" href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-3a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM1.5 4.5 12 0l10.5 4.5L12 9 1.5 4.5Z"/></svg></a><a class="iconbtn" href="https://www.linkedin.com/in/zhanliang-wang-80868323b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><button type="button" class="iconbtn" data-wechat aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8.7 3C4.45 3 1 5.86 1 9.4c0 1.95 1.05 3.7 2.72 4.88l-.68 2.1 2.44-1.24c.68.19 1.4.3 2.15.33a5.9 5.9 0 0 1-.23-1.6c0-3.45 3.33-6.25 7.44-6.25.33 0 .65.02.97.05C15.1 4.98 12.2 3 8.7 3zm-2.3 3.6a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zm4.6 0a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zM14.84 8.9c-3.43 0-6.2 2.3-6.2 5.14 0 2.84 2.77 5.14 6.2 5.14.62 0 1.22-.08 1.78-.23L18.8 20l-.56-1.75C19.74 17.28 21 15.74 21 14.04c0-2.84-2.75-5.14-6.16-5.14zm-2.1 2.95a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4.1 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg></button></div>
     </div>
   </div>
 </header>
@@ -462,18 +538,30 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="hero">
   <div class="trail" id="trail" aria-hidden="true"></div>
-  <p class="hero-name rv"><span class="logo"><img src="https://branding.web-resources.upenn.edu/sites/default/files/styles/card_3x2/public/2022-03/UniversityofPennsylvania_Shield_RGB-2.png?h=3c287ac3&amp;itok=HgG1DNc-" alt="University of Pennsylvania shield" width="28" height="28" style="object-fit: contain"></span>Zhanliang (Aaron) Wang <span class="cn">王湛梁</span></p>
+  <p class="hero-name rv"><span class="logo"><img src="penn-logo.png" alt="" width="28" height="28" onerror="this.parentNode.classList.add('fallback')"><svg aria-hidden="true" class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="28" height="28"><defs><linearGradient id="ga" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff8a3d"/><stop offset=".5" stop-color="#ff4d79"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><linearGradient id="bga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24133d"/><stop offset=".5" stop-color="#5b1f4a"/><stop offset="1" stop-color="#b8372e"/></linearGradient><clipPath id="ca"><path d="M4 58 L4 57 L4.00 56.69 L4.70 56.60 L5.40 56.49 L6.10 56.36 L6.80 56.19 L7.50 55.99 L8.20 55.75 L8.90 55.45 L9.60 55.11 L10.30 54.69 L11.00 54.21 L11.70 53.64 L12.40 52.98 L13.10 52.22 L13.80 51.36 L14.50 50.38 L15.20 49.28 L15.90 48.05 L16.60 46.70 L17.30 45.21 L18.00 43.59 L18.70 41.85 L19.40 39.99 L20.10 38.01 L20.80 35.94 L21.50 33.79 L22.20 31.58 L22.90 29.34 L23.60 27.08 L24.30 24.84 L25.00 22.65 L25.70 20.54 L26.40 18.55 L27.10 16.69 L27.80 15.02 L28.50 13.54 L29.20 12.30 L29.90 11.31 L30.60 10.59 L31.30 10.15 L32.00 10.00 L32.70 10.15 L33.40 10.59 L34.10 11.31 L34.80 12.30 L35.50 13.54 L36.20 15.02 L36.90 16.69 L37.60 18.55 L38.30 20.54 L39.00 22.65 L39.70 24.84 L40.40 27.08 L41.10 29.34 L41.80 31.58 L42.50 33.79 L43.20 35.94 L43.90 38.01 L44.60 39.99 L45.30 41.85 L46.00 43.59 L46.70 45.21 L47.40 46.70 L48.10 48.05 L48.80 49.28 L49.50 50.38 L50.20 51.36 L50.90 52.22 L51.60 52.98 L52.30 53.64 L53.00 54.21 L53.70 54.69 L54.40 55.11 L55.10 55.45 L55.80 55.75 L56.50 55.99 L57.20 56.19 L57.90 56.36 L58.60 56.49 L59.30 56.60 L60.00 56.69 L60 57 L60 58 Z"/></clipPath></defs><path d="M4 58 L4 57 L4.00 56.69 L4.70 56.60 L5.40 56.49 L6.10 56.36 L6.80 56.19 L7.50 55.99 L8.20 55.75 L8.90 55.45 L9.60 55.11 L10.30 54.69 L11.00 54.21 L11.70 53.64 L12.40 52.98 L13.10 52.22 L13.80 51.36 L14.50 50.38 L15.20 49.28 L15.90 48.05 L16.60 46.70 L17.30 45.21 L18.00 43.59 L18.70 41.85 L19.40 39.99 L20.10 38.01 L20.80 35.94 L21.50 33.79 L22.20 31.58 L22.90 29.34 L23.60 27.08 L24.30 24.84 L25.00 22.65 L25.70 20.54 L26.40 18.55 L27.10 16.69 L27.80 15.02 L28.50 13.54 L29.20 12.30 L29.90 11.31 L30.60 10.59 L31.30 10.15 L32.00 10.00 L32.70 10.15 L33.40 10.59 L34.10 11.31 L34.80 12.30 L35.50 13.54 L36.20 15.02 L36.90 16.69 L37.60 18.55 L38.30 20.54 L39.00 22.65 L39.70 24.84 L40.40 27.08 L41.10 29.34 L41.80 31.58 L42.50 33.79 L43.20 35.94 L43.90 38.01 L44.60 39.99 L45.30 41.85 L46.00 43.59 L46.70 45.21 L47.40 46.70 L48.10 48.05 L48.80 49.28 L49.50 50.38 L50.20 51.36 L50.90 52.22 L51.60 52.98 L52.30 53.64 L53.00 54.21 L53.70 54.69 L54.40 55.11 L55.10 55.45 L55.80 55.75 L56.50 55.99 L57.20 56.19 L57.90 56.36 L58.60 56.49 L59.30 56.60 L60.00 56.69 L60 57 L60 58 Z" fill="url(#ga)"/><rect x="19.39" y="45.80" width="25.21" height="3.4" rx="1.7" fill="#ffffff" clip-path="url(#ca)"/><rect x="22.41" y="38.80" width="19.18" height="3.4" rx="1.7" fill="#ffffff" clip-path="url(#ca)"/></svg></span>Zhanliang (Aaron) Wang <span class="cn">王湛梁</span></p>
   <h1 class="display rv">
-    <span>I build</span>
+    <span data-i18n="hero.lead">I build</span>
     <span class="slot decode" id="slot" data-phrases='["trustworthy AI for genetic disease diagnosis.","language models that know when they’re unsure.","multimodal LLMs for biomedicine.","explanations for how modalities interact.","fair representations of clinical data."]'>trustworthy AI for genetic disease diagnosis.</span>
   </h1>
-  <p class="hero-lede rv">PhD student in <a class="u draw" href="https://amcs.upenn.edu/" target="_blank" rel="noopener">Applied Mathematics and Computational Science</a> at the University of Pennsylvania, working with <a class="u draw" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a> in the Wang Genomics Lab at Children’s Hospital of Philadelphia.</p>
+  <p class="hero-lede rv" data-i18n="hero.lede">PhD student in <a class="u draw" href="https://amcs.upenn.edu/" target="_blank" rel="noopener">Applied Mathematics and Computational Science</a> at the University of Pennsylvania, working with <a class="u draw" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a> in the Wang Genomics Lab at Children’s Hospital of Philadelphia.</p>
   <div class="hero-actions rv">
-    <a class="btn solid" href="#research">Read the research</a>
-    <a class="btn" href="mailto:Zhanliang.Wang666@gmail.com">Email me</a>
-    <button type="button" class="btn" data-open-palette>Search this site <kbd>⌘K</kbd></button>
+    <a class="btn solid" href="#research" data-i18n="hero.read">Read the research</a>
+    <a class="btn" href="mailto:Zhanliang.Wang666@gmail.com" data-i18n="hero.email">Email me</a>
+    <button type="button" class="btn" data-open-palette><span data-i18n="hero.search">Search this site</span> <kbd>⌘K</kbd></button>
   </div>
-  <div class="hud" id="hud" aria-hidden="true"><span class="hud-k">Now forming</span><span class="hud-v" id="hud-v">double helix</span><span class="hud-bar"><i id="hud-bar"></i></span></div>
+  <div class="hero-social rv"><a class="soc" href="https://github.com/ZhanliangAaronWang" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.3 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg><span>GitHub</span></a><a class="soc" href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-3a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM1.5 4.5 12 0l10.5 4.5L12 9 1.5 4.5Z"/></svg><span>Google Scholar</span></a><a class="soc" href="https://www.linkedin.com/in/zhanliang-wang-80868323b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span>LinkedIn</span></a><button type="button" class="soc" data-wechat aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8.7 3C4.45 3 1 5.86 1 9.4c0 1.95 1.05 3.7 2.72 4.88l-.68 2.1 2.44-1.24c.68.19 1.4.3 2.15.33a5.9 5.9 0 0 1-.23-1.6c0-3.45 3.33-6.25 7.44-6.25.33 0 .65.02.97.05C15.1 4.98 12.2 3 8.7 3zm-2.3 3.6a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zm4.6 0a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zM14.84 8.9c-3.43 0-6.2 2.3-6.2 5.14 0 2.84 2.77 5.14 6.2 5.14.62 0 1.22-.08 1.78-.23L18.8 20l-.56-1.75C19.74 17.28 21 15.74 21 14.04c0-2.84-2.75-5.14-6.16-5.14zm-2.1 2.95a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4.1 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg><span>WeChat</span></button><a class="soc" href="mailto:Zhanliang.Wang666@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m4 7 8 6 8-6"/></svg><span>Email</span></a></div>
+  <div class="hud" id="hud" role="group" aria-label="Choose the animation">
+    <span class="hud-k" data-i18n="hud.forming">Forming</span>
+    <span class="hud-v" id="hud-v" aria-live="polite">double helix</span>
+    <span class="picker" id="picker">
+      <button type="button" data-form="0" aria-pressed="true" title="Double helix (1)" data-i18n="pick.0">Helix</button>
+      <button type="button" data-form="1" aria-pressed="false" title="Density surface (2)" data-i18n="pick.1">Density</button>
+      <button type="button" data-form="2" aria-pressed="false" title="Neural network (3)" data-i18n="pick.2">Network</button>
+      <button type="button" data-form="3" aria-pressed="false" title="Attention map (4)" data-i18n="pick.3">Attention</button>
+      <button type="button" data-form="4" aria-pressed="false" title="Embedding space (5)" data-i18n="pick.4">Embedding</button>
+    </span>
+    <button type="button" class="auto" id="auto-btn" aria-pressed="true" title="Cycle automatically"><span data-i18n="hud.auto">Auto</span><span class="hud-bar"><i id="hud-bar"></i></span></button>
+  </div>
   <div class="read" aria-hidden="true"><div class="read-track" id="read"></div></div>
 </section>
 
@@ -481,27 +569,27 @@
 <section class="section" id="about">
   <div class="section-head rv">
     <span class="base A" aria-hidden="true">A</span>
-    <h2 class="display decode" data-decode>About</h2>
-    <span class="n">Who I am</span>
+    <h2 class="display decode" data-decode data-i18n="about.h">About</h2>
+    <span class="n" data-i18n="about.n">Who I am</span>
   </div>
   <div class="rule"></div>
   <div class="about-grid">
     <div>
-      <p class="lead rv">I work on making AI for healthcare <strong>interpretable</strong>, <strong>multimodal</strong>, and <strong>trustworthy</strong>, with a focus on diagnosing genetic diseases. That means combining large language models with images, clinical text, and genomic data, and then making sure the model can say how confident it is and why.</p>
-      <p class="lead rv">I’m advised by <a class="u" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a> (CHOP and the Perelman School of Medicine) and am also pursuing an M.A. in Statistics and Data Science at <a class="u" href="https://statistics.wharton.upenn.edu/" target="_blank" rel="noopener">Wharton</a>. During my master’s at Penn I was advised by <a class="u" href="https://www.med.upenn.edu/shenlab/" target="_blank" rel="noopener">Dr. Li Shen</a>, and I collaborate closely with <a class="u" href="https://bojianhou.com/" target="_blank" rel="noopener">Dr. Bojian Hou</a>, AI Research Scientist at Meta, and <a class="u" href="https://jiancongxiao.github.io/" target="_blank" rel="noopener">Dr. Jiancong Xiao</a>, Assistant Professor in the Department of Computer Science at the National University of Singapore, on LLM algorithms. Before Penn I earned a B.S. in Applied Mathematics, <em>summa cum laude</em>, from NYU Courant and Tandon, having started my undergraduate studies in Applied Mathematics and Statistics at Stony Brook University.</p>
-      <p class="offclock rv">Off the clock you’ll find me playing <b>street basketball</b>. Big fan of <b>LeBron James</b> and the <b>76ers</b>.</p>
+      <p class="lead rv" data-i18n="about.p1">I work on making AI for healthcare <strong>interpretable</strong>, <strong>multimodal</strong>, and <strong>trustworthy</strong>, with a focus on diagnosing genetic diseases. That means combining large language models with images, clinical text, and genomic data, and then making sure the model can say how confident it is and why.</p>
+      <p class="lead rv" data-i18n="about.p2">I’m advised by <a class="u" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a> (CHOP and the Perelman School of Medicine) and am also pursuing an M.A. in Statistics and Data Science at <a class="u" href="https://statistics.wharton.upenn.edu/" target="_blank" rel="noopener">Wharton</a>. During my master’s at Penn I was advised by <a class="u" href="https://www.med.upenn.edu/shenlab/" target="_blank" rel="noopener">Dr. Li Shen</a>, and I collaborate closely with <a class="u" href="https://bojianhou.com/" target="_blank" rel="noopener">Dr. Bojian Hou</a>, AI Research Scientist at Meta, and <a class="u" href="https://jiancongxiao.github.io/" target="_blank" rel="noopener">Dr. Jiancong Xiao</a>, Assistant Professor in the Department of Computer Science at the National University of Singapore, on LLM algorithms. Before Penn I earned a B.S. in Applied Mathematics, <em>summa cum laude</em>, from NYU Courant and Tandon, having started my undergraduate studies in Applied Mathematics and Statistics at Stony Brook University. I grew up in Qingdao, China, and graduated from Qingdao No. 58 High School.</p>
+      <p class="offclock rv" data-i18n="about.off">Off the clock you’ll find me playing <b>street basketball</b>. Big fan of <b>LeBron James</b> and the <b>76ers</b>.</p>
     </div>
     <figure class="portrait rv">
       <span class="strip" aria-hidden="true"></span>
       <img src="selfie.png" alt="Portrait of Zhanliang (Aaron) Wang" width="800" height="800" loading="lazy">
-      <figcaption><b>Aaron Wang</b><span>Philadelphia, PA</span></figcaption>
+      <figcaption><b>Aaron Wang</b><span data-i18n="about.loc">Philadelphia, PA</span></figcaption>
     </figure>
   </div>
   <div class="areas" id="areas">
-    <button type="button" class="area rv" data-topic="Explainability"><span class="base A" aria-hidden="true">A</span><span class="area-body"><span class="area-title">Attribution <small data-topic-count="Explainability"></small></span><span class="area-desc">Shapley-based explanations for how modalities interact inside multimodal models.</span></span></button>
-    <button type="button" class="area rv" data-topic="Calibration"><span class="base C" aria-hidden="true">C</span><span class="area-body"><span class="area-title">Calibration <small data-topic-count="Calibration"></small></span><span class="area-desc">Fine-tuning and evaluation methods so an LLM’s confidence actually matches its accuracy.</span></span></button>
-    <button type="button" class="area rv" data-topic="Rare disease"><span class="base G" aria-hidden="true">G</span><span class="area-body"><span class="area-title">Genetic diagnosis <small data-topic-count="Rare disease"></small></span><span class="area-desc">Multimodal learning over facial images, clinical notes, and phenotypes for rare genetic disease.</span></span></button>
-    <button type="button" class="area rv" data-topic="LLMs"><span class="base T" aria-hidden="true">T</span><span class="area-body"><span class="area-title">Trustworthy LLMs <small data-topic-count="LLMs"></small></span><span class="area-desc">Retrieval, reasoning, and preference optimization for clinical decision support you can rely on.</span></span></button>
+    <button type="button" class="area rv" data-topic="Explainability"><span class="base A" aria-hidden="true">A</span><span class="area-body"><span class="area-title"><span data-i18n="area.0.t">Attribution</span> <small data-topic-count="Explainability"></small></span><span class="area-desc" data-i18n="area.0.d">Shapley-based explanations for how modalities interact inside multimodal models.</span></span></button>
+    <button type="button" class="area rv" data-topic="Calibration"><span class="base C" aria-hidden="true">C</span><span class="area-body"><span class="area-title"><span data-i18n="area.1.t">Calibration</span> <small data-topic-count="Calibration"></small></span><span class="area-desc" data-i18n="area.1.d">Fine-tuning and evaluation methods so an LLM’s confidence actually matches its accuracy.</span></span></button>
+    <button type="button" class="area rv" data-topic="Rare disease"><span class="base G" aria-hidden="true">G</span><span class="area-body"><span class="area-title"><span data-i18n="area.2.t">Genetic diagnosis</span> <small data-topic-count="Rare disease"></small></span><span class="area-desc" data-i18n="area.2.d">Multimodal learning over facial images, clinical notes, and phenotypes for rare genetic disease.</span></span></button>
+    <button type="button" class="area rv" data-topic="LLMs"><span class="base T" aria-hidden="true">T</span><span class="area-body"><span class="area-title"><span data-i18n="area.3.t">Trustworthy LLMs</span> <small data-topic-count="LLMs"></small></span><span class="area-desc" data-i18n="area.3.d">Retrieval, reasoning, and preference optimization for clinical decision support you can rely on.</span></span></button>
   </div>
 </section>
 
@@ -509,41 +597,46 @@
 <section class="section" id="timeline">
   <div class="section-head rv">
     <span class="base C" aria-hidden="true">C</span>
-    <h2 class="display decode" data-decode>Timeline</h2>
-    <span class="n">2019 to 2029</span>
+    <h2 class="display decode" data-decode data-i18n="tl.h">Timeline</h2>
+    <span class="n" data-i18n="tl.n">2016 to 2029</span>
   </div>
   <div class="rule"></div>
-  <div class="ideo rv" id="ideo" role="img" aria-label="Timeline: Applied Mathematics and Statistics at Stony Brook University 2019 to 2021 (transferred, no degree), B.S. at NYU 2021 to 2023, M.A. at Penn 2023 to 2025, Ph.D. at Penn from 2025, M.A. at Wharton from 2026 to 2027."></div>
+  <div class="ideo rv" id="ideo" role="img" aria-label="Timeline: Qingdao No. 58 High School 2016 to 2019, Applied Mathematics and Statistics at Stony Brook University 2019 to 2021 (transferred, no degree), B.S. at NYU 2021 to 2023, M.A. at Penn 2023 to 2025, Ph.D. at Penn from 2025, M.A. at Wharton from 2026 to 2027."></div>
   <div class="entries">
     <article class="entry rv" data-key="phd" style="--c:var(--C)">
-      <div class="when">Aug 2025 – May 2029 (expected)</div>
-      <h3>Ph.D., Applied Mathematics &amp; Computational Science</h3>
-      <div class="org">University of Pennsylvania, Wang Genomics Lab at CHOP</div>
-      <ul><li>Advised by <a class="u" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a>.</li><li>Multimodal LLMs and explainable AI for genetic disease diagnosis.</li></ul>
+      <div class="when" data-i18n="e.phd.when">Aug 2025 – May 2029 (expected)</div>
+      <h3 data-i18n="e.phd.h">Ph.D., Applied Mathematics &amp; Computational Science</h3>
+      <div class="org" data-i18n="e.phd.org">University of Pennsylvania, Wang Genomics Lab at CHOP</div>
+      <div data-i18n="e.phd.ul"><ul><li>Advised by <a class="u" href="https://wglab.org/" target="_blank" rel="noopener">Dr. Kai Wang</a>.</li><li>Multimodal LLMs and explainable AI for genetic disease diagnosis.</li></ul></div>
     </article>
     <article class="entry rv" data-key="wharton" style="--c:var(--G)">
-      <div class="when">Feb 2026 – Dec 2027 (expected)</div>
-      <h3>M.A., Statistics and Data Science</h3>
-      <div class="org">The Wharton School, University of Pennsylvania</div>
-      <ul><li>Pursued alongside the Ph.D.</li></ul>
+      <div class="when" data-i18n="e.wharton.when">Feb 2026 – Dec 2027 (expected)</div>
+      <h3 data-i18n="e.wharton.h">M.A., Statistics and Data Science</h3>
+      <div class="org" data-i18n="e.wharton.org">The Wharton School, University of Pennsylvania</div>
+      <div data-i18n="e.wharton.ul"><ul><li>Pursued alongside the Ph.D.</li></ul></div>
     </article>
     <article class="entry rv" data-key="ma" style="--c:var(--T)">
-      <div class="when">Aug 2023 – May 2025</div>
-      <h3>M.A., Applied Mathematics &amp; Computational Science</h3>
-      <div class="org">University of Pennsylvania, Shen Lab</div>
-      <ul><li>Advised by <a class="u" href="https://www.med.upenn.edu/shenlab/" target="_blank" rel="noopener">Dr. Li Shen</a>.</li><li>LLM calibration (ICML 2025) and fair representation learning (ACM-BCB 2025).</li></ul>
+      <div class="when" data-i18n="e.ma.when">Aug 2023 – May 2025</div>
+      <h3 data-i18n="e.ma.h">M.A., Applied Mathematics &amp; Computational Science</h3>
+      <div class="org" data-i18n="e.ma.org">University of Pennsylvania, Shen Lab</div>
+      <div data-i18n="e.ma.ul"><ul><li>Advised by <a class="u" href="https://www.med.upenn.edu/shenlab/" target="_blank" rel="noopener">Dr. Li Shen</a>.</li><li>LLM calibration (ICML 2025) and fair representation learning (ACM-BCB 2025).</li></ul></div>
     </article>
     <article class="entry rv" data-key="nyu" style="--c:var(--A)">
-      <div class="when">2021 – 2023</div>
-      <h3>B.S., Applied Mathematics</h3>
-      <div class="org">New York University, Courant Institute and Tandon School of Engineering</div>
-      <ul><li>Graduated <em>summa cum laude</em>.</li><li>Transferred in from Stony Brook University.</li></ul>
+      <div class="when" data-i18n="e.nyu.when">2021 – 2023</div>
+      <h3 data-i18n="e.nyu.h">B.S., Applied Mathematics</h3>
+      <div class="org" data-i18n="e.nyu.org">New York University, Courant Institute and Tandon School of Engineering</div>
+      <div data-i18n="e.nyu.ul"><ul><li>Graduated <em>summa cum laude</em>.</li><li>Transferred in from Stony Brook University.</li></ul></div>
     </article>
     <article class="entry rv" data-key="sbu" style="--c:var(--ink-3)">
-      <div class="when">2019 – 2021</div>
-      <h3>Applied Mathematics &amp; Statistics</h3>
-      <div class="org">Stony Brook University</div>
-      <ul><li>First two years of undergraduate study, then transferred to NYU in 2021. No degree conferred.</li></ul>
+      <div class="when" data-i18n="e.sbu.when">2019 – 2021</div>
+      <h3 data-i18n="e.sbu.h">Applied Mathematics &amp; Statistics</h3>
+      <div class="org" data-i18n="e.sbu.org">Stony Brook University</div>
+      <div data-i18n="e.sbu.ul"><ul><li>First two years of undergraduate study, then transferred to NYU in 2021. No degree conferred.</li></ul></div>
+    </article>
+    <article class="entry rv" data-key="hs" style="--c:var(--ink-3)">
+      <div class="when" data-i18n="e.hs.when">2016 – 2019</div>
+      <h3 data-i18n="e.hs.h">High School</h3>
+      <div class="org" data-i18n="e.hs.org">Qingdao No. 58 High School, Qingdao, China</div>
     </article>
   </div>
 </section>
@@ -552,42 +645,43 @@
 <section class="section" id="research">
   <div class="section-head rv">
     <span class="base G" aria-hidden="true">G</span>
-    <h2 class="display decode" data-decode>Research</h2>
-    <span class="n">* equal contribution</span>
+    <h2 class="display decode" data-decode data-i18n="r.h">Research</h2>
+    <span class="n" data-i18n="r.n">* equal contribution</span>
   </div>
   <div class="rule"></div>
   <p class="stats rv" id="stats"></p>
+  <div class="featured" id="featured"></div>
 
   <div class="graph-wrap rv" id="graph-wrap">
     <div class="graph-head">
-      <span><b>Research map.</b> Papers, topics and the PIs I work with. Drag nodes, hover to trace, click a topic or a name to filter the list.</span>
+      <span data-i18n="r.map"><b>Research map.</b> Papers, topics and the PIs I work with. Drag nodes, hover to trace, click a topic or a name to filter the list.</span>
       <div class="legend" aria-hidden="true">
-        <span><i style="--c:var(--C)"></i>Conference</span><span><i style="--c:var(--A)"></i>Journal</span><span><i style="--c:var(--T)"></i>Preprint</span><span><i class="sq"></i>Topic</span><span><i class="ring"></i>PI</span>
+        <span><i style="--c:var(--C)"></i><span data-i18n="r.l.conf">Conference</span></span><span><i style="--c:var(--A)"></i><span data-i18n="r.l.journal">Journal</span></span><span><i style="--c:var(--T)"></i><span data-i18n="r.l.pre">Preprint</span></span><span><i class="sq"></i><span data-i18n="r.l.topic">Topic</span></span><span><i class="ring"></i>PI</span>
       </div>
     </div>
     <canvas id="graph" aria-label="Interactive map of papers, topics and PIs" role="img"></canvas>
     <div class="graph-tip" id="graph-tip"></div>
-    <div class="graph-foot"><span id="graph-status">Simulating</span><button type="button" id="graph-reset">Reset layout</button><button type="button" id="graph-fit">Shuffle</button></div>
+    <div class="graph-foot"><span id="graph-status">Simulating</span><button type="button" id="graph-reset" data-i18n="r.reset">Reset layout</button><button type="button" id="graph-fit" data-i18n="r.shuffle">Shuffle</button></div>
   </div>
 
   <div class="research-grid">
     <div>
       <div class="toolbar rv">
         <div class="seg" role="group" aria-label="Filter publications">
-          <button type="button" data-f="all" aria-pressed="true">All <small data-count="all"></small></button>
-          <button type="button" data-f="lead" aria-pressed="false">First / co-first <small data-count="lead"></small></button>
-          <button type="button" data-f="conf" aria-pressed="false">Conferences <small data-count="conf"></small></button>
-          <button type="button" data-f="journal" aria-pressed="false">Journals <small data-count="journal"></small></button>
-          <button type="button" data-f="preprint" aria-pressed="false">Preprints <small data-count="preprint"></small></button>
+          <button type="button" data-f="all" aria-pressed="true"><span data-i18n="f.all">All</span> <small data-count="all"></small></button>
+          <button type="button" data-f="lead" aria-pressed="false"><span data-i18n="f.lead">First / co-first</span> <small data-count="lead"></small></button>
+          <button type="button" data-f="conf" aria-pressed="false"><span data-i18n="f.conf">Conferences</span> <small data-count="conf"></small></button>
+          <button type="button" data-f="journal" aria-pressed="false"><span data-i18n="f.journal">Journals</span> <small data-count="journal"></small></button>
+          <button type="button" data-f="preprint" aria-pressed="false"><span data-i18n="f.pre">Preprints</span> <small data-count="preprint"></small></button>
         </div>
         <span class="active-filter" id="active-filter"><span id="active-filter-text"></span><button type="button" id="active-filter-clear" aria-label="Clear filter">×</button></span>
       </div>
       <div class="ledger" id="ledger"></div>
       <p class="empty" id="empty" hidden>Nothing in this category yet.</p>
-      <p class="scholar-note rv">Full list on <a href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+      <p class="scholar-note rv" data-i18n="r.full">Full list on <a href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
     </div>
     <aside class="newscol">
-      <h3>News</h3>
+      <h3 data-i18n="r.news">News</h3>
       <ul class="log" id="log"></ul>
     </aside>
   </div>
@@ -598,19 +692,31 @@
   <div class="contact-panel rv">
     <div class="section-head">
       <span class="base T" aria-hidden="true">T</span>
-      <h2 class="display decode" data-decode>Let’s talk.</h2>
+      <h2 class="display decode" data-decode data-i18n="c.h">Let’s talk.</h2>
     </div>
-    <p>Open to collaborations on multimodal and trustworthy AI for medicine, and always happy to compare notes on calibration.</p>
+    <p data-i18n="c.p">Open to collaborations on multimodal and trustworthy AI for medicine, and always happy to compare notes on calibration.</p>
     <a class="mail" href="mailto:Zhanliang.Wang666@gmail.com" id="mail">Zhanliang.Wang666@gmail.com</a>
     <div class="contact-actions">
-      <button type="button" class="btn" data-copy-email>Copy email</button>
-      <button type="button" class="btn" id="wechat-open">WeChat</button>
+      <button type="button" class="btn" data-copy-email data-i18n="c.copy">Copy email</button>
+      <button type="button" class="btn" id="wechat-open" data-i18n="c.wechat">WeChat</button>
       <a class="btn" href="https://github.com/ZhanliangAaronWang" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/zhanliang-wang-80868323b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a class="btn" href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <button type="button" class="btn" data-print>Print as CV</button>
+      <button type="button" class="btn" data-print data-i18n="c.print">Print as CV</button>
     </div>
-    <div class="loc">Philadelphia, PA<br>University of Pennsylvania<br>Wang Genomics Lab<br><span id="clock-line">Local time <b id="clock">—</b></span></div>
+    <!-- Message form. Leave data-endpoint empty and it opens the visitor's mail app with everything pre-filled.
+         Put a Formspree endpoint (https://formspree.io/f/xxxx) in data-endpoint and it posts straight to the inbox instead. -->
+    <form class="msg" id="contact-form" data-endpoint="" novalidate>
+      <div class="msg-head"><b data-i18n="m.h">Or leave a message here.</b><span id="msg-mode" data-i18n="m.mode">Opens in your mail app</span></div>
+      <div class="msg-grid">
+        <label><span data-i18n="m.name">Name</span><input type="text" name="name" autocomplete="name" required placeholder="Your name" data-i18n-ph="m.name.ph"></label>
+        <label><span data-i18n="m.email">Email</span><input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
+        <label class="wide"><span data-i18n="m.msg">Message</span><textarea name="message" rows="4" required placeholder="What would you like to talk about?" data-i18n-ph="m.msg.ph"></textarea></label>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      </div>
+      <div class="msg-foot"><button type="submit" class="btn solid light" data-i18n="m.send">Send message</button><span class="msg-note" id="msg-note"></span></div>
+    </form>
+    <div class="loc"><span data-i18n="c.loc">Philadelphia, PA<br>University of Pennsylvania<br>Wang Genomics Lab</span><br><span id="clock-line"><span data-i18n="c.time">Local time</span> <b id="clock">—</b></span></div>
     <svg class="helix-bg" viewBox="0 0 320 320" aria-hidden="true" id="helix-bg"></svg>
   </div>
 </section>
@@ -639,6 +745,7 @@
     <div><span>Toggle dark mode</span><span><kbd>t</kbd></span></div>
     <div><span>Go to About / Timeline / Research / Contact</span><span><kbd>g</kbd> then <kbd>a</kbd><kbd>t</kbd><kbd>r</kbd><kbd>c</kbd></span></div>
     <div><span>Back to top</span><span><kbd>g</kbd> then <kbd>g</kbd></span></div>
+    <div><span>Pick the hero animation</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><kbd>5</kbd></span></div>
     <div><span>This list</span><span><kbd>?</kbd></span></div>
   </div>
 </dialog>
@@ -653,7 +760,7 @@
 <footer>
   <span>© <span id="yr">2026</span> Zhanliang (Aaron) Wang</span>
   <span class="seq" aria-hidden="true"><span class="A">A</span><span class="C">C</span><span class="G">G</span><span class="T">T</span></span>
-  <span><button type="button" data-open-help>Shortcuts</button></span>
+  <span><button type="button" data-open-help data-i18n="foot.keys">Shortcuts</button></span>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -667,13 +774,14 @@
 {
   "me": "Zhanliang Wang",
   "pis": ["Kai Wang", "Li Shen", "Bojian Hou", "Jiancong Xiao", "Weijie J. Su"],
+  "featured": ["semece", "multishap", "repair"],
   "pubs": [
-    {"id": "semece", "year": 2026, "type": "conf", "lead": "first", "title": "A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering", "authors": ["Zhanliang Wang", "Jiancong Xiao", "Ruochen Jin", "Shu Yang", "Bojian Hou", "Li Shen"], "equal": [0, 1], "venue": "NeurIPS 2026", "venueLong": "Conference on Neural Information Processing Systems", "arxiv": "2605.08432", "links": {"arXiv": "https://arxiv.org/abs/2605.08432"}, "topics": ["LLMs", "Calibration", "Evaluation"]},
-    {"id": "repair", "year": 2026, "type": "conf", "lead": "first", "title": "Beyond Logit Adjustment: A Residual Decomposition Framework for Long-Tailed Reranking", "authors": ["Zhanliang Wang", "Hongzhuo Chen", "Quan Minh Nguyen", "Mian Umair Ahsan", "Kai Wang"], "equal": [], "venue": "COLM 2026", "venueLong": "Conference on Language Modeling", "arxiv": "2604.01506", "links": {"arXiv": "https://arxiv.org/abs/2604.01506"}, "topics": ["LLMs", "Reranking"]},
+    {"id": "semece", "year": 2026, "type": "conf", "lead": "first", "title": "A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering", "authors": ["Zhanliang Wang", "Jiancong Xiao", "Ruochen Jin", "Shu Yang", "Bojian Hou", "Li Shen"], "equal": [0, 1], "venue": "NeurIPS 2026", "venueLong": "Conference on Neural Information Processing Systems", "arxiv": "2605.08432", "links": {"arXiv": "https://arxiv.org/abs/2605.08432"}, "topics": ["LLMs", "Calibration", "Evaluation"], "tldr": "Measures whether an LLM’s confidence matches its accuracy on open-ended answers by sampling semantically equivalent responses instead of exact-match scoring."},
+    {"id": "repair", "year": 2026, "type": "conf", "lead": "first", "title": "Beyond Logit Adjustment: A Residual Decomposition Framework for Long-Tailed Reranking", "authors": ["Zhanliang Wang", "Hongzhuo Chen", "Quan Minh Nguyen", "Mian Umair Ahsan", "Kai Wang"], "equal": [], "venue": "COLM 2026", "venueLong": "Conference on Language Modeling", "arxiv": "2604.01506", "links": {"arXiv": "https://arxiv.org/abs/2604.01506"}, "topics": ["LLMs", "Reranking"], "tldr": "Decomposes reranking scores into a residual that can be adjusted for long-tailed label distributions, going beyond simple logit adjustment."},
     {"id": "bilevel", "year": 2026, "type": "conf", "lead": "co-first", "title": "Beyond Post-Hoc Temperature Scaling: Bilevel Optimization for LLM Calibration", "authors": ["Ruochen Jin", "Zhanliang Wang", "Zongyu Dai", "Jiancong Xiao", "Bojian Hou"], "equal": [0, 1], "venue": "COLM 2026", "venueLong": "Conference on Language Modeling", "links": {"OpenReview": "https://openreview.net/forum?id=tEm7TY0hP8"}, "topics": ["LLMs", "Calibration"]},
-    {"id": "multishap", "year": 2026, "type": "journal", "lead": "first", "title": "MultiSHAP: A Shapley-Based Framework for Explaining Cross-Modal Interactions in Multimodal AI Models", "authors": ["Zhanliang Wang", "Kai Wang"], "equal": [], "venue": "npj Artificial Intelligence", "venueLong": "npj Artificial Intelligence", "arxiv": "2508.00576", "links": {"arXiv": "https://arxiv.org/abs/2508.00576", "Video": "https://youtu.be/VGaN9p-2CQk"}, "topics": ["Explainability", "Multimodal"]},
-    {"id": "mint", "year": 2026, "type": "journal", "lead": "first", "title": "MINT: Multimodal Integrated Knowledge Transfer to Large Language Models through Preference Optimization with Biomedical Applications", "authors": ["Zhanliang Wang", "Da Wu", "Quan M. Nguyen", "Zhuoran Xu", "Kai Wang"], "equal": [0, 1], "venue": "Patterns (Cell Press)", "venueLong": "Patterns", "note": "Also ICML 2025 GenBio Workshop, oral", "arxiv": "2505.05736", "links": {"arXiv": "https://arxiv.org/abs/2505.05736"}, "topics": ["LLMs", "Multimodal", "Rare disease"]},
-    {"id": "cotrag", "year": 2026, "type": "journal", "lead": "first", "title": "Integrating Chain-of-Thought and Retrieval Augmented Generation Enhances Rare Disease Diagnosis from Clinical Notes", "authors": ["Zhanliang Wang", "Da Wu", "Quan Nguyen", "Kai Wang"], "equal": [0, 1], "venue": "Medicine Bulletin, in press", "venueLong": "Medicine Bulletin", "arxiv": "2503.12286", "links": {"arXiv": "https://arxiv.org/abs/2503.12286"}, "topics": ["LLMs", "Rare disease", "Retrieval"]},
+    {"id": "multishap", "year": 2026, "type": "journal", "lead": "first", "title": "MultiSHAP: A Shapley-Based Framework for Explaining Cross-Modal Interactions in Multimodal AI Models", "authors": ["Zhanliang Wang", "Kai Wang"], "equal": [], "venue": "npj Artificial Intelligence", "venueLong": "npj Artificial Intelligence", "arxiv": "2508.00576", "links": {"arXiv": "https://arxiv.org/abs/2508.00576", "Video": "https://youtu.be/VGaN9p-2CQk"}, "topics": ["Explainability", "Multimodal"], "tldr": "A Shapley-value framework that attributes a multimodal model’s prediction to interactions between modalities, not just to each modality alone."},
+    {"id": "mint", "year": 2026, "type": "journal", "lead": "first", "title": "MINT: Multimodal Integrated Knowledge Transfer to Large Language Models through Preference Optimization with Biomedical Applications", "authors": ["Zhanliang Wang", "Da Wu", "Quan M. Nguyen", "Zhuoran Xu", "Kai Wang"], "equal": [0, 1], "venue": "Patterns (Cell Press)", "venueLong": "Patterns", "note": "Also ICML 2025 GenBio Workshop, oral", "arxiv": "2505.05736", "links": {"arXiv": "https://arxiv.org/abs/2505.05736"}, "topics": ["LLMs", "Multimodal", "Rare disease"], "tldr": "Transfers multimodal knowledge into a language model with preference optimization, applied to biomedical tasks."},
+    {"id": "cotrag", "year": 2026, "type": "journal", "lead": "first", "title": "Integrating Chain-of-Thought and Retrieval Augmented Generation Enhances Rare Disease Diagnosis from Clinical Notes", "authors": ["Zhanliang Wang", "Da Wu", "Quan Nguyen", "Kai Wang"], "equal": [0, 1], "venue": "Medicine Bulletin, in press", "venueLong": "Medicine Bulletin", "arxiv": "2503.12286", "links": {"arXiv": "https://arxiv.org/abs/2503.12286"}, "topics": ["LLMs", "Rare disease", "Retrieval"], "tldr": "Combines chain-of-thought reasoning with retrieval to diagnose rare diseases from clinical notes."},
     {"id": "gestaltmml", "year": 2026, "type": "conf", "lead": "", "title": "GestaltMML: Enhancing Rare Genetic Disease Diagnosis through Multimodal Machine Learning Combining Facial Images and Clinical Texts", "authors": ["Da Wu", "Zhanliang Wang", "Hongzhuo Chen", "Jingye Yang", "Cong Liu", "Tzung-Chien Hsieh", "Elaine Marchi"], "others": true, "lastAuthors": ["Jennifer M. Kalish", "Kai Wang"], "equal": [], "venue": "BIBM 2026", "venueLong": "IEEE International Conference on Bioinformatics and Biomedicine", "arxiv": "2312.15320", "links": {"arXiv": "https://arxiv.org/abs/2312.15320"}, "topics": ["Multimodal", "Rare disease"]},
     {"id": "aadt", "year": 2026, "type": "preprint", "lead": "", "title": "Autonomous Agent-Orchestrated Digital Twins (AADT): Leveraging the OpenClaw Framework for State Synchronization in Rare Genetic Disorders", "authors": ["Hongzhuo Chen", "Zhanliang Wang", "Quan M. Nguyen", "Gongbo Zhang", "Chunhua Weng", "Kai Wang"], "equal": [], "venue": "arXiv preprint", "venueLong": "arXiv", "arxiv": "2603.27104", "links": {"arXiv": "https://arxiv.org/abs/2603.27104"}, "topics": ["Agents", "Rare disease"]},
     {"id": "cft", "year": 2025, "type": "conf", "lead": "co-first", "title": "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach", "authors": ["Jiancong Xiao", "Bojian Hou", "Zhanliang Wang", "Ruochen Jin", "Qi Long", "Weijie J. Su", "Li Shen"], "equal": [0, 1, 2], "venue": "ICML 2025", "venueLong": "International Conference on Machine Learning", "arxiv": "2505.01997", "links": {"arXiv": "https://arxiv.org/abs/2505.01997"}, "topics": ["LLMs", "Calibration"]},
@@ -727,6 +835,54 @@
   $$('[data-copy-email]').forEach(function (b) { b.addEventListener('click', function () { copy(EMAIL, 'Email copied'); }); });
   $$('[data-print]').forEach(function (b) { b.addEventListener('click', function () { window.print(); }); });
 
+  /* ---------- language (EN / 中文) ---------- */
+  var ZH = {
+    'nav.about': '关于', 'nav.timeline': '时间线', 'nav.research': '研究', 'nav.search': '搜索', 'nav.contact': '联系',
+    'hero.lead': '我在做', 'hero.read': '看看研究', 'hero.email': '发邮件', 'hero.search': '站内搜索',
+    'hero.lede': '宾夕法尼亚大学应用数学与计算科学博士生，在费城儿童医院 <a class="u draw" href="https://wglab.org/" target="_blank" rel="noopener">王凯教授</a> 的 Wang Genomics Lab 做研究。',
+    'hud.forming': '当前形态', 'hud.auto': '自动', 'pick.0': '双螺旋', 'pick.1': '密度曲面', 'pick.2': '神经网络', 'pick.3': '注意力', 'pick.4': '嵌入空间',
+    'about.h': '关于我', 'about.n': '我是谁', 'about.loc': '美国费城',
+    'about.p1': '我的研究目标是让医疗 AI 更<strong>可解释</strong>、更<strong>多模态</strong>、更<strong>可信赖</strong>，重点是遗传病的诊断：把大语言模型和影像、临床文本、基因组数据结合起来，并且让模型说得清自己有多确定、为什么。',
+    'about.p2': '我的导师是 <a class="u" href="https://wglab.org/" target="_blank" rel="noopener">王凯教授</a>（费城儿童医院、宾大医学院），同时在 <a class="u" href="https://statistics.wharton.upenn.edu/" target="_blank" rel="noopener">沃顿商学院</a> 攻读统计与数据科学硕士。硕士期间师从 <a class="u" href="https://www.med.upenn.edu/shenlab/" target="_blank" rel="noopener">沈理教授</a>，并与 Meta 的 AI 研究科学家 <a class="u" href="https://bojianhou.com/" target="_blank" rel="noopener">侯博建博士</a> 和新加坡国立大学计算机系助理教授 <a class="u" href="https://jiancongxiao.github.io/" target="_blank" rel="noopener">萧建聪博士</a> 长期合作研究大模型算法。来宾大之前，我以 <em>summa cum laude</em> 从纽约大学 Courant 与 Tandon 学院获得应用数学学士，本科最初在石溪大学攻读应用数学与统计。我在青岛长大，毕业于青岛五十八中。',
+    'about.off': '不做研究的时候，我在打<b>街头篮球</b>。<b>勒布朗·詹姆斯</b>和<b>76 人</b>的忠实球迷。',
+    'area.0.t': '归因', 'area.0.d': '基于 Shapley 值解释多模态模型内部各模态如何交互。',
+    'area.1.t': '校准', 'area.1.d': '用微调和评估方法，让大模型的置信度真正对应它的准确率。',
+    'area.2.t': '遗传病诊断', 'area.2.d': '面向罕见遗传病，融合面部图像、临床笔记和表型的多模态学习。',
+    'area.3.t': '可信赖的大模型', 'area.3.d': '检索、推理与偏好优化，做经得起信赖的临床决策支持。',
+    'tl.h': '时间线', 'tl.n': '2016 至 2029',
+    'e.phd.when': '2025 年 8 月 – 2029 年 5 月（预计）', 'e.phd.h': '博士，应用数学与计算科学', 'e.phd.org': '宾夕法尼亚大学，费城儿童医院 Wang Genomics Lab', 'e.phd.ul': '<ul><li>导师：<a class="u" href="https://wglab.org/" target="_blank" rel="noopener">王凯教授</a>。</li><li>面向遗传病诊断的多模态大模型与可解释 AI。</li></ul>',
+    'e.wharton.when': '2026 年 2 月 – 2027 年 12 月（预计）', 'e.wharton.h': '硕士，统计与数据科学', 'e.wharton.org': '宾夕法尼亚大学沃顿商学院', 'e.wharton.ul': '<ul><li>与博士同步攻读。</li></ul>',
+    'e.ma.when': '2023 年 8 月 – 2025 年 5 月', 'e.ma.h': '硕士，应用数学与计算科学', 'e.ma.org': '宾夕法尼亚大学，Shen Lab', 'e.ma.ul': '<ul><li>导师：<a class="u" href="https://www.med.upenn.edu/shenlab/" target="_blank" rel="noopener">沈理教授</a>。</li><li>大模型校准（ICML 2025）与公平表示学习（ACM-BCB 2025）。</li></ul>',
+    'e.nyu.when': '2021 – 2023', 'e.nyu.h': '学士，应用数学', 'e.nyu.org': '纽约大学，Courant 数学科学研究所与 Tandon 工程学院', 'e.nyu.ul': '<ul><li>以 <em>summa cum laude</em> 毕业。</li><li>从石溪大学转学而来。</li></ul>',
+    'e.sbu.when': '2019 – 2021', 'e.sbu.h': '应用数学与统计', 'e.sbu.org': '石溪大学', 'e.sbu.ul': '<ul><li>本科前两年，2021 年转学至纽约大学，未在此获得学位。</li></ul>',
+    'e.hs.when': '2016 – 2019', 'e.hs.h': '高中', 'e.hs.org': '青岛第五十八中学，中国青岛',
+    'r.h': '研究', 'r.n': '* 共同第一作者',
+    'r.map': '<b>研究地图。</b>论文、主题和合作的 PI。可以拖动节点，悬停查看关联，点击主题或名字筛选下方列表。',
+    'r.l.conf': '会议', 'r.l.journal': '期刊', 'r.l.pre': '预印本', 'r.l.topic': '主题', 'r.reset': '重新布局', 'r.shuffle': '打乱',
+    'f.all': '全部', 'f.lead': '一作 / 共一', 'f.conf': '会议', 'f.journal': '期刊', 'f.pre': '预印本',
+    'r.full': '完整列表见 <a href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>。', 'r.news': '动态',
+    'c.h': '聊聊。', 'c.p': '欢迎就多模态与可信赖的医疗 AI 展开合作，也随时乐意交流校准方面的想法。',
+    'c.copy': '复制邮箱', 'c.wechat': '微信', 'c.print': '打印简历', 'c.loc': '美国费城<br>宾夕法尼亚大学<br>Wang Genomics Lab', 'c.time': '当地时间',
+    'm.h': '或者在这里留言。', 'm.mode': '将打开你的邮件应用', 'm.name': '姓名', 'm.name.ph': '你的名字', 'm.email': '邮箱', 'm.msg': '留言', 'm.msg.ph': '想聊点什么？', 'm.send': '发送',
+    'foot.keys': '快捷键'
+  };
+  var ZH_PHRASES = ['可信赖的遗传病诊断 AI。', '知道自己何时不确定的语言模型。', '面向生物医学的多模态大模型。', '解释模态之间如何交互。', '公平的临床数据表示。'];
+  var ZH_FORMS = ['双螺旋', '概率密度曲面', '神经网络', '注意力图', '嵌入空间'];
+  var EN = {}, ENPH = {}, lang = 'en';
+  $$('[data-i18n]').forEach(function (el) { EN[el.dataset.i18n] = el.innerHTML; });
+  $$('[data-i18n-ph]').forEach(function (el) { ENPH[el.dataset.i18nPh] = el.placeholder; });
+  var langListeners = [];
+  function setLang(l) {
+    lang = l === 'zh' ? 'zh' : 'en';
+    root.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+    $$('[data-i18n]').forEach(function (el) { var k = el.dataset.i18n, v = lang === 'zh' ? ZH[k] : EN[k]; if (v != null) el.innerHTML = v; if (el.hasAttribute('data-decode')) el.setAttribute('data-text', el.textContent.trim()); });
+    $$('[data-i18n-ph]').forEach(function (el) { var k = el.dataset.i18nPh; el.placeholder = lang === 'zh' ? (ZH[k] || ENPH[k]) : ENPH[k]; });
+    $$('[data-toggle-lang]').forEach(function (b) { b.textContent = lang === 'zh' ? 'EN' : '中'; });
+    try { localStorage.setItem('aw-lang', lang); } catch (e) {}
+    langListeners.forEach(function (f) { f(lang); });
+  }
+  $$('[data-toggle-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(lang === 'zh' ? 'en' : 'zh'); }); });
+
   /* ---------- theme ---------- */
   var themeListeners = [];
   function setTheme(t) {
@@ -769,12 +925,17 @@
     var stagger = opts.stagger || 28, settle = opts.settle || 260, tick = 38;
     el.setAttribute('aria-label', text);
     var frag = document.createDocumentFragment(), chars = [];
+    // Latin words stay together (inline-block); CJK runs are split per character so the browser can wrap them naturally
+    var CJK = /[\u3000-\u9fff\uff00-\uffef]/;
     text.split(/(\s+)/).forEach(function (part) {
       if (!part) return;
       if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
-      var w = document.createElement('span'); w.style.display = 'inline-block'; w.setAttribute('aria-hidden', 'true');
-      part.split('').forEach(function (c) { var s = document.createElement('span'); s.className = 'ch'; s.textContent = c; w.appendChild(s); chars.push({ el: s, c: c }); });
-      frag.appendChild(w);
+      var units = CJK.test(part) ? part.split('') : [part];
+      units.forEach(function (unit) {
+        var w = document.createElement('span'); w.style.display = 'inline-block'; w.setAttribute('aria-hidden', 'true');
+        unit.split('').forEach(function (c) { var s = document.createElement('span'); s.className = 'ch'; s.textContent = c; w.appendChild(s); chars.push({ el: s, c: c }); });
+        frag.appendChild(w);
+      });
     });
     el.textContent = ''; el.appendChild(frag);
     if (reduce || opts.instant) return;
@@ -789,12 +950,32 @@
       if (!allDone) requestAnimationFrame(step);
     })(start);
   }
-  var slot = $('#slot'), phrases = JSON.parse(slot.getAttribute('data-phrases')), pi = 0;
+  var slot = $('#slot'), EN_PHRASES = JSON.parse(slot.getAttribute('data-phrases')), phrases = EN_PHRASES, pi = 0;
   decode(slot, phrases[0], { stagger: 22, settle: 320 });
-  var hudV = $('#hud-v'), FORM_NAMES = ['double helix', 'density surface', 'neural network', 'attention map', 'embedding space'];
-  window.__onForm = function (idx) { pi = idx % phrases.length; decode(slot, phrases[pi], { stagger: 18, settle: 220 }); if (hudV) decode(hudV, FORM_NAMES[idx % FORM_NAMES.length], { stagger: 30, settle: 200 }); };
-  var phraseTimer = reduce ? null : setInterval(function () { window.__onForm(pi + 1); }, 6500);
+  var hudV = $('#hud-v'), EN_FORMS = ['double helix', 'density surface', 'neural network', 'attention map', 'embedding space'], FORM_NAMES = EN_FORMS;
+  langListeners.push(function (l) {
+    phrases = l === 'zh' ? ZH_PHRASES : EN_PHRASES; FORM_NAMES = l === 'zh' ? ZH_FORMS : EN_FORMS;
+    decode(slot, phrases[pi], { stagger: 18, settle: 220 }); if (hudV) decode(hudV, FORM_NAMES[pi % FORM_NAMES.length], { stagger: 30, settle: 200 });
+  });
+  var pickBtns = $$('#picker button'), autoBtn = $('#auto-btn'), autoOn = true;
+  window.__onForm = function (idx) {
+    idx = idx % FORM_NAMES.length; pi = idx % phrases.length;
+    decode(slot, phrases[pi], { stagger: 18, settle: 220 }); if (hudV) decode(hudV, FORM_NAMES[idx], { stagger: 30, settle: 200 });
+    pickBtns.forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.form === idx); });
+  };
+  var phraseTimer = reduce ? null : setInterval(function () { if (autoOn) window.__onForm(pi + 1); }, 6500);
   window.__sceneDrivesPhrases = function () { if (phraseTimer) { clearInterval(phraseTimer); phraseTimer = null; } };
+  function selectForm(idx) {
+    setAuto(false);
+    if (window.__sceneSelect) window.__sceneSelect(idx); else window.__onForm(idx);
+  }
+  function setAuto(on) {
+    autoOn = on; if (autoBtn) autoBtn.setAttribute('aria-pressed', on);
+    if (window.__sceneAuto) window.__sceneAuto(on);
+  }
+  pickBtns.forEach(function (b) { b.addEventListener('click', function () { selectForm(+b.dataset.form); }); });
+  if (autoBtn) autoBtn.addEventListener('click', function () { setAuto(!autoOn); });
+  window.__selectForm = selectForm;
 
   /* ---------- render: ledger, log, stats ---------- */
   var pubsById = {}; DATA.pubs.forEach(function (p) { pubsById[p.id] = p; });
@@ -812,13 +993,27 @@
     var title = primary ? '<a href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer">' + esc(p.title) + '</a>' : esc(p.title);
     var role = p.lead === 'first' ? '<span class="chip role">First author</span>' : p.lead === 'co-first' ? '<span class="chip role co">Co-first author</span>' : '';
     var links = Object.keys(p.links).map(function (k) { return '<a href="' + esc(p.links[k]) + '" target="_blank" rel="noopener noreferrer">' + esc(k) + '</a>'; }).join('');
+    var absBtn = (p.arxiv || p.abstract) ? '<button type="button" class="abs-btn" data-abs="' + p.id + '" aria-expanded="false">Abstract</button>' : '';
     var tags = p.topics.map(function (t) { return '<button type="button" data-topic="' + esc(t) + '">' + esc(t) + '</button>'; }).join('');
     return '<article class="pub rv" id="pub-' + p.id + '" data-id="' + p.id + '" data-type="' + p.type + '" data-lead="' + (p.lead ? 1 : 0) + '">' +
       '<h4>' + title + '</h4><p class="authors">' + authorsHtml(p) + '</p>' +
       '<div class="meta"><span class="chip" style="--c:' + TYPE_COLOR[p.type] + '">' + esc(p.venue) + '</span>' + role + (p.note ? '<span class="note">' + esc(p.note) + '</span>' : '') +
       '<span class="tags">' + tags + '</span>' +
-      '<span class="links">' + links + '<button type="button" data-cite="' + p.id + '">Cite</button></span></div></article>';
+      '<span class="links">' + links + absBtn + '<button type="button" data-cite="' + p.id + '">Cite</button></span></div>' +
+      '<div class="abs" id="abs-' + p.id + '" hidden></div></article>';
   }
+  var TYPE_GRAD = { conf: ['#ff4d79', '#8b5cf6'], journal: ['#ff8a3d', '#ff4d79'], preprint: ['#8b5cf6', '#ff8a3d'] };
+  (function renderFeatured() {
+    var host = $('#featured'); if (!host || !DATA.featured) return;
+    host.innerHTML = DATA.featured.map(function (id, i) {
+      var p = pubsById[id]; if (!p) return '';
+      var primary = p.links.arXiv || p.links.OpenReview || '#', g = TYPE_GRAD[p.type], img = 'figs/' + p.id + '.png';
+      return '<a class="fcard rv" href="' + esc(primary) + '" target="_blank" rel="noopener noreferrer" style="transition-delay:' + (i * .08) + 's">' +
+        '<div class="fig"><img src="' + img + '" alt="" loading="lazy" onerror="this.parentNode.classList.remove(\'has-img\'); this.remove()" onload="this.parentNode.classList.add(\'has-img\')"><div class="tile" style="--c1:' + g[0] + ';--c2:' + g[1] + '">' + esc(/^npj/i.test(p.venue) ? 'npj AI' : p.venue.split(/[ ,]/)[0]) + '<small>' + esc(p.lead === 'first' ? 'First author' : p.lead === 'co-first' ? 'Co-first author' : String(p.year)) + '</small></div></div>' +
+        '<div class="body"><div class="meta"><span class="chip" style="--c:' + TYPE_COLOR[p.type] + '">' + esc(p.venue) + '</span>' + (p.lead === 'first' ? '<span class="chip role">First author</span>' : p.lead === 'co-first' ? '<span class="chip role co">Co-first</span>' : '') + '</div>' +
+        '<h4>' + esc(p.title) + '</h4>' + (p.tldr ? '<p>' + esc(p.tldr) + '</p>' : '') + '<span class="cite-n" data-cite-n="' + p.id + '"></span></div></a>';
+    }).join('');
+  })();
   (function renderLedger() {
     var years = []; DATA.pubs.forEach(function (p) { if (years.indexOf(p.year) < 0) years.push(p.year); });
     years.sort(function (a, b) { return b - a; });
@@ -828,7 +1023,9 @@
     $('#log').innerHTML = DATA.news.map(function (n) { return '<li class="rv"><time datetime="' + n.date + '">' + n.label + '</time><span>' + n.html + '</span></li>'; }).join('');
     var lead = DATA.pubs.filter(function (p) { return p.lead; }).length, venues = {};
     DATA.pubs.forEach(function (p) { if (p.type !== 'preprint') venues[p.venueLong] = 1; });
-    $('#stats').innerHTML = '<b data-count-to="' + DATA.pubs.length + '">0</b> papers so far, <b data-count-to="' + lead + '">0</b> of them as first or co-first author, across COLM, NeurIPS, ICML, BIBM, Patterns, npj AI and ACM-BCB.';
+    function statsHtml(l) { return l === 'zh' ? '目前共 <b data-count-to="' + DATA.pubs.length + '">' + DATA.pubs.length + '</b> 篇论文，其中 <b data-count-to="' + lead + '">' + lead + '</b> 篇为一作或共同一作，发表于 COLM、NeurIPS、ICML、BIBM、Patterns、npj AI 和 ACM-BCB。' : '<b data-count-to="' + DATA.pubs.length + '">0</b> papers so far, <b data-count-to="' + lead + '">0</b> of them as first or co-first author, across COLM, NeurIPS, ICML, BIBM, Patterns, npj AI and ACM-BCB.'; }
+    $('#stats').innerHTML = statsHtml('en');
+    langListeners.push(function (l) { var extra = $('#stats .scholar-stats'); $('#stats').innerHTML = statsHtml(l); if (extra) $('#stats').appendChild(extra); $$('[data-count-to]', $('#stats')).forEach(function (el) { el.textContent = el.dataset.countTo; }); });
     var topicCount = {}; DATA.pubs.forEach(function (p) { p.topics.forEach(function (t) { topicCount[t] = (topicCount[t] || 0) + 1; }); });
     $$('[data-topic-count]').forEach(function (el) { var n = topicCount[el.dataset.topicCount] || 0; el.textContent = n + (n === 1 ? ' paper' : ' papers'); });
   })();
@@ -877,6 +1074,40 @@
     el.classList.add('flash'); setTimeout(function () { el.classList.remove('flash'); }, 1600);
   }
 
+  /* ---------- abstracts: from the data file, else fetched from the arXiv API on first open ---------- */
+  function normTitle(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, '').slice(0, 70); }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-abs]'); if (!b) return;
+    var p = pubsById[b.dataset.abs], box = $('#abs-' + p.id), open = box.classList.toggle('open');
+    box.hidden = !open; b.setAttribute('aria-expanded', open);
+    if (!open || box.dataset.loaded) return;
+    if (p.abstract) { box.textContent = p.abstract; box.dataset.loaded = '1'; return; }
+    box.classList.add('loading'); box.textContent = 'Loading the abstract from arXiv…';
+    var key = 'abs:' + p.arxiv, cached = null; try { cached = sessionStorage.getItem(key); } catch (err) {}
+    if (cached) { box.classList.remove('loading'); box.textContent = cached; box.dataset.loaded = '1'; return; }
+    fetch('https://export.arxiv.org/api/query?id_list=' + encodeURIComponent(p.arxiv)).then(function (r) { return r.text(); }).then(function (xml) {
+      var doc = new DOMParser().parseFromString(xml, 'application/xml'), sum = doc.querySelector('entry > summary');
+      var text = sum ? sum.textContent.replace(/\s+/g, ' ').trim() : '';
+      if (!text) throw new Error('no summary');
+      box.classList.remove('loading'); box.textContent = text; box.dataset.loaded = '1';
+      try { sessionStorage.setItem(key, text); } catch (err) {}
+    }).catch(function () { box.classList.remove('loading'); box.innerHTML = 'Couldn’t load the abstract here. <a href="https://arxiv.org/abs/' + esc(p.arxiv) + '" target="_blank" rel="noopener noreferrer">Read it on arXiv</a>.'; });
+  });
+
+  /* ---------- citations: scholar.json is refreshed daily from Google Scholar by a GitHub Action ---------- */
+  fetch('scholar.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); }).then(function (sc) {
+    if (!sc || !sc.papers) return;
+    var total = 0, matched = 0;
+    DATA.pubs.forEach(function (p) {
+      var n = sc.papers[normTitle(p.title)];
+      if (n == null) { var key = Object.keys(sc.papers).filter(function (k) { return k.indexOf(normTitle(p.title).slice(0, 40)) === 0; })[0]; if (key) n = sc.papers[key]; }
+      if (n == null) return; matched++;
+      var meta = $('#pub-' + p.id + ' .meta'); if (meta) { var chip = document.createElement('span'); chip.className = 'chip cites'; chip.textContent = 'Cited by ' + n; var role = meta.querySelector('.chip.role'); meta.insertBefore(chip, (role || meta.querySelector('.chip')).nextSibling); }
+      var fc = $('[data-cite-n="' + p.id + '"]'); if (fc) fc.textContent = n === 1 ? '1 citation' : n + ' citations';
+    });
+    var st = $('#stats'); if (st && matched) { var sp = document.createElement('span'); sp.className = 'scholar-stats'; sp.innerHTML = ' Cited <b data-count-to="' + (sc.citations || 0) + '">' + (sc.citations || 0) + '</b> times on Google Scholar, h-index <b>' + (sc.h_index || 0) + '</b>' + (sc.updated ? ' <span style="color:var(--ink-3)">(updated ' + esc(sc.updated) + ')</span>' : '') + '.'; st.appendChild(sp); }
+  }).catch(function () {});
+
   /* ---------- BibTeX ---------- */
   function bibKey(p) { var last = p.authors[0].split(' ').pop().toLowerCase().replace(/[^a-z]/g, ''); var w = p.title.replace(/[^A-Za-z ]/g, '').split(' ').filter(function (x) { return x.length > 3 && !/^(with|from|through|the|and|for|that|beyond)$/i.test(x); })[0] || 'paper'; return last + p.year + w.toLowerCase(); }
   function bibAuthor(a) { var parts = a.split(' '); return parts.pop() + ', ' + parts.join(' '); }
@@ -901,13 +1132,39 @@
   document.addEventListener('click', function (e) { var b = e.target.closest('[data-cite]'); if (b) openCite(b.dataset.cite); });
   $('#cite-copy').addEventListener('click', function () { copy(citeText.textContent, 'BibTeX copied'); });
 
+  /* ---------- message form: posts to a form endpoint if one is configured, else opens the visitor's mail app ---------- */
+  (function () {
+    var form = $('#contact-form'); if (!form) return;
+    var endpoint = (form.dataset.endpoint || '').trim(), note = $('#msg-note'), mode = $('#msg-mode');
+    if (endpoint && mode) mode.textContent = 'Goes straight to my inbox';
+    function val(n) { return (form.elements[n].value || '').trim(); }
+    function openMail(name, email, message) {
+      var subject = 'Hello from ' + (name || 'your website'), body = message + '\n\n— ' + name + (email ? ' (' + email + ')' : '');
+      window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      note.textContent = 'Your mail app should open with the message filled in.';
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (val('_gotcha')) return;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var name = val('name'), email = val('email'), message = val('message'), btn = form.querySelector('button[type=submit]');
+      if (!endpoint) { openMail(name, email, message); return; }
+      btn.disabled = true; note.textContent = 'Sending…';
+      fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ name: name, email: email, message: message, _subject: 'Website message from ' + name }) })
+        .then(function (r) { if (!r.ok) throw new Error('bad status'); form.reset(); note.textContent = 'Sent. Thanks, I’ll get back to you.'; toast('Message sent'); })
+        .catch(function () { note.textContent = 'Could not send from the page, opening your mail app instead.'; openMail(name, email, message); })
+        .then(function () { btn.disabled = false; });
+    });
+  })();
+
   /* ---------- dialogs shared ---------- */
   $$('dialog').forEach(function (d) {
     d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
     $$('[data-close]', d).forEach(function (b) { b.addEventListener('click', function () { d.close(); }); });
   });
   var wechat = $('#wechat-dialog');
-  $('#wechat-open').addEventListener('click', function () { if (wechat.showModal) wechat.showModal(); else window.open('wechat_qr.jpg', '_blank'); });
+  function openWechat() { if (wechat.showModal) wechat.showModal(); else window.open('wechat_qr.jpg', '_blank'); }
+  $$('#wechat-open, [data-wechat]').forEach(function (b) { b.addEventListener('click', openWechat); });
   var help = $('#help');
   $$('[data-open-help]').forEach(function (b) { b.addEventListener('click', function () { help.showModal(); }); });
 
@@ -920,8 +1177,10 @@
   DATA.pubs.forEach(function (p) { index.push({ group: 'Papers', label: p.title, sub: p.venue + ' · ' + p.authors.slice(0, 3).join(', ') + (p.authors.length > 3 ? '…' : ''), c: TYPE_COLOR[p.type], run: function () { go('research'); setTimeout(function () { flashPub(p.id); }, 350); }, text: (p.title + ' ' + p.venue + ' ' + p.authors.join(' ') + ' ' + p.topics.join(' ')).toLowerCase() }); });
   DATA.pis.forEach(function (n) { var c = DATA.pubs.filter(function (p) { return p.authors.indexOf(n) >= 0; }).length; if (c) index.push({ group: 'PIs', label: n, sub: c + (c === 1 ? ' paper together' : ' papers together'), ic: n.split(' ').map(function (x) { return x[0]; }).join('').slice(0, 2), run: function () { go('research'); setNodeFilter('person', n, false); } }); });
   Object.keys(topics).sort().forEach(function (t) { index.push({ group: 'Topics', label: t, sub: topics[t] + ' papers', ic: '#', run: function () { go('research'); setNodeFilter('topic', t, false); } }); });
+  FORM_NAMES.forEach(function (n, i) { index.push({ group: 'Animation', label: 'Show the ' + n, sub: 'Shortcut: ' + (i + 1), ic: String(i + 1), run: function () { if (window.__lenis) window.__lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); selectForm(i); } }); });
   index.push({ group: 'Actions', label: 'Copy email address', sub: EMAIL, ic: '@', run: function () { copy(EMAIL, 'Email copied'); } });
   index.push({ group: 'Actions', label: 'Toggle dark mode', sub: 'Shortcut: t', ic: '◐', run: toggleTheme });
+  index.push({ group: 'Actions', label: '切换中文 / Switch language', sub: '中文 · English', ic: '中', run: function () { setLang(lang === 'zh' ? 'en' : 'zh'); } });
   index.push({ group: 'Actions', label: 'Print as CV', sub: 'Clean one-column layout', ic: '⎙', run: function () { window.print(); } });
   index.push({ group: 'Actions', label: 'Open Google Scholar', sub: 'scholar.google.com', ic: '↗', run: function () { window.open('https://scholar.google.com/citations?user=JcKrT8bjRdcC&hl=en', '_blank', 'noopener'); } });
   index.push({ group: 'Actions', label: 'Open GitHub', sub: 'github.com/ZhanliangAaronWang', ic: '↗', run: function () { window.open('https://github.com/ZhanliangAaronWang', '_blank', 'noopener'); } });
@@ -976,6 +1235,7 @@
     if (e.key === '?') { e.preventDefault(); help.showModal(); return; }
     if (e.key === 't') { toggleTheme(); return; }
     if (e.key === '/') { e.preventDefault(); openPalette(); return; }
+    if (/^[1-5]$/.test(e.key)) { selectForm(+e.key - 1); return; }
     if (chord === 'g') { chord = null; clearTimeout(chordT); var map = { a: 'about', t: 'timeline', r: 'research', c: 'contact' }; if (map[e.key]) go(map[e.key]); else if (e.key === 'g') { if (window.__lenis) window.__lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: 'smooth' }); } return; }
     if (e.key === 'g') { chord = 'g'; clearTimeout(chordT); chordT = setTimeout(function () { chord = null; }, 900); }
   });
@@ -1043,9 +1303,10 @@
   /* ---------- ideogram timeline ---------- */
   (function () {
     var host = $('#ideo'), NS = 'http://www.w3.org/2000/svg';
-    var y0 = 2019, y1 = 2030, W = 1000, PAD = 8, H = 184;
+    var y0 = 2016, y1 = 2030, W = 1000, PAD = 8, H = 184;
     var bands = [
-      { key: 'sbu', label: 'Stony Brook', sub: 'AMS, transferred to NYU', from: 2019.6, to: 2021.4, track: 0, c: 'var(--ink-3)', outline: true },
+      { key: 'hs', label: 'Qingdao No. 58', sub: 'High school', from: 2016.6, to: 2019.4, track: 0, c: 'var(--ink-3)' },
+      { key: 'sbu', label: 'Stony Brook', sub: 'AMS, transferred', from: 2019.6, to: 2021.4, track: 0, c: 'var(--ink-3)', outline: true },
       { key: 'nyu', label: 'B.S. at NYU', sub: 'Applied Mathematics', from: 2021.6, to: 2023.4, track: 0, c: 'var(--A)' },
       { key: 'ma', label: 'M.A. at Penn', sub: 'AMCS, Shen Lab', from: 2023.6, to: 2025.4, track: 0, c: 'var(--T)' },
       { key: 'phd', label: 'Ph.D. at Penn', sub: 'AMCS, Wang Genomics Lab', from: 2025.6, to: 2029.4, track: 0, c: 'var(--C)' },
@@ -1070,7 +1331,7 @@
       svg.appendChild(g);
     });
     var tg2 = el('g', { 'class': 'today' });
-    tg2.appendChild(el('circle', { cx: X(today), cy: AXIS, r: 4 })); tg2.appendChild(el('text', { x: X(today) - 6, y: 16, 'text-anchor': 'end' }, 'now'));
+    tg2.appendChild(el('circle', { cx: X(today), cy: AXIS, r: 4 })); tg2.appendChild(el('text', { x: X(today) + 9, y: AXIS + 4, 'text-anchor': 'start' }, 'now'));
     svg.appendChild(tg2); host.appendChild(svg);
     var entries = $$('.entry');
     function hot(key, on) { host.classList.toggle('dim', on); $$('.band', svg).forEach(function (r) { r.classList.toggle('hot', on && r.getAttribute('data-key') === key); }); entries.forEach(function (e) { e.classList.toggle('hot', on && e.getAttribute('data-key') === key); }); }
@@ -1131,9 +1392,9 @@
     function draw() {
       ctx.clearRect(0, 0, W, H);
       pal = { conf: cssVar('--C'), journal: cssVar('--A'), preprint: cssVar('--T'), ink: cssVar('--ink') };
-      var ink = pal.ink, ink3 = cssVar('--ink-3'), line = cssVar('--line-2'), paper = cssVar('--paper'), fo = focusNode(), nb = fo ? neighbors(fo) : null;
+      var ink = pal.ink, ink3 = cssVar('--ink-3'), line = ink3, paper = cssVar('--paper'), fo = focusNode(), nb = fo ? neighbors(fo) : null;
       ctx.lineWidth = 1;
-      links.forEach(function (l) { var on = !nb || (nb[l.a.id] && nb[l.b.id] && (l.a === fo || l.b === fo)); ctx.strokeStyle = on ? (nb ? colorFor(l.a.kind === 'paper' ? l.a : l.b) : line) : line; ctx.globalAlpha = nb ? (on ? .9 : .12) : .9; ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(l.b.x, l.b.y); ctx.stroke(); });
+      links.forEach(function (l) { var on = !nb || (nb[l.a.id] && nb[l.b.id] && (l.a === fo || l.b === fo)); ctx.strokeStyle = on ? (nb ? colorFor(l.a.kind === 'paper' ? l.a : l.b) : line) : line; ctx.globalAlpha = nb ? (on ? .95 : .12) : .5; ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(l.b.x, l.b.y); ctx.stroke(); });
       ctx.globalAlpha = 1; ctx.font = '600 ' + (W < 700 ? 11 : 12) + 'px ' + cssVar('--font'); ctx.textBaseline = 'middle';
       nodes.forEach(function (n) {
         var on = !nb || nb[n.id], c = colorFor(n); ctx.globalAlpha = on ? 1 : .18;
@@ -1380,6 +1641,9 @@
     var group = new THREE.Group(); scene.add(group);
     var mat = new THREE.MeshStandardMaterial({ roughness: 0.45, metalness: 0.08, transparent: true });
     var mesh = new THREE.InstancedMesh(new THREE.SphereGeometry(0.115, 10, 8), mat, N); group.add(mesh);
+    // glow: a second, larger, translucent copy of every particle. Additive in dark mode (bloom-like), a soft tinted halo in light mode.
+    var haloMat = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.2, depthWrite: false }), halo = null, HALO = small ? 0 : 2.0;
+    if (HALO) { halo = new THREE.InstancedMesh(new THREE.SphereGeometry(0.115, 8, 6), haloMat, N); halo.renderOrder = -1; group.add(halo); }
     var dummy = new THREE.Object3D(), tmpC = new THREE.Color();
     var pal = {};
     function srgb(hex) { return new THREE.Color(hex).convertSRGBToLinear(); }
@@ -1387,6 +1651,7 @@
       var dark = root.getAttribute('data-theme') === 'dark';
       pal = { ink: srgb(dark ? '#efe3ea' : cssVar('--ink')), ink3: srgb(dark ? '#8a7a98' : cssVar('--ink-3')), soft: srgb(dark ? '#4a3658' : '#e2cfd2'), A: srgb(cssVar('--A')), C: srgb(cssVar('--C')), G: srgb(cssVar('--G')), T: srgb(cssVar('--T')), acc: srgb(cssVar('--accent')) };
       hemi.groundColor = srgb(dark ? '#2a1f38' : '#d9b3a8'); glow.color = pal.acc;
+      haloMat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending; haloMat.needsUpdate = true; haloMat.userData.base = dark ? 0.085 : 0.1;
     }
     function smooth(x) { x = Math.min(1, Math.max(0, x)); return x * x * (3 - 2 * x); }
     function lerpC(a, b, t, out) { out.r = a.r + (b.r - a.r) * t; out.g = a.g + (b.g - a.g) * t; out.b = a.b + (b.b - a.b) * t; return out; }
@@ -1539,9 +1804,11 @@
     var PA = new Float32Array(N * 3), CA = new Float32Array(N * 3), SA = new Float32Array(N), PB = new Float32Array(N * 3), CB = new Float32Array(N * 3), SB = new Float32Array(N);
     var delay = new Float32Array(N), arcX = new Float32Array(N), arcY = new Float32Array(N), arcZ = new Float32Array(N), outX = new Float32Array(N), outY = new Float32Array(N), outZ = new Float32Array(N);
     for (var i = 0; i < N; i++) { delay[i] = Math.random() * 0.45; var ax = Math.random() - 0.5, ay = Math.random() - 0.5, az = Math.random() - 0.5, al = Math.hypot(ax, ay, az) || 1; arcX[i] = ax / al; arcY[i] = ay / al; arcZ[i] = az / al; var ox = Math.random() - 0.5, oy = Math.random() - 0.5, oz = Math.random() - 0.5, ol = Math.hypot(ox, oy, oz) || 1; outX[i] = ox / ol; outY[i] = oy / ol; outZ[i] = oz / ol; }
-    var HOLD = 6.5, MORPH = 1.8, from = scatter, to = helix, cur = 0, mp = 0, morphing = true, hold = 0, introDone = false;
+    var HOLD = 6.5, MORPH = 1.8, from = scatter, to = helix, cur = 0, mp = 0, morphing = true, hold = 0, introDone = false, auto = true, queued = -1;
     if (window.__sceneDrivesPhrases) window.__sceneDrivesPhrases();
     function startMorph(next) { from = forms[cur]; cur = next; to = forms[cur]; mp = 0; morphing = true; if (window.__onForm) window.__onForm(cur); }
+    window.__sceneSelect = function (idx) { idx = ((idx % forms.length) + forms.length) % forms.length; if (idx === cur && introDone) { if (window.__onForm) window.__onForm(cur); return; } if (morphing) { queued = idx; } else startMorph(idx); };
+    window.__sceneAuto = function (on) { auto = on; hold = 0; };
 
     palette();
     themeListeners.push(function () { palette(); if (reduce) frame(); });
@@ -1561,10 +1828,10 @@
       cx += (tx - cx) * 0.05; cy += (ty - cy) * 0.05;
       // schedule
       if (!reduce) {
-        if (morphing) { mp = Math.min(1, mp + dt / (introDone ? MORPH : MORPH * 1.3)); if (mp >= 1) { morphing = false; hold = 0; introDone = true; } }
-        else { hold += dt; if (k < 0.5 && hold >= HOLD) startMorph((cur + 1) % forms.length); }
+        if (morphing) { mp = Math.min(1, mp + dt / (introDone ? MORPH : MORPH * 1.3)); if (mp >= 1) { morphing = false; hold = 0; introDone = true; if (queued >= 0 && queued !== cur) { var qn = queued; queued = -1; startMorph(qn); } else queued = -1; } }
+        else { hold += dt; if (auto && k < 0.5 && hold >= HOLD) startMorph((cur + 1) % forms.length); }
       } else { morphing = false; mp = 1; to = helix; }
-      if (hudBar) hudBar.style.transform = 'scaleX(' + (morphing ? 0 : Math.min(1, hold / HOLD)) + ')';
+      if (hudBar) hudBar.style.transform = 'scaleX(' + (morphing || !auto ? 0 : Math.min(1, hold / HOLD)) + ')';
       // evaluate forms
       var lightB = to.animate(elapsed, PB, CB, SB), lightA = morphing ? from.animate(elapsed, PA, CA, SA) : null;
       var disperse = smooth(Math.min(1, k * 1.5)) * 5;
@@ -1575,8 +1842,10 @@
         if (disperse > 0) { x += outX[i] * disperse * (0.6 + delay[i]); y += outY[i] * disperse * (0.6 + delay[i]); z += outZ[i] * disperse * (0.6 + delay[i]); }
         dummy.position.set(x, y, z); dummy.scale.setScalar(Math.max(0.0001, scl)); dummy.updateMatrix(); mesh.setMatrixAt(i, dummy.matrix);
         tmpC.setRGB(r, g, b); mesh.setColorAt(i, tmpC);
+        if (halo) { dummy.scale.setScalar(Math.max(0.0001, scl) * HALO); dummy.updateMatrix(); halo.setMatrixAt(i, dummy.matrix); halo.setColorAt(i, tmpC); }
       }
       mesh.instanceMatrix.needsUpdate = true; mesh.instanceColor.needsUpdate = true;
+      if (halo) { halo.instanceMatrix.needsUpdate = true; halo.instanceColor.needsUpdate = true; }
       var L = lightB; glow.position.set(L.lx, L.ly, L.lz).applyMatrix4(group.matrixWorld);
       if (!reduce && !dragging) { group.rotation.y += dt * (to === network ? 0.08 : to === attention ? 0.06 : 0.18) + spinVel; spinVel *= 0.95; }
       // attention and the network read best nearly face-on: ease the spin back toward the camera while they are shown
@@ -1585,13 +1854,14 @@
       var visH = 2 * Math.tan(camera.fov * Math.PI / 360) * camera.position.z;
       group.position.set(baseX, baseY + k * visH * 0.3, 0);
       var op = baseOp * Math.max(0, 1 - Math.max(0, k - 0.42) * 2.4) * (introDone ? 1 : Math.min(1, 0.2 + mp * 1.2));
-      mat.opacity = op; group.visible = op > 0.01;
+      mat.opacity = op; haloMat.opacity = (haloMat.userData.base || 0.2) * op; group.visible = op > 0.01;
       renderer.render(scene, camera);
     }
     if (reduce) { frame(); window.addEventListener('scroll', function () { requestAnimationFrame(frame); }, { passive: true }); window.addEventListener('resize', function () { requestAnimationFrame(frame); }); }
     else renderer.setAnimationLoop(frame);
   }
   function boot() { initBackground(); initVideo(); initScene(); initLenis(); }
+  try { var savedLang = localStorage.getItem('aw-lang'); if (savedLang === 'zh') setLang('zh'); } catch (e) {}
   if (document.readyState !== 'loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
 })();
 </script>
