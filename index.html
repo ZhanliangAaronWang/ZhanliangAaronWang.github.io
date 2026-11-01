@@ -1327,7 +1327,15 @@
       var rect = el('rect', { 'class': 'band' + (b.outline ? ' outline' : ''), x: x, y: y, width: w, height: BH, fill: b.outline ? 'var(--paper)' : b.c, stroke: b.outline ? b.c : 'none', 'data-key': b.key }); rect.style.transformOrigin = x + 'px ' + (y + BH / 2) + 'px';
       g.appendChild(rect);
       g.appendChild(el('text', { 'class': 'band-label' + (b.outline ? ' muted' : ''), x: x + 12, y: y + 21 }, b.label));
-      g.appendChild(el('text', { 'class': 'band-sub' + (b.outline ? ' muted' : ''), x: x + 12, y: y + 38 }, b.sub));
+      var sub = el('text', { 'class': 'band-sub' + (b.outline ? ' muted' : ''), x: x + 12, y: y + 38 }, b.sub);
+      g.appendChild(sub);
+      if (b.key === 'wharton') {
+        // Keep both lines inside the dated band without changing its duration.
+        sub.textContent = '';
+        sub.setAttribute('y', y + 33);
+        sub.appendChild(el('tspan', { x: x + 12, dy: 0 }, 'Statistics &'));
+        sub.appendChild(el('tspan', { x: x + 12, dy: 12 }, 'Data Science'));
+      }
       svg.appendChild(g);
     });
     var tg2 = el('g', { 'class': 'today' });

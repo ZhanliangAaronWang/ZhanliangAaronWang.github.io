@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/scholar.yml"
       - "scripts/scholar.py"
+      - "scripts/test_scholar.py"
   schedule:
     - cron: "17 6 * * *"   # every day, 06:17 UTC
   workflow_dispatch:        # or run it by hand from the Actions tab
@@ -21,12 +22,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install compatible Scholar dependencies
-        # scholarly imports bibtexparser.bibdatabase, which was removed in v2.
-        run: python -m pip install "scholarly==1.7.11" "bibtexparser==1.4.3"
-      - name: Check dependency imports
-        run: python -c "from bibtexparser.bibdatabase import BibDatabase; from scholarly import scholarly, ProxyGenerator"
-      - run: python scripts/scholar.py
+      - name: Install profile parser
+        run: python -m pip install "beautifulsoup4>=4.12,<5"
+      - name: Test parsing and preservation of existing data
+        run: python -m unittest discover -s scripts -p 'test_scholar.py' -v
+      - name: Refresh Scholar statistics
+        timeout-minutes: 3
+        run: python scripts/scholar.py
       - name: Commit if changed
         run: |
           git config user.name "scholar-bot"
