@@ -1,0 +1,17 @@
+{
+  "updated": "2026-11-01",
+  "source": "Google Scholar",
+  "citations": 74,
+  "h_index": 5,
+  "i10_index": 2,
+  "papers": {
+    "asemanticsamplingframeworkforevaluatingcalibrationinopenendedquestiona": 3,
+    "beyondlogitadjustmentaresidualdecompositionframeworkforlongtailedreran": 1,
+    "beyondposthoctemperaturescalingbileveloptimizationforllmcalibration": 2,
+    "multishapashapleybasedframeworkforexplainingcrossmodalinteractionsinmu": 6,
+    "mintmultimodalintegratedknowledgetransfertolargelanguagemodelsthroughp": 9,
+    "integratingchainofthoughtandretrievalaugmentedgenerationenhancesraredi": 14,
+    "gestaltmmlenhancingraregeneticdiseasediagnosisthroughmultimodalmachine": 21,
+    "restoringcalibrationforalignedlargelanguagemodelsacalibrationawarefine": 18
+  }
+}
