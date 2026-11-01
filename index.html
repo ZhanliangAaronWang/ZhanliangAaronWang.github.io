@@ -1264,7 +1264,7 @@
     var total = 0, matched = 0;
     DATA.pubs.forEach(function (p) {
       var n = sc.papers[normTitle(p.title)];
-      if (n == null) { var key = Object.keys(sc.papers).filter(function (k) { return k.indexOf(normTitle(p.title).slice(0, 40)) === 0; })[0]; if (key) n = sc.papers[key]; }
+      if (n == null) { var titles = [p.title, p.title.replace(/^[A-Z][A-Za-z0-9-]{1,12}:\s*/, '')]; var key = Object.keys(sc.papers).filter(function (k) { return titles.some(function (title) { return k.indexOf(normTitle(title).slice(0, 40)) === 0; }); })[0]; if (key) n = sc.papers[key]; }
       if (n == null) return; matched++;
       var meta = $('#pub-' + p.id + ' .meta'); if (meta) { var chip = document.createElement('span'); chip.className = 'chip cites'; chip.textContent = 'Cited by ' + n; var role = meta.querySelector('.chip.role'); meta.insertBefore(chip, (role || meta.querySelector('.chip')).nextSibling); }
       var fc = $('[data-cite-n="' + p.id + '"]'); if (fc) fc.textContent = n === 1 ? '1 citation' : n + ' citations';
