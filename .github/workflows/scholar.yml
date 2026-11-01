@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install scholarly
+      - run: pip install scholarly "bibtexparser<2"
       - run: python scripts/scholar.py
       - name: Commit if changed
         run: |
