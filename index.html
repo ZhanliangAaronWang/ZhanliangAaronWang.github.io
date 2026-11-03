@@ -547,7 +547,11 @@
   @media (prefers-reduced-motion: reduce) { .fcard, .work-art svg, #bg, .bgvideo, .hero h1 .slot { transition: none; } .fcard:hover, .fcard:hover .work-art svg { transform: none; } }
   @media print { .research-focus, .work-heading { display: none !important; } }
 
-  .music-btn[aria-pressed="true"] { color: var(--accent); background: var(--paper-2); }
+  .music-btn[aria-expanded="true"] { color: var(--accent); background: var(--paper-2); }
+  #music-panel { position: fixed; top: calc(var(--nav-h) + 12px); right: 16px; z-index: 100; width: min(354px, calc(100vw - 32px)); padding: 12px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+  #music-frame iframe { display: block; width: 100%; height: 86px; border: 0; }
+  #music-panel a { display: inline-block; margin: 6px 8px; font-size: 13px; }
+  @media print { #music-panel { display: none !important; } }
 </style>
 </head>
 <body>
@@ -577,7 +581,7 @@
     <div class="topbar-right">
       <div class="socials"><a class="iconbtn" href="https://github.com/ZhanliangAaronWang" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.3 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a><a class="iconbtn" href="https://scholar.google.com/citations?user=JcKrT8bjRdcC&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-3a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM1.5 4.5 12 0l10.5 4.5L12 9 1.5 4.5Z"/></svg></a><a class="iconbtn" href="https://www.linkedin.com/in/zhanliang-wang-80868323b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><button type="button" class="iconbtn" data-wechat aria-label="WeChat" title="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8.7 3C4.45 3 1 5.86 1 9.4c0 1.95 1.05 3.7 2.72 4.88l-.68 2.1 2.44-1.24c.68.19 1.4.3 2.15.33a5.9 5.9 0 0 1-.23-1.6c0-3.45 3.33-6.25 7.44-6.25.33 0 .65.02.97.05C15.1 4.98 12.2 3 8.7 3zm-2.3 3.6a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zm4.6 0a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zM14.84 8.9c-3.43 0-6.2 2.3-6.2 5.14 0 2.84 2.77 5.14 6.2 5.14.62 0 1.22-.08 1.78-.23L18.8 20l-.56-1.75C19.74 17.28 21 15.74 21 14.04c0-2.84-2.75-5.14-6.16-5.14zm-2.1 2.95a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6zm4.1 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z"/></svg></button></div>
       <button type="button" class="iconbtn lang-btn" data-toggle-lang aria-label="切换到中文 / Switch language" title="中 / EN">中</button>
-      <button type="button" class="iconbtn music-btn" id="music-toggle" aria-label="Play ambient music" aria-pressed="false" title="Play ambient music">
+      <button type="button" class="iconbtn music-btn" id="music-toggle" aria-label="Open music player" aria-expanded="false" aria-controls="music-panel" title="Open music player">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13M9 18c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2zm12-2c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2z"/></svg>
       </button>
       <button type="button" class="iconbtn theme-btn" data-toggle-theme aria-label="Toggle dark mode" title="Toggle dark mode (t)">
@@ -2043,69 +2047,39 @@
   if (document.readyState !== 'loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
 })();
 </script>
+<div id="music-panel" hidden>
+  <div id="music-frame"></div>
+  <a href="https://music.163.com/song?id=2690545481" target="_blank" rel="noopener noreferrer">Open in NetEase Cloud Music ↗</a>
+</div>
 <script>
 (() => {
-  const button = document.querySelector('#music-toggle');
-  const AudioEngine = window.AudioContext || window.webkitAudioContext;
-  if (!AudioEngine) { button.hidden = true; button.style.display = 'none'; return; }
-  let context;
-  let playing = false;
-
-  function createLoop(audio) {
-    const rate = 22050;
-    const bar = 4;
-    const chords = [[48,55,59,64], [45,52,55,60], [41,48,52,57], [43,50,57,62]];
-    const buffer = audio.createBuffer(1, rate * bar * chords.length, rate);
-    const samples = buffer.getChannelData(0);
-    function addNote(note, start, duration, volume, plucked) {
-      const frequency = 440 * Math.pow(2, (note - 69) / 12);
-      const offset = Math.round(start * rate);
-      for (let i = 0; i < Math.floor(duration * rate); i++) {
-        const t = i / rate;
-        const attack = plucked ? .05 : .65;
-        const envelope = Math.min(1, t / attack, (duration - t) / .65);
-        const wave = Math.sin(2 * Math.PI * frequency * t) + .12 * Math.sin(4 * Math.PI * frequency * t);
-        const decay = plucked ? Math.exp(-2.4 * t) : 1;
-        samples[(offset + i) % samples.length] += wave * envelope * decay * volume;
-      }
-    }
-    chords.forEach((chord, index) => {
-      const start = index * bar;
-      chord.forEach(note => addNote(note, start, 4.8, .018, false));
-      [2, 3, 1].forEach((voice, beat) => addNote(chord[voice] + 12, start + .55 + beat * 1.05, 2.2, .06, true));
-    });
-    const source = audio.createBufferSource();
-    source.buffer = buffer;
-    source.loop = true;
-    source.connect(audio.destination);
-    source.start();
-  }
-
+  const button = document.getElementById('music-toggle');
+  const panel = document.getElementById('music-panel');
+  const player = document.getElementById('music-frame');
   function updateLabel() {
-    const chinese = document.documentElement.lang.startsWith('zh');
-    const label = playing ? (chinese ? '暂停背景音乐' : 'Pause ambient music') : (chinese ? '播放背景音乐' : 'Play ambient music');
-    button.setAttribute('aria-pressed', String(playing));
-    button.setAttribute('aria-label', label);
+    const zh = document.documentElement.lang.startsWith('zh');
+    const label = panel.hidden ? (zh ? '打开音乐播放器' : 'Open music player') : (zh ? '关闭音乐播放器' : 'Close music player');
     button.title = label;
+    button.setAttribute('aria-label', label);
+    button.setAttribute('aria-expanded', String(!panel.hidden));
+    panel.querySelector('a').textContent = zh ? '在网易云音乐打开 ↗' : 'Open in NetEase Cloud Music ↗';
   }
-
-  button.addEventListener('click', async () => {
-    button.disabled = true;
-    try {
-      if (!context) {
-        context = new AudioEngine();
-        createLoop(context);
-      }
-      if (playing) await context.suspend();
-      else await context.resume();
-      playing = context.state === 'running';
-    } catch (error) {
-      playing = false;
-      console.warn('Ambient music could not be played.', error);
-    } finally {
-      button.disabled = false;
-      updateLabel();
-    }
+  function close() {
+    panel.hidden = true;
+    player.replaceChildren();
+    updateLabel();
+  }
+  button.addEventListener('click', () => {
+    if (!panel.hidden) { close(); return; }
+    const frame = document.createElement('iframe');
+    frame.title = 'NetEase Cloud Music player';
+    frame.src = 'https://music.163.com/outchain/player?type=2&id=2690545481&auto=0&height=66';
+    player.append(frame);
+    panel.hidden = false;
+    updateLabel();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !panel.hidden) { close(); button.focus(); }
   });
   new MutationObserver(updateLabel).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   updateLabel();
