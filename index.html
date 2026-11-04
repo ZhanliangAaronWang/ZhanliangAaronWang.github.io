@@ -859,7 +859,7 @@
     {"id": "gestaltmml", "year": 2026, "type": "conf", "lead": "", "title": "GestaltMML: Enhancing Rare Genetic Disease Diagnosis through Multimodal Machine Learning Combining Facial Images and Clinical Texts", "authors": ["Da Wu", "Zhanliang Wang", "Hongzhuo Chen", "Jingye Yang", "Cong Liu", "Tzung-Chien Hsieh", "Elaine Marchi"], "others": true, "lastAuthors": ["Jennifer M. Kalish", "Kai Wang"], "equal": [], "venue": "BIBM 2026", "venueLong": "IEEE International Conference on Bioinformatics and Biomedicine", "arxiv": "2312.15320", "links": {"arXiv": "https://arxiv.org/abs/2312.15320"}, "topics": ["Multimodal", "Rare disease"]},
     {"id": "aadt", "year": 2026, "type": "preprint", "lead": "", "title": "Autonomous Agent-Orchestrated Digital Twins (AADT): Leveraging the OpenClaw Framework for State Synchronization in Rare Genetic Disorders", "authors": ["Hongzhuo Chen", "Zhanliang Wang", "Quan M. Nguyen", "Gongbo Zhang", "Chunhua Weng", "Kai Wang"], "equal": [], "venue": "arXiv preprint", "venueLong": "arXiv", "arxiv": "2603.27104", "links": {"arXiv": "https://arxiv.org/abs/2603.27104"}, "topics": ["Agents", "Rare disease"]},
     {"id": "cft", "year": 2025, "type": "conf", "lead": "co-first", "title": "Restoring Calibration for Aligned Large Language Models: A Calibration-Aware Fine-Tuning Approach", "authors": ["Jiancong Xiao", "Bojian Hou", "Zhanliang Wang", "Ruochen Jin", "Qi Long", "Weijie J. Su", "Li Shen"], "equal": [0, 1, 2], "venue": "ICML 2025", "venueLong": "International Conference on Machine Learning", "arxiv": "2505.01997", "links": {"arXiv": "https://arxiv.org/abs/2505.01997"}, "topics": ["LLMs", "Calibration"]},
-    {"id": "faircca", "year": 2025, "type": "conf", "lead": "co-first", "title": "Fair CCA for Fair Representation Learning: An ADNI Study", "authors": ["Bojian Hou", "Zhanliang Wang", "Zhuoping Zhou", "Boning Tong", "Zhanyi Wang", "Jingxuan Bao", "Duy Duong-Tran", "Qi Long"], "others": true, "equal": [0, 1], "venue": "ACM-BCB 2025", "venueLong": "ACM Conference on Bioinformatics, Computational Biology, and Health Informatics", "links": {}, "topics": ["Fairness", "Multimodal"]},
+    {"id":"faircca","year":2025,"type":"conf","lead":"co-first","title":"Fair CCA for Fair Representation Learning: An ADNI Study","authors":["Bojian Hou","Zhanliang Wang","Zhuoping Zhou","Boning Tong","Zhanyi Wang","Jingxuan Bao","Duy Duong-Tran","Qi Long"],"others":true,"equal":[0,1],"venue":"ACM-BCB 2025","venueLong":"ACM Conference on Bioinformatics, Computational Biology, and Health Informatics","links":{},"topics":["Fairness","Multimodal"],"lastAuthors":["Li Shen"],"correspondingAuthors":["Li Shen"]},
     {"id": "phenogpt2", "year": 2025, "type": "conf", "lead": "", "title": "PhenoGPT2: A Multimodal Fine-tuned Large Language Model for Phenotype Extraction and Normalization from Clinical Text and Facial Images", "authors": ["Quan M. Nguyen", "Mian Umair Ahsan", "Zhanliang Wang", "Kai Wang"], "equal": [], "venue": "ACM-BCB 2025", "venueLong": "ACM Conference on Bioinformatics, Computational Biology, and Health Informatics", "links": {}, "topics": ["LLMs", "Multimodal", "Rare disease"]}
   ],
   "aliases": {"Quan M. Nguyen": "Quan Nguyen", "Quan Minh Nguyen": "Quan Nguyen"},
@@ -1062,7 +1062,12 @@
       return a === DATA.me ? '<b>' + esc(a) + star + '</b>' : esc(a) + star;
     });
     if (p.others) parts.push('et al.');
-    if (p.lastAuthors) parts = parts.concat(p.lastAuthors.map(esc));
+    if (p.lastAuthors) {
+      parts = parts.concat(p.lastAuthors.map(function (author) {
+        var corresponding = (p.correspondingAuthors || []).indexOf(author) >= 0;
+        return esc(author) + (corresponding ? ' <span class="corresponding-author">(corresponding author)</span>' : '');
+      }));
+    }
     return parts.join(', ');
   }
   function pubHtml(p) {
@@ -1207,7 +1212,7 @@
   function matchesNode(p) {
     if (!nodeFilter) return true;
     if (nodeFilter.kind === 'topic') return p.topics.indexOf(nodeFilter.value) >= 0;
-    if (nodeFilter.kind === 'person') return p.authors.indexOf(nodeFilter.value) >= 0;
+    if (nodeFilter.kind === 'person') return p.authors.concat(p.lastAuthors || []).indexOf(nodeFilter.value) >= 0;
     return true;
   }
   function applyFilters() {
@@ -1344,7 +1349,7 @@
   var index = [];
   [['about', 'About'], ['timeline', 'Timeline'], ['research', 'Research'], ['contact', 'Contact']].forEach(function (s) { index.push({ group: 'Sections', label: s[1], sub: 'Jump to section', ic: '§', run: function () { go(s[0]); } }); });
   DATA.pubs.forEach(function (p) { index.push({ group: 'Papers', label: p.title, sub: p.venue + ' · ' + p.authors.slice(0, 3).join(', ') + (p.authors.length > 3 ? '…' : ''), c: TYPE_COLOR[p.type], run: function () { go('research'); setTimeout(function () { flashPub(p.id); }, 350); }, text: (p.title + ' ' + p.venue + ' ' + p.authors.join(' ') + ' ' + p.topics.join(' ')).toLowerCase() }); });
-  DATA.pis.forEach(function (n) { var c = DATA.pubs.filter(function (p) { return p.authors.indexOf(n) >= 0; }).length; if (c) index.push({ group: 'PIs', label: n, sub: c + (c === 1 ? ' paper together' : ' papers together'), ic: n.split(' ').map(function (x) { return x[0]; }).join('').slice(0, 2), run: function () { go('research'); setNodeFilter('person', n, false); } }); });
+  DATA.pis.forEach(function (n) { var c = DATA.pubs.filter(function (p) { return p.authors.concat(p.lastAuthors || []).indexOf(n) >= 0; }).length; if (c) index.push({ group: 'PIs', label: n, sub: c + (c === 1 ? ' paper together' : ' papers together'), ic: n.split(' ').map(function (x) { return x[0]; }).join('').slice(0, 2), run: function () { go('research'); setNodeFilter('person', n, false); } }); });
   Object.keys(topics).sort().forEach(function (t) { index.push({ group: 'Topics', label: t, sub: topics[t] + ' papers', ic: '#', run: function () { go('research'); setNodeFilter('topic', t, false); } }); });
   FORM_NAMES.forEach(function (n, i) { index.push({ group: 'Animation', label: 'Show the ' + n, sub: 'Shortcut: ' + (i + 1), ic: String(i + 1), run: function () { if (window.__lenis) window.__lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); selectForm(i); } }); });
   index.push({ group: 'Actions', label: 'Copy email address', sub: EMAIL, ic: '@', run: function () { copy(EMAIL, 'Email copied'); } });
@@ -1529,13 +1534,13 @@
       nodes = []; links = []; byId = {};
       function add(n) { n.vx = 0; n.vy = 0; n.x = W / 2 + (Math.random() - .5) * W * .6; n.y = H / 2 + (Math.random() - .5) * H * .6; nodes.push(n); byId[n.id] = n; return n; }
       var tcount = {}, pcount = {};
-      DATA.pubs.forEach(function (p) { p.topics.forEach(function (t) { tcount[t] = (tcount[t] || 0) + 1; }); p.authors.forEach(function (a) { if (DATA.pis.indexOf(a) >= 0) pcount[a] = (pcount[a] || 0) + 1; }); });
+      DATA.pubs.forEach(function (p) { p.topics.forEach(function (t) { tcount[t] = (tcount[t] || 0) + 1; }); p.authors.concat(p.lastAuthors || []).forEach(function (a) { if (DATA.pis.indexOf(a) >= 0) pcount[a] = (pcount[a] || 0) + 1; }); });
       DATA.pubs.forEach(function (p) { add({ id: 'p:' + p.id, kind: 'paper', label: p.title, sub: p.venue, pub: p, r: p.lead ? 9 : 7 }); });
       Object.keys(tcount).forEach(function (t) { add({ id: 't:' + t, kind: 'topic', label: t, sub: tcount[t] + (tcount[t] === 1 ? ' paper' : ' papers'), r: 5 + tcount[t] * 1.2 }); });
       DATA.pis.forEach(function (a) { if (pcount[a]) add({ id: 'h:' + a, kind: 'person', label: a, sub: (a === 'Kai Wang' ? 'Ph.D. advisor · ' : '') + pcount[a] + (pcount[a] === 1 ? ' paper together' : ' papers together'), highlighted: a === 'Kai Wang', r: 6 + pcount[a] * 1.1 }); });
       DATA.pubs.forEach(function (p) {
         p.topics.forEach(function (t) { links.push({ a: byId['p:' + p.id], b: byId['t:' + t], d: 100 }); });
-        p.authors.forEach(function (a) { if (byId['h:' + a]) links.push({ a: byId['p:' + p.id], b: byId['h:' + a], d: 120 }); });
+        p.authors.concat(p.lastAuthors || []).forEach(function (a) { if (byId['h:' + a]) links.push({ a: byId['p:' + p.id], b: byId['h:' + a], d: 120 }); });
       });
       nodes.forEach(function (n) { n.deg = 0; }); links.forEach(function (l) { l.a.deg++; l.b.deg++; });
       alpha = 1; running = true; status.textContent = 'Simulating';
