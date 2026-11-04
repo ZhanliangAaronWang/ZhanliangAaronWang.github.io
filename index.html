@@ -1062,12 +1062,7 @@
       return a === DATA.me ? '<b>' + esc(a) + star + '</b>' : esc(a) + star;
     });
     if (p.others) parts.push('et al.');
-    if (p.lastAuthors) {
-      parts = parts.concat(p.lastAuthors.map(function (author) {
-        var corresponding = (p.correspondingAuthors || []).indexOf(author) >= 0;
-        return esc(author) + (corresponding ? ' <span class="corresponding-author">(corresponding author)</span>' : '');
-      }));
-    }
+    if (p.lastAuthors) parts = parts.concat(p.lastAuthors.map(esc));
     return parts.join(', ');
   }
   function pubHtml(p) {
