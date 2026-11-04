@@ -2073,6 +2073,7 @@
 
   let context;
   let unavailable = false;
+  let userPaused = false;
 
   function updateControl() {
     const playing = context && context.state === 'running';
@@ -2149,7 +2150,7 @@
     try {
       prepareMusic();
       unavailable = false;
-      // Browsers may keep this suspended until the visitor presses the music button.
+      // Retry during a visitor gesture if the browser blocks the initial autoplay request.
       context.resume().then(updateControl).catch(() => { unavailable = true; updateControl(); });
     } catch (error) {
       unavailable = true;
@@ -2159,11 +2160,20 @@
 
   button.addEventListener('click', () => {
     if (context && context.state === 'running') {
+      userPaused = true;
       context.suspend().then(updateControl).catch(updateControl);
     } else {
+      userPaused = false;
       startMusic();
     }
   });
+
+  function startAfterInteraction(event) {
+    if (userPaused || button.contains(event.target)) return;
+    if (!context || context.state === 'suspended') startMusic();
+  }
+  document.addEventListener('pointerdown', startAfterInteraction, { passive: true });
+  document.addEventListener('keydown', startAfterInteraction);
   new MutationObserver(updateControl).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   startMusic();
 })();
