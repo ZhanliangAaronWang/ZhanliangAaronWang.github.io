@@ -845,7 +845,7 @@
 <script type="application/json" id="data">
 {
   "me": "Zhanliang Wang",
-  "pis": ["Kai Wang", "Li Shen", "Bojian Hou", "Jiancong Xiao", "Weijie J. Su"],
+  "pis": ["Kai Wang", "Li Shen", "Bojian Hou", "Jiancong Xiao"],
   "featured": ["semece", "cft", "repair", "mint"],
   "pubs": [
     {"id": "semece", "year": 2026, "type": "conf", "lead": "first", "title": "A Semantic-Sampling Framework for Evaluating Calibration in Open-Ended Question Answering", "authors": ["Zhanliang Wang", "Jiancong Xiao", "Ruochen Jin", "Shu Yang", "Bojian Hou", "Li Shen"], "equal": [0, 1], "venue": "NeurIPS 2026", "venueLong": "Conference on Neural Information Processing Systems", "arxiv": "2605.08432", "links": {"arXiv": "https://arxiv.org/abs/2605.08432"}, "topics": ["LLMs", "Calibration", "Evaluation"], "tldr": "Measures whether an LLM’s confidence matches its accuracy on open-ended answers by sampling semantically equivalent responses instead of exact-match scoring."},
@@ -1530,7 +1530,7 @@
       DATA.pubs.forEach(function (p) { p.topics.forEach(function (t) { tcount[t] = (tcount[t] || 0) + 1; }); p.authors.forEach(function (a) { if (DATA.pis.indexOf(a) >= 0) pcount[a] = (pcount[a] || 0) + 1; }); });
       DATA.pubs.forEach(function (p) { add({ id: 'p:' + p.id, kind: 'paper', label: p.title, sub: p.venue, pub: p, r: p.lead ? 9 : 7 }); });
       Object.keys(tcount).forEach(function (t) { add({ id: 't:' + t, kind: 'topic', label: t, sub: tcount[t] + (tcount[t] === 1 ? ' paper' : ' papers'), r: 5 + tcount[t] * 1.2 }); });
-      DATA.pis.forEach(function (a) { if (pcount[a]) add({ id: 'h:' + a, kind: 'person', label: a, sub: pcount[a] + (pcount[a] === 1 ? ' paper together' : ' papers together'), r: 6 + pcount[a] * 1.1 }); });
+      DATA.pis.forEach(function (a) { if (pcount[a]) add({ id: 'h:' + a, kind: 'person', label: a, sub: (a === 'Kai Wang' ? 'Ph.D. advisor · ' : '') + pcount[a] + (pcount[a] === 1 ? ' paper together' : ' papers together'), highlighted: a === 'Kai Wang', r: 6 + pcount[a] * 1.1 + (a === 'Kai Wang' ? 4 : 0) }); });
       DATA.pubs.forEach(function (p) {
         p.topics.forEach(function (t) { links.push({ a: byId['p:' + p.id], b: byId['t:' + t], d: 100 }); });
         p.authors.forEach(function (a) { if (byId['h:' + a]) links.push({ a: byId['p:' + p.id], b: byId['h:' + a], d: 120 }); });
@@ -1577,10 +1577,24 @@
         var on = !nb || nb[n.id], c = colorFor(n); ctx.globalAlpha = on ? 1 : .18;
         ctx.beginPath();
         if (n.kind === 'topic') { var s = n.r * 1.5; ctx.fillStyle = ink3; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(n.x - s / 2, n.y - s / 2, s, s, 3) : ctx.rect(n.x - s / 2, n.y - s / 2, s, s); ctx.fill(); }
-        else if (n.kind === 'person') { ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fillStyle = paper; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = ink; ctx.stroke(); }
+        else if (n.kind === 'person') {
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = n.highlighted ? cssVar('--accent') : paper;
+          ctx.fill();
+          ctx.lineWidth = n.highlighted ? 3 : 2;
+          ctx.strokeStyle = n.highlighted ? cssVar('--accent') : ink;
+          ctx.stroke();
+          if (n.highlighted) {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r + 5, 0, Math.PI * 2);
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
         else { ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fillStyle = c; ctx.fill(); if (n.pub.lead) { ctx.lineWidth = 2; ctx.strokeStyle = paper; ctx.stroke(); } }
         var showLabel = n === fo || n.kind !== 'paper';
-        if (showLabel) { var label = n.kind === 'paper' ? n.label.slice(0, 44) + (n.label.length > 44 ? '…' : '') : n.label; ctx.fillStyle = ink; ctx.textAlign = 'left'; var tx = n.x + n.r + 7, tw = ctx.measureText(label).width; if (tx + tw > W - 8) { ctx.textAlign = 'right'; tx = n.x - n.r - 7; } ctx.fillText(label, tx, n.y); }
+        ctx.font = (n.highlighted ? '750 ' : '600 ') + (W < 700 ? 11 : 12) + 'px ' + cssVar('--font');
+        if (showLabel) { var label = n.kind === 'paper' ? n.label.slice(0, 44) + (n.label.length > 44 ? '…' : '') : n.label + (n.highlighted ? ' · Advisor' : ''); ctx.fillStyle = n.highlighted ? cssVar('--accent') : ink; ctx.textAlign = 'left'; var tx = n.x + n.r + 7, tw = ctx.measureText(label).width; if (tx + tw > W - 8) { ctx.textAlign = 'right'; tx = n.x - n.r - 7; } ctx.fillText(label, tx, n.y); }
       });
       ctx.globalAlpha = 1;
     }
