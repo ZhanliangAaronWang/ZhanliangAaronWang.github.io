@@ -1,22 +1,22 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-07",
   "source": "Google Scholar",
-  "citations": 120,
+  "citations": 123,
   "h_index": 5,
   "i10_index": 3,
   "papers": {
     "syntheticimageoversamplingforrareclassrepresentationlearningindeepfaci": 0,
     "facekitatoolkitforinterpretablefacialphenotypingsyntheticimagegenerati": 0,
-    "beyondposthoctemperaturescalingbileveloptimizationforllmcalibration": 1,
+    "beyondposthoctemperaturescalingbileveloptimizationforllmcalibration": 2,
     "asemanticsamplingframeworkforevaluatingcalibrationinopenendedquestiona": 2,
-    "multimodalintegratedknowledgetransfertolargelanguagemodelsthroughprefe": 7,
+    "multimodalintegratedknowledgetransfertolargelanguagemodelsthroughprefe": 8,
     "beyondlogitadjustmentaresidualdecompositionframeworkforlongtailedreran": 2,
     "autonomousagentorchestrateddigitaltwinsaadtleveragingtheopenclawframew": 4,
     "gestaltmmlenhancingraregeneticdiseasediagnosisthroughmultimodalmachine": 23,
     "phenogpt2amultimodalfinetunedlargelanguagemodelsforphenotypeextraction": 3,
     "fairccaforfairrepresentationlearninganadnistudy": 1,
     "multishapashapleybasedframeworkforexplainingcrossmodalinteractionsinmu": 7,
-    "restoringcalibrationforalignedlargelanguagemodelsacalibrationawarefine": 47,
+    "restoringcalibrationforalignedlargelanguagemodelsacalibrationawarefine": 48,
     "integratingchainofthoughtandretrievalaugmentedgenerationenhancesraredi": 23
   }
 }
