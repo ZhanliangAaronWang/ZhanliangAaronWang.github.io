@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-20",
   "source": "Google Scholar",
-  "citations": 125,
+  "citations": 127,
   "h_index": 5,
   "i10_index": 3,
   "papers": {
@@ -13,7 +13,7 @@
     "multimodalintegratedknowledgetransfertolargelanguagemodelsthroughprefe": 8,
     "beyondlogitadjustmentaresidualdecompositionframeworkforlongtailedreran": 2,
     "autonomousagentorchestrateddigitaltwinsaadtleveragingtheopenclawframew": 4,
-    "gestaltmmlenhancingraregeneticdiseasediagnosisthroughmultimodalmachine": 23,
+    "gestaltmmlenhancingraregeneticdiseasediagnosisthroughmultimodalmachine": 25,
     "phenogpt2amultimodalfinetunedlargelanguagemodelsforphenotypeextraction": 3,
     "fairccaforfairrepresentationlearninganadnistudy": 1,
     "restoringcalibrationforalignedlargelanguagemodelsacalibrationawarefine": 48,
